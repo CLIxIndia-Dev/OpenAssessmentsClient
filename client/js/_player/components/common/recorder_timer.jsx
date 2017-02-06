@@ -49,11 +49,11 @@ class RecorderTimer extends React.Component {
     }
   }
 
-  handleTimerCount = () => {
+  handleTimerCount() {
     this.interval = setInterval(() => this.tick(), 1000);
-  };
+  }
 
-  clearTimerCount = () => {
+  clearTimerCount() {
     clearInterval(this.interval);
     this.setState(
       {
@@ -63,7 +63,7 @@ class RecorderTimer extends React.Component {
         prcntCt      : 0,
       }
       );
-  };
+  }
 
   render() {
     return (
