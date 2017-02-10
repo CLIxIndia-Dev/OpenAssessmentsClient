@@ -22,6 +22,7 @@ export default function bankList(props) {
                     key={`bank_${bank.id}`}
                     bank={bank}
                     getBankChildren={props.getBankChildren}
+                    deleteAssessment={props.deleteAssessment}
                   />
                 ))
               }
@@ -29,7 +30,6 @@ export default function bankList(props) {
           </table>
         </div>
       </div>
-
     </div>
   );
 }
