@@ -3,6 +3,9 @@ import { Line } from 'rc-progress';
 
 class RecorderTimer extends React.Component {
   static propTypes = {
+    // User facing strings of the language specified by the 'locale' setting
+    localizedStrings: React.PropTypes.object.isRequired,
+
     // Maximum audio recording length in seconds
     timeout: React.PropTypes.number,
   };
@@ -68,7 +71,7 @@ class RecorderTimer extends React.Component {
   render() {
     return (
       <div>
-        <div className="c-audio-timer"><small>Recording time:</small> { this.state.minsCt }:{ this.state.secsStringCt }</div>
+        <div className="c-audio-timer"><small>{this.props.localizedStrings.recordTime}</small> {this.state.minsCt}:{this.state.secsStringCt}</div>
         <Line percent={this.state.prcntCt} strokeWidth="1" strokeColor="#D0021B" />
       </div>
     );
