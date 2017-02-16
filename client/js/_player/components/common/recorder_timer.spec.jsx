@@ -1,5 +1,6 @@
 import React        from 'react';
 import TestUtils    from 'react-addons-test-utils';
+import localizeStrings  from '../../selectors/localize';
 import RecorderTimer from './recorder_timer';
 
 
@@ -10,6 +11,7 @@ describe('recorder timer', () => {
   beforeEach(() => {
     props = {
       timeout: 100,
+      localizedStrings : localizeStrings({ settings: { locale: 'en' } }),
     };
     result = TestUtils.renderIntoDocument(<RecorderTimer {...props} />);
   });
