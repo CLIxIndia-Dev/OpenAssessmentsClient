@@ -1,8 +1,10 @@
+import _ from 'lodash';
 import React    from 'react';
 import types from '../../../../../constants/question_types';
 
 export default function questionSettings(props) {
-  const extraOptionTypes = [types.multipleChoice, types.reflection, types.multipleReflection, types.multipleAnswer];
+  const extraOptionTypes = [types.multipleChoice, types.reflection,
+    types.multipleReflection, types.multipleAnswer];
   function checkboxOptions() {
     return (
       <div className="author--o-right">
@@ -40,42 +42,6 @@ export default function questionSettings(props) {
           <label htmlFor={`check04_${props.id}`}>Reflection</label>
         </div>
       </div> : null
-    );
-  }
-
-  return (
-    <div className="c-question-settings">
-      <div className="o-left">
-        <div className="c-input c-input-label--left">
-          <label htmlFor={`question_name_${props.id}`}>Name</label>
-          <div className="c-input__contain">
-            <input
-              className="c-text-input c-text-input--smaller"
-              id={`question_name_${props.id}`}
-              type="text"
-              tabIndex="0"
-              defaultValue={props.defaultName}
-              onBlur={e => props.updateItem({ name: e.target.value })}
-            />
-            <div className="c-input__bottom" />
-          </div>
-        </div>
-
-        <div className="c-dropdown c-dropdown--small u-ml-md">
-          <select
-            name=""
-            id=""
-            tabIndex="0"
-            value={props.language}
-            // onChange={e => props.updateState('nameLanguage', e.target.value)}
-            onBlur={props.updateItem}
-          >
-            <option value="639-2%3AENG%40ISO">English</option>
-            <option value="">Hindi</option>
-            <option value="">Telugu</option>
-          </select>
-        </div>
-      </div>
     );
   }
 
