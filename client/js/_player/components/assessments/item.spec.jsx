@@ -16,6 +16,7 @@ describe('item', function() {
 
   let result;
   let subject;
+  let svgTest;
 
   const renderItem = () => {
     result = TestUtils.renderIntoDocument(<Item
@@ -27,6 +28,7 @@ describe('item', function() {
       localizedStrings={localizeStrings({ settings: { locale:'en' } })}
     />);
     subject = ReactDOM.findDOMNode(result);
+    // svgTest = TestUtils.scryRenderedDOMComponentsWithTag('svg');
   };
 
   // Reset variables to default and render an item
@@ -34,7 +36,6 @@ describe('item', function() {
     question = {
       title:'Test Question Title',
       material:'Test Question Material',
-      question_type: 'multiple_choice_question'
     };
     currentItemIndex = 0;
     assessment = {};
@@ -48,18 +49,18 @@ describe('item', function() {
   });
 
   describe('feedback', () => {
-    it('renders correct when item is correct, yet not survey_question', () => {
+    it('renders with tick mark when item is correct, and is not survey_question', () => {
       questionResult = { correct:true, feedback:'Correct answer' };
       renderItem();
-
-      expect(question.question_type).toContain('multiple_choice_question');
+      svgTest = TestUtils.scryRenderedDOMComponentsWithTag(result, 'svg'); // look for svg tag
+      expect(svgTest.length).toEqual(1); // expect svg tag to exist
       expect(subject.textContent).toContain('Correct');
       expect(subject.textContent).toContain('Correct answer');
       expect(subject.textContent).not.toContain('Incorrect');
       expect(subject.textContent).not.toContain('Incorrect answer');
     });
 
-    it('renders correct when item is correct, and is survey_question', () => {
+    it('renders without tick mark when item is correct, and is survey_question', () => {
       question = {
         title: 'Test Question Title',
         material: 'Test Question Material',
@@ -67,7 +68,8 @@ describe('item', function() {
       };
       questionResult = { correct:true, feedback:'Correct answer' };
       renderItem();
-
+      svgTest = TestUtils.scryRenderedDOMComponentsWithTag(result, 'svg'); // look for svg tag
+      expect(svgTest.length).toEqual(0); // expect no svg tag
       expect(question.question_type).toContain('survey_question');
       expect(subject.textContent).toContain('Correct');
       expect(subject.textContent).toContain('Correct answer');
@@ -75,10 +77,28 @@ describe('item', function() {
       expect(subject.textContent).not.toContain('Incorrect answer');
     });
 
-    it('renders incorrect when item is incorrect', () => {
+    it('renders incorrect when item is incorrect, and is not survey_question', () => {
       questionResult = { correct:false, feedback:'Incorrect answer' };
       renderItem();
+      svgTest = TestUtils.scryRenderedDOMComponentsWithTag(result, 'svg'); // look for svg tag
+      expect(svgTest.length).toEqual(1); // expect svg tag to exits
+      expect(subject.textContent).toContain('Incorrect');
+      expect(subject.textContent).toContain('Incorrect answer');
+      expect(subject.textContent).not.toContain('Correct');
+      expect(subject.textContent).not.toContain('Correct answer');
 
+    });
+
+    it('renders incorrect when item is incorrect, and is survey_question', () => {
+      question = {
+        title: 'Test Question Title',
+        material: 'Test Question Material',
+        question_type: 'survey_question'
+      };
+      questionResult = { correct:false, feedback:'Incorrect answer' };
+      renderItem();
+      svgTest = TestUtils.scryRenderedDOMComponentsWithTag(result, 'svg'); // look for svg tag
+      expect(svgTest.length).toEqual(1); // expect svg tag to exits
       expect(subject.textContent).toContain('Incorrect');
       expect(subject.textContent).toContain('Incorrect answer');
       expect(subject.textContent).not.toContain('Correct');
@@ -89,7 +109,6 @@ describe('item', function() {
     it('renders without feedback when item is unchecked', () => {
       questionResult = {};
       renderItem();
-
       expect(subject.textContent).not.toContain('Incorrect');
       expect(subject.textContent).not.toContain('incorrect answer');
       expect(subject.textContent).not.toContain('Correct');

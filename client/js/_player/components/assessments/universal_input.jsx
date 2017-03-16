@@ -236,7 +236,6 @@ export default class UniversalInput extends React.Component{
             selectAnswer={selectAnswer}
             selectedAnswer={props.response}
           />;
-          console.log(props.response);
     }
 
     return (

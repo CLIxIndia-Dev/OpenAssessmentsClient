@@ -131,7 +131,6 @@ export default class Item extends React.Component {
         );
       }
     }
-    console.log(this.props.question);
     return (
       <div>
         {answerFeedback}
