@@ -28,7 +28,6 @@ describe('item', function() {
       localizedStrings={localizeStrings({ settings: { locale:'en' } })}
     />);
     subject = ReactDOM.findDOMNode(result);
-    // svgTest = TestUtils.scryRenderedDOMComponentsWithTag('svg');
   };
 
   // Reset variables to default and render an item
@@ -49,7 +48,7 @@ describe('item', function() {
   });
 
   describe('feedback', () => {
-    it('renders with tick mark when item is correct, and is not survey_question', () => {
+    it('renders non-survey question with tick mark when item is correct', () => {
       questionResult = { correct:true, feedback:'Correct answer' };
       renderItem();
       svgTest = TestUtils.scryRenderedDOMComponentsWithTag(result, 'svg'); // look for svg tag
@@ -60,11 +59,9 @@ describe('item', function() {
       expect(subject.textContent).not.toContain('Incorrect answer');
     });
 
-    it('renders without tick mark when item is correct, and is survey_question', () => {
+    it('renders survey question without tick mark when item is correct', () => {
       question = {
-        title: 'Test Question Title',
-        material: 'Test Question Material',
-        question_type: 'survey_question'
+        question_type: 'survey_question' // set question type
       };
       questionResult = { correct:true, feedback:'Correct answer' };
       renderItem();
@@ -77,28 +74,11 @@ describe('item', function() {
       expect(subject.textContent).not.toContain('Incorrect answer');
     });
 
-    it('renders incorrect when item is incorrect, and is not survey_question', () => {
+    it('renders incorrect when item is incorrect', () => {
       questionResult = { correct:false, feedback:'Incorrect answer' };
       renderItem();
       svgTest = TestUtils.scryRenderedDOMComponentsWithTag(result, 'svg'); // look for svg tag
-      expect(svgTest.length).toEqual(1); // expect svg tag to exits
-      expect(subject.textContent).toContain('Incorrect');
-      expect(subject.textContent).toContain('Incorrect answer');
-      expect(subject.textContent).not.toContain('Correct');
-      expect(subject.textContent).not.toContain('Correct answer');
-
-    });
-
-    it('renders incorrect when item is incorrect, and is survey_question', () => {
-      question = {
-        title: 'Test Question Title',
-        material: 'Test Question Material',
-        question_type: 'survey_question'
-      };
-      questionResult = { correct:false, feedback:'Incorrect answer' };
-      renderItem();
-      svgTest = TestUtils.scryRenderedDOMComponentsWithTag(result, 'svg'); // look for svg tag
-      expect(svgTest.length).toEqual(1); // expect svg tag to exits
+      expect(svgTest.length).toEqual(1); // expect svg tag to exist
       expect(subject.textContent).toContain('Incorrect');
       expect(subject.textContent).toContain('Incorrect answer');
       expect(subject.textContent).not.toContain('Correct');
