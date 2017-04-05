@@ -1,10 +1,10 @@
-import _                   from 'lodash';
+import _ from 'lodash';
 
-import { SECONDARY_ACTION, PRIMARY_ACTION }                       from '../../_player/components/assessments/two_button_nav';
-import { isFirstPage, isLastPage, isNextUnlocked, currentItems }  from '../../_player/selectors/assessment';
-import  localizeStrings                                      from '../../_player/selectors/localize';
-import * as qtiSelectors                                          from '../qti2/selectors';
-import { transformItem }                                          from './clix';
+import { SECONDARY_ACTION, PRIMARY_ACTION } from '../../_player/components/assessments/two_button_nav';
+import { isFirstPage, isLastPage, isNextUnlocked, currentItems } from '../../_player/selectors/assessment';
+import  localizeStrings from '../../_player/selectors/localize';
+import * as qtiSelectors from '../qti2/selectors';
+import { transformItem } from './clix';
 
 export function questions(state, props) {
   return state.assessment.items.map(transformItem);
@@ -91,7 +91,7 @@ export function primaryActionState(state, props) {
  * SECONDARY_ACTION.PREV).
  */
 export function secondaryActionState(state, props) {
-  var hide = !(isNofM(state)) || isFirstPage(state);
+  const hide = isFirstPage(state);
   return {
     buttonState: hide ? SECONDARY_ACTION.NONE : SECONDARY_ACTION.PREV
   };

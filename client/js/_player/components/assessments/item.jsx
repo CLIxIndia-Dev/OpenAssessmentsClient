@@ -138,13 +138,45 @@ export default class Item extends React.Component {
     );
   }
 
+  // stopKeypress() {
+  //   document.onkeydown = (e) => {
+  //     if (e.which) {
+  //       return false;
+  //       console.log('keyboard off');
+  //     }
+  //     return true;
+  //     console.log('keyboard on');
+  //   };
+  // }
+
   render() {
+    const questRslt = this.props.questionResult;
+    let tstResp = null;
+    // if (questRslt.answerIds) {
+    if (questRslt.answerIds && this.props.question.question_type === 'file_upload_question') {
+      tstResp = questRslt.answerIds[0].name;
+
+    } else if (questRslt.answerIds && this.props.question.question_type === 'audio_upload_question') {
+      const answerAudioURL = window.URL.createObjectURL(questRslt.answerIds[0]);
+      tstResp = answerAudioURL;
+
+    } else {
+      tstResp = questRslt.answerIds;
+      // this.stopKeypress();
+    }
+    // } else {
+    //   tstResp = this.props.response;
+    // }
+    let containerStyle = "";
+    if(questRslt.answerIds){containerStyle = "c-disable-pointer-n-keys";}
+
     return (
       <div className="c-question">
         <div className="c-question-prompt">
           <div dangerouslySetInnerHTML={{ __html: this.props.question.material }} />
+          <div>answerID is {tstResp}</div>
         </div>
-        <div className="c-answers">
+        <div className={`c-answers ${containerStyle}`}>
           <UniversalInput
             settings={this.props.settings}
             item={this.props.question}
