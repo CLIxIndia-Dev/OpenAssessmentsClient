@@ -37,21 +37,21 @@ describe('settings reducer', () => {
       expect(settings.api_url).toEqual("localhost");
     });
 
-    it("Users query params for api_url if server settings is empty string", () => {
+    it("Uses query params for api_url if server settings is empty string", () => {
       const serverSettings1 = { api_url: "" };
       const serverSettings2 = { api_url: "www.example.com" };
       const settings = getInitialSettings(serverSettings1, serverSettings2);
       expect(settings.api_url).toEqual("www.example.com");
     });
 
-    it("Users query params for api_url if server settings is null", () => {
+    it("Uses query params for api_url if server settings is null", () => {
       const serverSettings1 = { api_url: null };
       const serverSettings2 = { api_url: "www.example.com" };
       const settings = getInitialSettings(serverSettings1, serverSettings2);
       expect(settings.api_url).toEqual("www.example.com");
     });
 
-    it("Users query params for api_url if server settings is not present", () => {
+    it("Uses query params for api_url if server settings is not present", () => {
       const serverSettings1 = { foo: "bar" };
       const serverSettings2 = { api_url: "www.example.com" };
       const settings = getInitialSettings(serverSettings1, serverSettings2);
