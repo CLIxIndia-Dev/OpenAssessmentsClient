@@ -53,7 +53,7 @@ export function deserializeSingleMedia(asset, autoPlay = null) {
         };
         break;
       default:
-        console.log(content.genusTypeId);
+        // console.log(content.genusTypeId);
         break;
     }
   });

@@ -1,6 +1,6 @@
 import _                  from 'lodash';
-import configureStore     from '../js/_player/store/configure_store';
 import nock               from 'nock';
+import configureStore     from '../js/_player/store/configure_store';
 
 export default class Helper {
 

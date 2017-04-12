@@ -14,6 +14,7 @@ plugins:
 globals:
   jest: false
   describe: false
+  xdescribe: false
   beforeAll: false
   beforeEach: false
   afterEach: false
