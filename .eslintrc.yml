@@ -12,7 +12,10 @@ plugins:
   - jsx-a11y
   - import
 globals:
+  jest: false
   describe: false
+  xdescribe: false
+  beforeAll: false
   beforeEach: false
   afterEach: false
   it: false
@@ -22,6 +25,7 @@ globals:
   jasmine: false
   module: false
   __DEV__: false
+  MathJax: false
 rules:
   linebreak-style:
     - error
@@ -42,6 +46,7 @@ rules:
   padded-blocks: 0
   key-spacing: 0
   react/require-default-props: 0
+  react/no-danger: 0
   jsx-a11y/no-static-element-interactions: 0
   space-before-function-paren:
     - 2
@@ -57,5 +62,3 @@ rules:
     - forbid:
       - any
   import/extensions: 0
-  import/no-named-as-default: off
-  no-underscore-dangle: off

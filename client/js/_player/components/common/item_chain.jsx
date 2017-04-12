@@ -1,15 +1,17 @@
-import React                    from 'react';
-import ReactDOM                 from 'react-dom';
-
-import { WordDropZone }         from './drop_zones';
-import DraggableGroupWord       from './movable_words/draggable_group_word';
-import { beginWrap, endWrap }   from '../../../constants/icons';
+import React                       from 'react';
+import _                           from 'lodash';
+import { WordDropZone }            from './drop_zones';
+import DraggableGroupWordWrapped   from './movable_words/draggable_group_word';
+import { beginWrap, endWrap }      from '../../../constants/icons';
 
 export default class ItemChain extends React.Component {
   static propTypes = {
     linkWord: React.PropTypes.func.isRequired,
     wordChain: React.PropTypes.array.isRequired,
-    answersById: React.PropTypes.object.isRequired
+    answersById: React.PropTypes.object.isRequired,
+    itemClassName: React.PropTypes.string.isRequired,
+    answerBoxClassName: React.PropTypes.string.isRequired,
+    noStartBlock: React.PropTypes.bool.isRequired
   }
 
   constructor() {
@@ -22,23 +24,23 @@ export default class ItemChain extends React.Component {
     this.state = {
       draggingIndex: null,
       wrapIndexes: [0]
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps) {
-    if(!_.isEqual(nextProps.wordChain, this.props.wordChain)) {
-      if(nextProps.wordChain.length > this.props.wordChain.length) {
-        const dropZone = ReactDOM.findDOMNode(this.WordDropZone);
+    if (!_.isEqual(nextProps.wordChain, this.props.wordChain)) {
+      if (nextProps.wordChain.length > this.props.wordChain.length) {
+        const dropZone = this.WordDropZone;
         const dimensions = dropZone.getBoundingClientRect();
 
-        if(dimensions.right - dimensions.left < 100) {
+        if (dimensions.right - dimensions.left < 100) {
           const wrapIndex = this.props.wordChain.length;
           this.setState({ wrapIndexes: this.state.wrapIndexes.concat(wrapIndex) });
         }
-      } else if(nextProps.wordChain.length < this.props.wordChain.length) {
-        let wrapIndexes = _.dropRightWhile(this.state.wrapIndexes, (wrapIndex) => {
-          return wrapIndex >= this.state.draggingIndex && wrapIndex > 0;
-        })
+      } else if (nextProps.wordChain.length < this.props.wordChain.length) {
+        const wrapIndexes = _.dropRightWhile(this.state.wrapIndexes, wrapIndex => (
+          wrapIndex >= this.state.draggingIndex && wrapIndex > 0
+        ));
 
         this.setState({ wrapIndexes });
       }
@@ -48,28 +50,20 @@ export default class ItemChain extends React.Component {
   componentDidUpdate() {
     // When we update, we need to check if the dropzone is now too small, and
     // if it is wrap to a new line.
-    const dropZone = ReactDOM.findDOMNode(this.WordDropZone);
+    const dropZone = this.WordDropZone;
     const dimensions = dropZone.getBoundingClientRect();
 
-    if(dimensions.right - dimensions.left < 10) {
+    if (dimensions.right - dimensions.left < 10) {
       const wrapIndex = this.props.wordChain.length;
       this.setState({ wrapIndexes: this.state.wrapIndexes.concat(wrapIndex) });
     }
-  }
-
-  beginDragging(wordIndex) {
-    this.setState({dragging: true, draggingIndex: wordIndex});
-  }
-
-  endDragging() {
-    this.setState({dragging: false, draggingIndex: null});
   }
 
   getLines() {
     return _.map(this.state.wrapIndexes, (wrapIndex, index) => {
       // Get the index of the first word on the next line
       let endWordIndex = this.props.wordChain.length;
-      if(this.state.wrapIndexes[index + 1]) {
+      if (this.state.wrapIndexes[index + 1]) {
         endWordIndex = this.state.wrapIndexes[index + 1];
       }
 
@@ -80,64 +74,74 @@ export default class ItemChain extends React.Component {
         const answer = this.props.answersById[answerId];
 
         // get all of the words that will need to be dragged with this word
-        const draggableWords = _.at(this.props.answersById, this.props.wordChain.slice(wordIndex + wrapIndex));
+        const draggableWords = _.at(this.props.answersById,
+          this.props.wordChain.slice(wordIndex + wrapIndex));
 
-        return <DraggableGroupWord
+        return (<DraggableGroupWordWrapped
           wordClassName={this.props.itemClassName}
           id={answerId}
           key={answerId}
-          isGroupDragging={this.state.dragging && (wordIndex + wrapIndex) >= this.state.draggingIndex}
+          isGroupDragging={this.state.dragging &&
+            (wordIndex + wrapIndex) >= this.state.draggingIndex}
           draggableWords={draggableWords}
-          beginDragging={() => { this.beginDragging(wordIndex + wrapIndex) }}
-          endDragging={() => { this.endDragging() }}
+          beginDragging={() => { this.beginDragging(wordIndex + wrapIndex); }}
+          endDragging={() => { this.endDragging(); }}
           material={answer.material}
-        />
+        />);
       });
 
       // We are assuming we will only wrap onto two lines at most
       let lineClassName = this.props.answerBoxClassName;
-      let startBlockClassName = "c-word c-word--starter";
-      let svg = <div></div>
-      let wordDropZone = <WordDropZone
+      let startBlockClassName = 'c-word c-word--starter';
+      let svg = <div />;
+      let wordDropZone = (<WordDropZone
         className="c-drop-zone"
         ref={(ref) => { this.WordDropZone = ref; }}
-        dropItem={(answerId) => { this.props.linkWord(answerId) }}
+        dropItem={(answerId) => { this.props.linkWord(answerId); }}
         overClassName="c-over-drop-zone"
-      />
+      />);
 
-      if(this.state.wrapIndexes.length > 1) {
-        if(index === 0) {
+      if (this.state.wrapIndexes.length > 1) {
+        if (index === 0) {
           svg = beginWrap;
-          lineClassName += " c-word-answers--split-top";
-          wordDropZone = <div></div>;
+          lineClassName += ' c-word-answers--split-top';
+          wordDropZone = <div />;
         } else {
           svg = endWrap;
-          startBlockClassName += " u-hide";
-          lineClassName += " c-word-answers--split-bottom";
+          startBlockClassName += ' u-hide';
+          lineClassName += ' c-word-answers--split-bottom';
         }
       }
 
       let startBlock = <div className={startBlockClassName} />;
 
-      if(this.props.noStartBlock) {
-        startBlock = <div></div>;
+      if (this.props.noStartBlock) {
+        startBlock = <div />;
       }
 
-      return <div key={wrapIndex} className={lineClassName}>
+      return (<div key={wrapIndex} className={lineClassName}>
         {svg}
         {startBlock}
         {words}
         {wordDropZone}
-      </div>
+      </div>);
 
     });
+  }
+
+  beginDragging(wordIndex) {
+    this.setState({ dragging: true, draggingIndex: wordIndex });
+  }
+
+  endDragging() {
+    this.setState({ dragging: false, draggingIndex: null });
   }
 
   render() {
     const lines = this.getLines();
 
-    return <div>
+    return (<div>
       { lines }
-    </div>
+    </div>);
   }
 }

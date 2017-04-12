@@ -26,7 +26,7 @@ const requests = [
 
 export const Constants = wrapper(actions, requests);
 
-export function togglePublishAssessment(assessment){
+export function togglePublishAssessment(assessment) {
   return {
     assessment,
     type: Constants.TOGGLE_PUBLISH_ASSESSMENT,

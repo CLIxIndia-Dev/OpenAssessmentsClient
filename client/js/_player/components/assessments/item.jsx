@@ -1,9 +1,6 @@
-'use strict';
-
 import React  from 'react';
-import _ from 'lodash';
+import _                       from 'lodash';
 import videojs from 'video.js';
-import * as AssessmentActions  from '../../actions/assessment';
 import UniversalInput          from './universal_input';
 
 
@@ -20,10 +17,10 @@ export default class Item extends React.Component {
     response          : React.PropTypes.array.isRequired,
 
     // The position of the item in the array of items
-    currentItemIndex  : React.PropTypes.number.isRequired,
+    // currentItemIndex  : React.PropTypes.number.isRequired,
 
     // The total number of items in the array of items
-    questionCount     : React.PropTypes.number.isRequired,
+    // questionCount     : React.PropTypes.number.isRequired,
 
     // Graded user response object containing keys
     // correct:true/false, feedback:"Answer feedback"
@@ -41,18 +38,21 @@ export default class Item extends React.Component {
     audioPause        : React.PropTypes.func.isRequired,
     audioRecordStart  : React.PropTypes.func.isRequired,
     audioRecordStop   : React.PropTypes.func.isRequired,
+
+    // Actions to pass up to parent
+    sendSize          : React.PropTypes.func.isRequired,
   };
 
   componentDidMount() {
 
     if (typeof MathJax !== 'undefined') {
-      MathJax.Hub.Queue(new Array('Typeset', MathJax.Hub));
+      MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
     }
 
     if (!_.isFunction(videojs)) { return; }
     // Look for videos that should be using videojs.
     const videoJSElements = document.querySelectorAll('video.video-js');
-    _.each(videoJSElements,(element) => videojs(element));
+    _.each(videoJSElements, element => videojs(element));
 
     const material = document.getElementsByClassName('c-question')[0];
     if (material !== undefined) {
