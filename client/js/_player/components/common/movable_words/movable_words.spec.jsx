@@ -1,31 +1,33 @@
 import React                from 'react';
-import ReactDOM             from 'react-dom';
 import TestUtils            from 'react-addons-test-utils';
 import wrapInDndContext     from '../../../../../specs_support/dnd_wrapper';
 import { MovableWords, __RewireAPI__ as RewireAPI }     from './movable_words';
 
 describe('movable words', () => {
-  var result, props;
+  let instance;
+
   beforeEach(() => {
-    props = {
+    const props = {
       wordChain: [1],
       answers: [{
         id: 1,
-        material: "asdf"
+        material: 'asdf'
       }],
       selectAnswer: () => {}
     };
 
     const WrappedComponent = wrapInDndContext(MovableWords);
-    RewireAPI.__Rewire__('ItemChain', () => { return <div>WordChain</div>});
-    result = TestUtils.renderIntoDocument(<WrappedComponent {...props} />);
+    RewireAPI.__Rewire__('ItemChain', () => (<div className="c-drop-zone">WordChain</div>));
+    instance = TestUtils.renderIntoDocument(<WrappedComponent {...props} />);
   });
 
   it('renders the word chain', () => {
-    expect(ReactDOM.findDOMNode(result).textContent).toContain("WordChain");
+    const wordChain = TestUtils.findRenderedDOMComponentWithClass(instance, 'c-drop-zone');
+    expect(wordChain.textContent).toContain('WordChain');
   });
 
   it('renders the word cloud', () => {
-    expect(ReactDOM.findDOMNode(result).textContent).toContain("asdf");
+    const wordCloud = TestUtils.findRenderedDOMComponentWithClass(instance, 'c-word-box');
+    expect(wordCloud.textContent).toContain('asdf');
   });
 });

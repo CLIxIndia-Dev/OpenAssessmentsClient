@@ -15,7 +15,6 @@ describe('Draggable Object', () => {
     };
     instance = TestUtils.renderIntoDocument(<Draggable
       item={item}
-      ref={(node) => { this.node = node; }}
     />);
     zone = TestUtils.findRenderedDOMComponentWithClass(instance, 'dropZone');
     object = TestUtils.findRenderedDOMComponentWithClass(instance, 'draggable');
@@ -23,7 +22,7 @@ describe('Draggable Object', () => {
 
   it('Renders', () => {
     expect(instance).toBeDefined();
-    expect(this.node.textContent).toContain('A Label');
+    expect(object.textContent).toContain('A Label');
     expect(zone).toBeDefined();
   });
   it('Is draggable', () => {

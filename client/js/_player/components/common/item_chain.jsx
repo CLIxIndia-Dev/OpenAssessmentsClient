@@ -1,8 +1,8 @@
-import React                    from 'react';
-import _                        from 'lodash';
-import { WordDropZone }         from './drop_zones';
-import { DraggableGroupWord }   from './movable_words/draggable_group_word';
-import { beginWrap, endWrap }   from '../../../constants/icons';
+import React                       from 'react';
+import _                           from 'lodash';
+import { WordDropZone }            from './drop_zones';
+import DraggableGroupWordWrapped   from './movable_words/draggable_group_word';
+import { beginWrap, endWrap }      from '../../../constants/icons';
 
 export default class ItemChain extends React.Component {
   static propTypes = {
@@ -77,7 +77,7 @@ export default class ItemChain extends React.Component {
         const draggableWords = _.at(this.props.answersById,
           this.props.wordChain.slice(wordIndex + wrapIndex));
 
-        return (<DraggableGroupWord
+        return (<DraggableGroupWordWrapped
           wordClassName={this.props.itemClassName}
           id={answerId}
           key={answerId}

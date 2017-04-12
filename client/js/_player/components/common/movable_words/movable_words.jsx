@@ -2,7 +2,7 @@ import React                from 'react';
 import _                    from 'lodash';
 
 import withDragDropContext  from '../with_drag_drop_context';
-import { DraggableWord }    from '../draggable_word';
+import DraggableWordWrapped from '../draggable_word';
 import { GroupDropZone }    from '../drop_zones';
 import ItemChain            from '../item_chain';
 import { CustomDragLayer }  from '../custom_drag_layer';
@@ -43,7 +43,7 @@ export class MovableWords extends React.Component {
     });
 
     const availableWords = _.map(answersById, answer => (
-      <DraggableWord
+      <DraggableWordWrapped
         key={answer.id}
         id={answer.id}
         material={answer.material}

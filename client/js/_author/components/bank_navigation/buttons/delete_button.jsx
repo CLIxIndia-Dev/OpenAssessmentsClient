@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function DeleteButton(props) {
-  const { deleteAssessment, assessment, onFocus } = props;
+  const deleteAssessment = props.deleteAssessment;
+  const assessment = props.assessment;
+  const onFocus = props.onFocus;
   const isPublished = assessment.isPublished;
   return (
     <button

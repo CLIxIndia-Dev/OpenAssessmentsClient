@@ -13,10 +13,12 @@ describe('item', () => {
   let assessment = {};
   let questionCount = 10;
 
+  let instance;
   let subject;
+  let feedback;
 
   const renderItem = () => {
-    TestUtils.renderIntoDocument(<Item
+    instance = TestUtils.renderIntoDocument(<Item
       response={[]}
       selectAnswer={() => {}}
       videoPlay={() => {}}
@@ -31,9 +33,8 @@ describe('item', () => {
       questionCount={questionCount}
       assessment={assessment}
       localizedStrings={localizeStrings({ settings: { locale: 'en' } })}
-      ref={(node) => { this.node = node; }}
     />);
-    subject = this.node;
+    subject = TestUtils.findRenderedDOMComponentWithClass(instance, 'c-question-prompt');
   };
 
   // Reset variables to default and render an item
@@ -58,20 +59,22 @@ describe('item', () => {
       questionResult = { correct:true, feedback:'Correct answer' };
       renderItem();
 
-      expect(subject.textContent).toContain('Correct');
-      expect(subject.textContent).toContain('Correct answer');
-      expect(subject.textContent).not.toContain('Incorrect');
-      expect(subject.textContent).not.toContain('Incorrect answer');
+      feedback = TestUtils.findRenderedDOMComponentWithClass(instance, 'c-question-feedback');
+      expect(feedback.textContent).toContain('Correct');
+      expect(feedback.textContent).toContain('Correct answer');
+      expect(feedback.textContent).not.toContain('Incorrect');
+      expect(feedback.textContent).not.toContain('Incorrect answer');
     });
 
     it('renders incorrect when item is incorrect', () => {
       questionResult = { correct:false, feedback:'Incorrect answer' };
       renderItem();
 
-      expect(subject.textContent).toContain('Incorrect');
-      expect(subject.textContent).toContain('Incorrect answer');
-      expect(subject.textContent).not.toContain('Correct');
-      expect(subject.textContent).not.toContain('Correct answer');
+      feedback = TestUtils.findRenderedDOMComponentWithClass(instance, 'c-question-feedback');
+      expect(feedback.textContent).toContain('Incorrect');
+      expect(feedback.textContent).toContain('Incorrect answer');
+      expect(feedback.textContent).not.toContain('Correct');
+      expect(feedback.textContent).not.toContain('Correct answer');
 
     });
 
@@ -79,10 +82,8 @@ describe('item', () => {
       questionResult = {};
       renderItem();
 
-      expect(subject.textContent).not.toContain('Incorrect');
-      expect(subject.textContent).not.toContain('incorrect answer');
-      expect(subject.textContent).not.toContain('Correct');
-      expect(subject.textContent).not.toContain('Correct answer');
+      feedback = TestUtils.scryRenderedDOMComponentsWithClass(instance, 'c-question-feedback');
+      expect(feedback.length).toEqual(0);
     });
   });
 
