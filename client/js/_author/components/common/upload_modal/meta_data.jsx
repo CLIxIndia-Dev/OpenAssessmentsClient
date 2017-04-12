@@ -13,7 +13,15 @@ export default class Metadata extends React.Component {
     }),
   };
 
-  static labelName(type) {
+  constructor() {
+    super();
+    this.textArea = null;
+    this.state = {
+      baseScrollHeight: null,
+    };
+  }
+
+  labelName(type) {
     // TODO: modify this for regional language stuff
     switch (type) {
       case 'altText':
@@ -29,14 +37,6 @@ export default class Metadata extends React.Component {
       default:
         return '';
     }
-  }
-
-  constructor() {
-    super();
-    this.textArea = null;
-    this.state = {
-      baseScrollHeight: null,
-    };
   }
 
   areaResize() {
