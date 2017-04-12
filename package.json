@@ -28,5 +28,7 @@
   ],
   "dependencies": {
     "del": "^2.2.2"
+  },
+  "devDependencies": {
   }
 }

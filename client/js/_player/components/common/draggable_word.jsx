@@ -27,7 +27,10 @@ export class DraggableWord extends React.Component {
   static propTypes = {
     connectDragSource: React.PropTypes.func.isRequired,
     connectDragPreview: React.PropTypes.func.isRequired,
-    isDragging: React.PropTypes.bool.isRequired
+    isDragging: React.PropTypes.bool.isRequired,
+    material: React.PropTypes.bool.isRequired,
+    wordClassName: React.PropTypes.string.isRequired,
+    hide: React.PropTypes.bool
   };
 
   componentDidMount() {
@@ -50,4 +53,5 @@ export class DraggableWord extends React.Component {
 }
 
 export default DragSource(ItemTypes.WORD, wordSource, collect)(DraggableWord);
-export const FillTheBlankDraggableWord = DragSource(ItemTypes.FILL_BLANK_WORD, wordSource, collect)(DraggableWord);
+export const FillTheBlankDraggableWord = DragSource(ItemTypes.FILL_BLANK_WORD,
+  wordSource, collect)(DraggableWord);
