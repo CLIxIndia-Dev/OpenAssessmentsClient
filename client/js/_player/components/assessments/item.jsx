@@ -1,6 +1,4 @@
-'use strict';
-
-import React  from "react";
+import React  from 'react';
 import _                       from 'lodash';
 import videojs from 'video.js';
 import * as AssessmentActions  from '../../actions/assessment';
@@ -120,7 +118,7 @@ export default class Item extends React.Component {
               </div>
             );
         }
-      } else if (response.correct === false) {
+      } else if (response.correct === false || response.correct === null) {
         answerFeedback = (
           <div className="c-question-feedback  c-feedback--incorrect">
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
@@ -138,6 +136,13 @@ export default class Item extends React.Component {
     );
   }
 
+  disabledCheck() {
+    const questRslt = this.props.questionResult;
+    if (questRslt.correct === true) {
+      return true;
+    }
+    return false;
+  }
   // stopKeypress() {
   //   document.onkeydown = (e) => {
   //     if (e.which) {
@@ -150,39 +155,19 @@ export default class Item extends React.Component {
   // }
 
   render() {
-    const questRslt = this.props.questionResult;
-    let tstResp = null;
-    // if (questRslt.answerIds) {
-    if (questRslt.answerIds && this.props.question.question_type === 'file_upload_question') {
-      tstResp = questRslt.answerIds[0].name;
-
-    } else if (questRslt.answerIds && this.props.question.question_type === 'audio_upload_question') {
-      const answerAudioURL = window.URL.createObjectURL(questRslt.answerIds[0]);
-      tstResp = answerAudioURL;
-
-    } else {
-      tstResp = questRslt.answerIds;
-      // this.stopKeypress();
-    }
-    // } else {
-    //   tstResp = this.props.response;
-    // }
-    let containerStyle = "";
-    if(questRslt.answerIds){containerStyle = "c-disable-pointer-n-keys";}
-
     return (
       <div className="c-question">
         <div className="c-question-prompt">
           <div dangerouslySetInnerHTML={{ __html: this.props.question.material }} />
-          <div>answerID is {tstResp}</div>
         </div>
-        <div className={`c-answers ${containerStyle}`}>
+        <div className="c-answers">
           <UniversalInput
             settings={this.props.settings}
             item={this.props.question}
-            isResult={false}
+            isResult={this.disabledCheck()}
             selectAnswer={this.props.selectAnswer}
             response={this.props.response}
+            questionResult={this.props.questionResult}
             localizedStrings={this.props.localizedStrings}
             audioRecordStart={this.props.audioRecordStart}
             audioRecordStop={this.props.audioRecordStop}

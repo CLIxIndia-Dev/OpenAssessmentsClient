@@ -14,6 +14,9 @@ class AudioUpload extends React.Component {
     // Maximum audio recording length in seconds
     timeout: React.PropTypes.number,
 
+    // Saved response to be displayed
+    savedResponse: React.PropTypes.string,
+
     // Actions to call when recording is started or stopped
     audioRecordStart: React.PropTypes.func.isRequired,
     audioRecordStop : React.PropTypes.func.isRequired
@@ -78,7 +81,7 @@ class AudioUpload extends React.Component {
         />);  // show Recorder Timer
     } else {
       buttonText = this.props.localizedStrings.record;
-      audioEl = <audio src={this.state.audioURL} type="audio/wav" controls />; // show audio element
+      audioEl = <audio src={this.props.savedResponse || this.state.audioURL} type="audio/wav" controls />; // show audio element
     }
     return (
       <div className="c-record">
