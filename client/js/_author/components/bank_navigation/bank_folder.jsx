@@ -3,7 +3,7 @@ import _ from 'lodash';
 import ListItem from './list_item';
 
 export default function BankFolder(props) {
-  const { bank } = props;
+  const bank = props.bank;
   const displayName = _.get(bank, 'displayName.text');
   return (
     <ListItem {...props} selectItem={() => props.getBankChildren(bank.id)} onFocus={props.onFocus}>

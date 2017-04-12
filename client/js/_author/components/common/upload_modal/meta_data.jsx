@@ -13,24 +13,7 @@ export default class Metadata extends React.Component {
     }),
   };
 
-  constructor() {
-    super();
-    this.textArea = null;
-    this.state = {
-      baseScrollHeight: null,
-    };
-  }
-
-  areaResize() {
-    const minRows = 1;
-    this.textArea.rows = minRows;
-    const scrollHeight = this.textArea.scrollHeight;
-    if (!this.state.baseScrollHeight) { this.setState({ baseScrollHeight: scrollHeight }); }
-    const rows = Math.ceil((scrollHeight - (this.state.baseScrollHeight || scrollHeight)) / 17);
-    this.textArea.rows = rows + minRows;
-  }
-
-  labelName(type) {
+  static labelName(type) {
     // TODO: modify this for regional language stuff
     switch (type) {
       case 'altText':
@@ -46,6 +29,23 @@ export default class Metadata extends React.Component {
       default:
         return '';
     }
+  }
+
+  constructor() {
+    super();
+    this.textArea = null;
+    this.state = {
+      baseScrollHeight: null,
+    };
+  }
+
+  areaResize() {
+    const minRows = 1;
+    this.textArea.rows = minRows;
+    const scrollHeight = this.textArea.scrollHeight;
+    if (!this.state.baseScrollHeight) { this.setState({ baseScrollHeight: scrollHeight }); }
+    const rows = Math.ceil((scrollHeight - (this.state.baseScrollHeight || scrollHeight)) / 17);
+    this.textArea.rows = rows + minRows;
   }
 
   autoPlayOption(metaData) {

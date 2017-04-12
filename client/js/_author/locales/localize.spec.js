@@ -27,7 +27,7 @@ describe('localize', () => {
       static defaultProps = {
         myDefault: 'default'
       }
-      render() {}
+      static render() {}
     }
     const result = localize(navigationBarContent);
     expect(result.defaultProps.myDefault).toBe('default');
@@ -36,7 +36,7 @@ describe('localize', () => {
 
   it('injects the strings into a class via the default props when there are no default props', () => {
     class navigationBarContent {
-      render() {}
+      static render() {}
     }
     const result = localize(navigationBarContent);
     expect(typeof result.defaultProps.localizeStrings).toBe('function');
