@@ -1,29 +1,29 @@
-'use strict';
-
 import React        from 'react';
-import ReactDOM     from 'react-dom';
 import TestUtils    from 'react-addons-test-utils';
 import Draggable    from './draggable';
 
 describe('Draggable Object', () => {
-  var instance;
-  var item;
-  var zone;
-  var object;
+  let instance;
+  let item;
+  let zone;
+  let object;
 
   beforeEach(() => {
     item = {
       id: 0,
       label: 'A Label'
     };
-    instance = TestUtils.renderIntoDocument(<Draggable item={item} />);
+    instance = TestUtils.renderIntoDocument(<Draggable
+      item={item}
+      ref={(node) => { this.node = node; }}
+    />);
     zone = TestUtils.findRenderedDOMComponentWithClass(instance, 'dropZone');
     object = TestUtils.findRenderedDOMComponentWithClass(instance, 'draggable');
   });
 
   it('Renders', () => {
     expect(instance).toBeDefined();
-    expect(ReactDOM.findDOMNode(instance).textContent).toContain('A Label');
+    expect(this.node.textContent).toContain('A Label');
     expect(zone).toBeDefined();
   });
   it('Is draggable', () => {

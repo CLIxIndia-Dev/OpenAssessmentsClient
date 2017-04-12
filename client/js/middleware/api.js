@@ -25,7 +25,7 @@ const API = store => next => (action) => {
         handler.timeout ? handler.timeout : action.timeout,
       );
     } else {
-      throw `No handler implemented for ${action.type}`;
+      throw new Error(`No handler implemented for ${action.type}`);
     }
   }
 

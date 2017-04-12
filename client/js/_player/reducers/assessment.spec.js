@@ -6,12 +6,11 @@ import assessment                           from './assessment';
 
 describe('assessment reducer', () => {
 
-  const settings = Immutable.fromJS({});
-  var initialState;
-  var parsedAssessment;
+  let initialState;
+  let parsedAssessment;
 
   beforeAll(() => {
-    const settings = Immutable.fromJS({assessmentId:1});
+    const settings = Immutable.fromJS({ assessmentId:1 });
     const data = readFixture('qti1/assessment.xml');
     parsedAssessment = parse(settings, data);
   });

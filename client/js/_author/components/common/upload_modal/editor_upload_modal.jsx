@@ -3,7 +3,7 @@ import Modal            from 'react-modal';
 import _                from 'lodash';
 
 import Loader           from '../dot_loader';
-import languages        from '../../../../constants/language_types';
+import { languages }    from '../../../../constants/language_types';
 import SearchMedia      from './search_media';
 import LanguageSelect   from '../language_dropdown';
 import Metadata         from './meta_data';

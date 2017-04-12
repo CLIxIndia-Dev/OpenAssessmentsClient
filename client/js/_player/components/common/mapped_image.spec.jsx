@@ -1,12 +1,11 @@
-'use strict';
 
 import React          from 'react';
 import TestUtils      from 'react-addons-test-utils';
 import MappedImage    from './mapped_image';
 
 describe('Mapped Image', () => {
-  var result;
-  var item;
+  let result;
+  let item;
 
   beforeEach(() => {
     item = {

@@ -14,6 +14,7 @@ plugins:
 globals:
   jest: false
   describe: false
+  beforeAll: false
   beforeEach: false
   afterEach: false
   it: false
@@ -23,6 +24,7 @@ globals:
   jasmine: false
   module: false
   __DEV__: false
+  MathJax: false
 rules:
   linebreak-style:
     - error

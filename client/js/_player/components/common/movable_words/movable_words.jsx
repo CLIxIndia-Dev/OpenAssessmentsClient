@@ -1,18 +1,20 @@
 import React                from 'react';
-import ReactDOM             from 'react-dom';
 import _                    from 'lodash';
 
 import withDragDropContext  from '../with_drag_drop_context';
-import DraggableWord        from '../draggable_word';
+import { DraggableWord }    from '../draggable_word';
 import { GroupDropZone }    from '../drop_zones';
 import ItemChain            from '../item_chain';
-import CustomDragLayer      from '../custom_drag_layer';
+import { CustomDragLayer }  from '../custom_drag_layer';
 
 export class MovableWords extends React.Component {
   static propTypes = {
     answers: React.PropTypes.array,
     wordChain: React.PropTypes.array,
     selectAnswer: React.PropTypes.func.isRequired,
+    itemClassName: React.PropTypes.string.isRequired,
+    answerBoxClassName: React.PropTypes.string.isRequired,
+    noStartBlock: React.PropTypes.bool.isRequired
   }
   constructor() {
     super();
@@ -21,7 +23,7 @@ export class MovableWords extends React.Component {
     };
   }
 
-  dropWordsInCloud(answerIds, dropOffset) {
+  dropWordsInCloud(answerIds) {
     _.each(answerIds, (answerId) => {
       if (_.includes(this.props.wordChain, answerId)) {
         this.props.selectAnswer(answerId);
@@ -40,35 +42,37 @@ export class MovableWords extends React.Component {
       answersById[answer.id] = answer;
     });
 
-    const availableWords = _.map(answersById, (answer) => {
-      return (
-        <DraggableWord
-            key={answer.id}
-            id={answer.id}
-            material={answer.material}
-            hide={_.includes(this.props.wordChain, answer.id)}
-            wordClassName={this.props.itemClassName}/>
-      );
-    });
+    const availableWords = _.map(answersById, answer => (
+      <DraggableWord
+        key={answer.id}
+        id={answer.id}
+        material={answer.material}
+        hide={_.includes(this.props.wordChain, answer.id)}
+        wordClassName={this.props.itemClassName}
+      />
+      )
+    );
 
     return (
       <div dir="ltr">
         <div className="c-word-box">
           <GroupDropZone
-              ref={(ref) => this.groupDropZone = ref}
-              dropItem={(answerIds, dropOffset) => { this.dropWordsInCloud(answerIds, dropOffset); }}
-              className="c-word-box__contain">
+            ref={(ref) => { this.groupDropZone = ref; }}
+            dropItem={(answerIds, dropOffset) => { this.dropWordsInCloud(answerIds, dropOffset); }}
+            className="c-word-box__contain"
+          >
             {availableWords}
           </GroupDropZone>
         </div>
         <ItemChain
-            linkWord={(answerId) => { this.linkWord(answerId); }}
-            answersById={answersById}
-            wordChain={this.props.wordChain}
-            itemClassName={this.props.itemClassName}
-            answerBoxClassName={this.props.answerBoxClassName}
-            noStartBlock={this.props.noStartBlock}/>
-        <CustomDragLayer/>
+          linkWord={(answerId) => { this.linkWord(answerId); }}
+          answersById={answersById}
+          wordChain={this.props.wordChain}
+          itemClassName={this.props.itemClassName}
+          answerBoxClassName={this.props.answerBoxClassName}
+          noStartBlock={this.props.noStartBlock}
+        />
+        <CustomDragLayer />
       </div>
     );
   }

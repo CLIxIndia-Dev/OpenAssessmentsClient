@@ -5,17 +5,17 @@ import api                                          from '../libs/api';
 import authorAppHistory                             from '../_author/history';
 import { DONE }                                     from '../constants/wrapper';
 import { Constants as BankConstants }               from '../actions/qbank/banks';
-import { Constants as AssessmentConstants }         from '../actions/qbank/assessments';
-import { Constants as ItemConstants }               from '../actions/qbank/items';
+import { Constants as ItemConstants, updateItem }   from '../actions/qbank/items';
 import { Constants as AssetConstants }              from '../actions/qbank/assets';
 import serialize                                    from './serialization/qbank/serializers/factory';
 import deserialize                                  from './serialization/qbank/deserializers/factory';
 import { scrub }                                    from './serialization/serializer_utils';
 import * as assessmentActions                       from '../actions/qbank/assessments';
-import { updateItem }                               from '../actions/qbank/items';
 import { deserializeMedia, deserializeSingleMedia } from './serialization/qbank/deserializers/media';
 import { dispatchMany }                             from './utils';
 import guid                                         from '../utils/guid';
+
+const AssessmentConstants = assessmentActions.Constants;
 
 function getAssessmentsOffered(state, bankId, assessmentId) {
   const path = `assessment/banks/${bankId}/assessments/${assessmentId}/assessmentsoffered`;
