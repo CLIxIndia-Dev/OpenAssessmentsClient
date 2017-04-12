@@ -1,7 +1,7 @@
+import nock    from 'nock';
 import api     from './api';
 import Network from '../constants/network';
 import Helper  from '../../specs_support/helper';
-import nock    from 'nock';
 
 describe('api', () => {
   const jwt = 'jwt_token';

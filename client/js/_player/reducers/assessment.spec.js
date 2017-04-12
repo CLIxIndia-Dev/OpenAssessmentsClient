@@ -12,19 +12,19 @@ describe('assessment reducer', () => {
 
   beforeAll(() => {
     const settings = Immutable.fromJS({assessmentId:1});
-    const data = readFixture("qti1/assessment.xml");
+    const data = readFixture('qti1/assessment.xml');
     parsedAssessment = parse(settings, data);
   });
 
-  describe("initial reducer state", () => {
-    it("returns empty state", () => {
+  describe('initial reducer state', () => {
+    it('returns empty state', () => {
       const state = assessment(initialState, {});
       expect(state).toEqual({});
     });
   });
 
-  describe("assessment loaded", () => {
-    it("sets the state to the loaded assessment", () => {
+  describe('assessment loaded', () => {
+    it('sets the state to the loaded assessment', () => {
       const action = {
         type: AssessmentConstants.LOAD_ASSESSMENT_DONE,
         payload: parsedAssessment

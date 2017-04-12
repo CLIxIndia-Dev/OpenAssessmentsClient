@@ -1,12 +1,12 @@
-import React                from "react";
-import ReactDOM             from "react-dom";
-import _                    from "lodash";
+import React                from 'react';
+import ReactDOM             from 'react-dom';
+import _                    from 'lodash';
 
-import withDragDropContext  from "../with_drag_drop_context";
-import DraggableWord        from "../draggable_word";
-import { GroupDropZone }    from "../drop_zones";
-import ItemChain            from "../item_chain";
-import CustomDragLayer      from "../custom_drag_layer";
+import withDragDropContext  from '../with_drag_drop_context';
+import DraggableWord        from '../draggable_word';
+import { GroupDropZone }    from '../drop_zones';
+import ItemChain            from '../item_chain';
+import CustomDragLayer      from '../custom_drag_layer';
 
 export class MovableWords extends React.Component {
   static propTypes = {
@@ -23,7 +23,7 @@ export class MovableWords extends React.Component {
 
   dropWordsInCloud(answerIds, dropOffset) {
     _.each(answerIds, (answerId) => {
-      if(_.includes(this.props.wordChain, answerId)) {
+      if (_.includes(this.props.wordChain, answerId)) {
         this.props.selectAnswer(answerId);
       }
     });
