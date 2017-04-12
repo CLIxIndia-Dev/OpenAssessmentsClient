@@ -13,15 +13,7 @@ export default class Metadata extends React.Component {
     }),
   };
 
-  constructor() {
-    super();
-    this.textArea = null;
-    this.state = {
-      baseScrollHeight: null,
-    };
-  }
-
-  labelName(type) {
+  static labelName = (type) => {
     // TODO: modify this for regional language stuff
     switch (type) {
       case 'altText':
@@ -37,6 +29,14 @@ export default class Metadata extends React.Component {
       default:
         return '';
     }
+  }
+
+  constructor() {
+    super();
+    this.textArea = null;
+    this.state = {
+      baseScrollHeight: null,
+    };
   }
 
   areaResize() {
@@ -85,7 +85,7 @@ export default class Metadata extends React.Component {
         {
           _.map(this.props.metadataTypes, type => (
             <div className="au-c-input au-c-input-label--left" key={`metadata_input_${type}`}>
-              <label htmlFor={`meta_upload_${type}`}>{this.labelName(type)}</label>
+              <label htmlFor={`meta_upload_${type}`}>{Metadata.labelName(type)}</label>
               <div className="au-c-input__contain">
                 <input
                   value={this.props.metaData[type] || ''}
@@ -105,7 +105,7 @@ export default class Metadata extends React.Component {
         {
           _.map(this.props.metadataFileTypes, type => (
             <div className="au-c-input au-c-input-label--left" key={`metadata_input_${type}`}>
-              <label htmlFor={`meta_upload_${type}`}>{this.labelName(type)}</label>
+              <label htmlFor={`meta_upload_${type}`}>{Metadata.labelName(type)}</label>
               <div className="au-c-input__contain">
                 <input
                   className=""

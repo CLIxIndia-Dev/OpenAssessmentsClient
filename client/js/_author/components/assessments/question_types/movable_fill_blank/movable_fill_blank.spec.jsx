@@ -51,7 +51,7 @@ describe('movable_fill_blank component', () => {
       blurOptions: () => { calledFunc = true; },
       isActive: false,
       activeChoice: '',
-    }
+    };
     result = shallow(<MovableFillBlank {...props} />);
   });
 
