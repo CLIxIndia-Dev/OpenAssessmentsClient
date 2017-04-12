@@ -1,5 +1,4 @@
 import React              from 'react';
-import _                  from 'lodash';
 import { shallow }        from 'enzyme';
 import MovableFillBlank   from './movable_fill_blank';
 import Feedback           from '../question_common/single_feedback';
@@ -27,14 +26,14 @@ describe('movable_fill_blank component', () => {
         type: '',
         index: 1,
         question: {
-          choices: {
-            choice: {
+          choices: [
+            {
               id: '3',
             },
-            choice: {
+            {
               id: '4',
             },
-          },
+          ],
           shuffle: true,
           timeValue: {
             hours: '1',
@@ -44,12 +43,12 @@ describe('movable_fill_blank component', () => {
         },
         answers: [],
       },
-      updateItem: () => {calledFunc = true},
-      createChoice: () => {calledFunc = true},
-      updateChoice: () => {calledFunc = true},
-      deleteChoice: () => {calledFunc = true},
-      selectChoice: () => {calledFunc = true},
-      blurOptions: () => {calledFunc = true},
+      updateItem: () => { calledFunc = true; },
+      createChoice: () => { calledFunc = true; },
+      updateChoice: () => { calledFunc = true; },
+      deleteChoice: () => { calledFunc = true; },
+      selectChoice: () => { calledFunc = true; },
+      blurOptions: () => { calledFunc = true; },
       isActive: false,
       activeChoice: '',
     }

@@ -50,7 +50,7 @@ describe('Bank Navigator', () => {
       togglePublishAssessment: () => {},
       currentBankId      : '',
       banksLoaded: false,
-      
+
       getAssessmentOffered: () => {},
     };
     result = TestUtils.renderIntoDocument(<BankNavigator {...props} />);

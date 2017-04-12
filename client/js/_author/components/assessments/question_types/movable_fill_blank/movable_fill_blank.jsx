@@ -5,7 +5,7 @@ import Add            from '../question_common/add_option';
 import Feedback       from '../question_common/single_feedback';
 import localize     from '../../../../locales/localize';
 
-class MovableFillBlank extends React.Component {
+class MovableFillBlank extends React.PureComponent {
   static propTypes = {
     item: React.PropTypes.shape({
       bankId: React.PropTypes.string,
