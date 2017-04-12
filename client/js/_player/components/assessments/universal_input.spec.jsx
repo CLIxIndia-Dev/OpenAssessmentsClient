@@ -1,40 +1,62 @@
-"use strict";
-
 import React              from 'react';
 import ReactDOM           from 'react-dom';
 import TestUtils          from 'react-addons-test-utils';
-import UniversalInput     from './universal_input';
 import { shallow }        from 'enzyme';
+import UniversalInput     from './universal_input';
 
-describe('Assessment Questions', ()=> {
+describe('Assessment Questions', () => {
 
-  var result;
-  var item;
-  var Content;
-  var selectAnswer = () => {};
+  let result;
+  let item;
+  let Content;
+  const selectAnswer = () => {};
 
-  it('It Renders the page', ()=>{
+  it('It Renders the page', () => {
     expect(ReactDOM.findDOMNode(result)).toBeDefined();
   });
 
 
-  describe('Drag and Drop', ()=>{
+  describe('Drag and Drop', () => {
     let props;
-    beforeEach(()=>{
+    beforeEach(() => {
       props = {
         item: {
           question_type: 'edx_drag_and_drop',
           answers: [{
             id: 0,
             type: 'key',
-            draggables: [{id:'0', label:'drag1'},{id:'1', label:'drag2'},{id:'2', label:'drag3'}],
-            targets: [{id:'0', height:'100', width:'180', xPos:'10', yPos:'10'}],
+            draggables: [{
+              id: '0',
+              label: 'drag1'
+            }, {
+              id: '1',
+              label: 'drag2'
+            }, {
+              id: '2',
+              label: 'drag3'
+            }],
+            targets: [{
+              id: '0',
+              height: '100',
+              width: '180',
+              xPos:'10',
+              yPos:'10'
+            }],
             img: 'http://www.bealecorner.com/trv900/respat/eia1956-small.jpg',
           },
           {
             id: 0,
             type: 'value',
-            draggables: [{id:'0', label:'drag1'},{id:'1', label:'drag2'},{id:'2', label:'drag3'}],
+            draggables: [{
+              id: '0',
+              label: 'drag1'
+            }, {
+              id: '1',
+              label: 'drag2'
+            }, {
+              id: '2',
+              label: 'drag3'
+            }],
             img: 'http://www.bealecorner.com/trv900/respat/eia1956-small.jpg',
           }],
         }
@@ -42,14 +64,14 @@ describe('Assessment Questions', ()=> {
       result = shallow(<UniversalInput {...props} />);
     });
 
-    it('Renders the components', ()=>{
+    it('Renders the components', () => {
       expect(result).toBeDefined();
     });
   });
 
-  describe('Multiple Choice', ()=>{
+  describe('Multiple Choice', () => {
 
-    beforeEach(()=>{
+    beforeEach(() => {
       item = {
         id       : 0,
         question_type: "multiple_choice_question",
@@ -66,79 +88,80 @@ describe('Assessment Questions', ()=> {
 
       Content = (
         <UniversalInput
-          settings={ {} }
+          settings={{}}
           item={item}
-          selectAnswer={selectAnswer}/>
+          selectAnswer={selectAnswer}
+        />
       );
       result = TestUtils.renderIntoDocument(Content);
     });
 
-    it('It Renders the radio buttons', ()=>{
+    it('It Renders the radio buttons', () => {
       expect(TestUtils.scryRenderedComponentsWithType(result, 'radio')).toBeDefined();
     });
 
-    it('It Renders the option text', ()=>{
+    it('It Renders the option text', () => {
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[0].material);
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[1].material);
     });
   });
 
-  describe('Numerical Input', ()=>{
+  describe('Numerical Input', () => {
 
-    beforeEach(()=>{
+    beforeEach(() => {
       item.question_type = 'edx_numerical_input';
 
-      Content = (<UniversalInput settings={ {} } item={item} />);
+      Content = (<UniversalInput settings={{}} item={item} />);
       result = TestUtils.renderIntoDocument(Content);
     });
 
-    it('Renders the sub-question text', ()=>{
+    it('Renders the sub-question text', () => {
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[0].material);
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[1].material);
     });
 
-    it('Renders the text input', ()=>{
+    it('Renders the text input', () => {
       expect(TestUtils.scryRenderedDOMComponentsWithTag(result, 'input')).toBeDefined();
     });
   });
 
-  describe('Text Input', ()=>{
-    beforeEach(()=>{
+  describe('Text Input', () => {
+    beforeEach(() => {
       item.question_type = 'edx_numerical_input';
       Content = (
         <UniversalInput
-          settings={ {} }
+          settings={{}}
           item={item}
           selectAnswer={selectAnswer}
-          />
+        />
       );
       result = TestUtils.renderIntoDocument(Content);
     });
 
-    it('Renders the sub-question text', ()=>{
+    it('Renders the sub-question text', () => {
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[0].material);
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[1].material);
     });
 
-    it('Renders the text input', ()=>{
+    it('Renders the text input', () => {
       expect(TestUtils.scryRenderedDOMComponentsWithTag(result, 'input')).toBeDefined();
     });
   });
 
-  describe('Drop Down', ()=>{
+  describe('Drop Down', () => {
 
-    beforeEach(()=>{
+    beforeEach(() => {
       item.question_type = 'edx_dropdown';
       item.answers = [{ id: 0, material: ['option1', 'option2', 'option3']}];
-      Content = (<UniversalInput settings={ {} } item={item} />);
+      Content = (<UniversalInput settings={{}} item={item} />);
       result = TestUtils.renderIntoDocument(Content);
     });
 
-    it('Renders the drop down element', ()=>{
+    it('Renders the drop down element', () => {
       expect(TestUtils.scryRenderedDOMComponentsWithTag(result, 'select')).toBeDefined();
     });
 
-    it('All the options are in the dropdown', ()=>{
+    it('All the options are in the dropdown', () => {
       var options = TestUtils.scryRenderedDOMComponentsWithTag(result, 'option');
       expect(options[0].textContent).toContain('option1');
       expect(options[1].textContent).toEqual('option2');
@@ -146,15 +169,21 @@ describe('Assessment Questions', ()=> {
     });
   });
 
-  describe('Image Mapped Input', ()=>{
+  describe('Image Mapped Input', () => {
 
-    beforeEach(()=>{
+    beforeEach(() => {
       item.question_type = 'edx_image_mapped_input';
-      item.answers = [{ id: 0, material:['100','100','100','100'], coordinates: ['200','200','200','200'], height: 100, width: 100}];
-      Content = (<UniversalInput settings={ {} } item={item} />);
+      item.answers = [{
+        id: 0,
+        material:['100', '100', '100', '100'],
+        coordinates: ['200', '200', '200', '200'],
+        height: 100,
+        width: 100
+      }];
+      Content = (<UniversalInput settings={{}} item={item} />);
       result = TestUtils.renderIntoDocument(Content);
     });
-    it('Renders the image to the page', ()=>{
+    it('Renders the image to the page', () => {
       expect(TestUtils.scryRenderedDOMComponentsWithTag(result, 'img')).toBeDefined();
     });
 
@@ -162,9 +191,9 @@ describe('Assessment Questions', ()=> {
 
   // xdescribe('Problem with Adaptive Hint', ()=>{});
 
-  describe('Multiple Answer', ()=>{
+  describe('Multiple Answer', () => {
 
-    beforeEach(()=>{
+    beforeEach(() => {
       item = {
         id       : 0,
         question_type: "multiple_answers_question",
@@ -181,31 +210,31 @@ describe('Assessment Questions', ()=> {
 
       Content = (
         <UniversalInput
-          settings={ {} }
+          settings={{}}
           item={item}
-          selectAnswer={selectAnswer}/>
+          selectAnswer={selectAnswer}
+        />
       );
       result = TestUtils.renderIntoDocument(Content);
     });
 
-    it('Renders the checkboxes', ()=>{
+    it('Renders the checkboxes', () => {
       expect(TestUtils.scryRenderedComponentsWithType(result, 'checkbox')).toBeDefined();
     });
 
-    it('Checkbox text is rendered', ()=>{
+    it('Checkbox text is rendered', () => {
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[0].material);
       expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[1].material);
     });
   });
 
 
-  it('Does not render the solution if the question is not answered', ()=>{
+  it('Does not render the solution if the question is not answered', () => {
     expect(ReactDOM.findDOMNode(result).textContent).toContain(
       item.answers[0].material
       +
       item.answers[1].material
     );
   });
-
 
 });

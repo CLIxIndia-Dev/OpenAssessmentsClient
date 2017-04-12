@@ -18,7 +18,7 @@ export default function BankFolder(props) {
 BankFolder.propTypes = {
   bank: React.PropTypes.shape({
     displayName: React.PropTypes.shape({
-      text: React.PropTypes.string
+      text: React.PropTypes.string  // eslint-disable-line react/no-unused-prop-types
     }).isRequired,
   }).isRequired,
   getBankChildren: React.PropTypes.func.isRequired,

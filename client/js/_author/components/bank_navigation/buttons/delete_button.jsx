@@ -23,8 +23,11 @@ DeleteButton.propTypes = {
   deleteAssessment: React.PropTypes.func.isRequired,
   onFocus: React.PropTypes.func.isRequired,
   assessment: React.PropTypes.shape({
+    // eslint-disable-next-line react/no-unused-prop-types
     isPublished: React.PropTypes.bool.isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
     bankId: React.PropTypes.string.isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
     id: React.PropTypes.string.isRequired,
   }).isRequired,
 };

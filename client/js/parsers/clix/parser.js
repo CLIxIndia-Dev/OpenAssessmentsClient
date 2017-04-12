@@ -3,7 +3,7 @@ import $  from 'jquery';
 import { AssessmentFormats }  from '../assessment.js';
 import Qti2Parser             from '../qti2/parser.js';
 
-export default class Parser {
+class Parser {
 
   static parse(assessmentId, json) {
     const items = json.data.map((j) => {
@@ -29,7 +29,7 @@ export default class Parser {
   }
 }
 
-export function parseFeedback(feedbackXml) {
+function parseFeedback(feedbackXml) {
   if (feedbackXml.startsWith('<?xml')) {
     const xml = $.parseXML(feedbackXml);
     const $xml = $(xml);
@@ -43,3 +43,8 @@ export function parseFeedback(feedbackXml) {
   console.error('We cannot recognize feedback from server'); // eslint-disable-line no-console
   return '';
 }
+
+export {
+  Parser as default,
+  parseFeedback
+};

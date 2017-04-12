@@ -26,7 +26,7 @@ ListItem.propTypes = {
   onFocus: React.PropTypes.func.isRequired,
   bank: React.PropTypes.shape({
     displayName: React.PropTypes.shape({
-      text: React.PropTypes.string
+      text: React.PropTypes.string    // eslint-disable-line react/no-unused-prop-types
     }).isRequired,
   }).isRequired,
   focused: React.PropTypes.bool.isRequired,

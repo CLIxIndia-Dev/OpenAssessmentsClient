@@ -17,6 +17,7 @@ describe('movable words', () => {
     };
 
     const WrappedComponent = wrapInDndContext(MovableWords);
+    // eslint-disable-next-line no-underscore-dangle
     RewireAPI.__Rewire__('ItemChain', () => (<div className="c-drop-zone">WordChain</div>));
     instance = TestUtils.renderIntoDocument(<WrappedComponent {...props} />);
   });
