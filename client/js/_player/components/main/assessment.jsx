@@ -346,8 +346,11 @@ export class Assessment extends React.Component {
 
   render() {
     // only show the alert window if they've attempted a question in Summative
+    const hasAttempted = this.props.assessmentProgress.checkedResponses ?
+      this.props.assessmentProgress.checkedResponses.length > 0 : true;
+
     if (this.props.settings.assessment_kind === 'SUMMATIVE' &&
-        this.props.assessmentProgress.checkedResponses.length > 0 &&
+        hasAttempted &&
         !__DEV__) {
       window.onbeforeunload = () => this.popup();
     }
