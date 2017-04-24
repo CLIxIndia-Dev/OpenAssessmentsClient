@@ -1,9 +1,11 @@
 import React                          from 'react';
 import _                              from 'lodash';
+
 import AudioUpload                    from '../common/audio_upload';
 import CheckBox                       from '../common/checkbox';
 import DragAndDrop                    from '../common/drag_and_drop';
 import FileUpload                     from '../common/file_upload';
+import ClixDragAndDrop                from '../common/clix_drag_and_drop/clix_drag_and_drop';
 import MovableWordsFillTheBlank       from '../common/fill_the_blank/fill_the_blank';
 import MappedImage                    from '../common/mapped_image';
 import Matching                       from '../common/matching';
@@ -12,7 +14,6 @@ import Option                         from '../common/option';
 import RadioButton                    from '../common/radio_button';
 import SentenceSandbox                from '../common/sentence_sandbox';
 import TextField                      from '../common/text_field';
-// import TextArea                       from '../common/text_area';
 
 export const CORRECT = 'CORRECT';
 export const INCORRECT = 'INCORRECT';
@@ -69,7 +70,7 @@ export default class UniversalInput extends React.Component {
     const questionType = this.props.item.question_type;
     let containerStyle = '';
 
-    // if answer submitted, show in UI
+    // if answer submitted, show savedResponse in UI
     // disable specific question type if correct answer submitted,
     // TODO, leverage isDisabled prop instead, and remove cursor: pointer from file_upload
     let answerAudioURL = null;
@@ -86,8 +87,8 @@ export default class UniversalInput extends React.Component {
           savedResponse = answerAudioURL;
           break;
         case 'movable_words_sandbox':
-          audioBlob = questRslt.answerIds.filter(audBlob => typeof audBlob !== 'string');
-          answerAudioURL = window.URL.createObjectURL(audioBlob)[0];
+          audioBlob = questRslt.answerIds.filter(audBlob => typeof audBlob !== 'string')[0];
+          answerAudioURL = window.URL.createObjectURL(audioBlob);
           savedResponse = answerAudioURL;
           break;
         case 'movable_object_chain':
@@ -122,8 +123,8 @@ export default class UniversalInput extends React.Component {
             />
           );
         };
-        answerInputs = _.chunk(item.answers, 2).map((row, index) => (
-          <ul key={index} className="o-grid">
+        answerInputs = _.chunk(item.answers, 2).map(row => (
+          <ul key={`${item.id}_row_${row[0].id}`} className="o-grid">
             {row.map(multipleChoiceAnswer)}
           </ul>
         ));
@@ -202,8 +203,8 @@ export default class UniversalInput extends React.Component {
             />
           );
         };
-        answerInputs = _.chunk(item.answers, 2).map((row, index) => (
-          <ul key={index} className="o-grid">
+        answerInputs = _.chunk(item.answers, 2).map(row => (
+          <ul key={`${item.id}_row_${row[0].id}`} className="o-grid">
             {row.map(multipleAnswer)}
           </ul>
         ));
@@ -224,7 +225,7 @@ export default class UniversalInput extends React.Component {
           />
         ));
         break;
-      case 'file_upload_question': {
+      case 'file_upload_question':
         selectFileUploadAnswer = _.partialRight(props.selectAnswer, true);
         answerInputs = (
           <FileUpload
@@ -235,8 +236,7 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      }
-      case 'audio_upload_question': {
+      case 'audio_upload_question':
         selectAudioAnswer = _.partialRight(props.selectAnswer, true);
         answerInputs = (
           <AudioUpload
@@ -250,16 +250,6 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      }
-      case 'drag_and_drop':
-        selectAnswer = _.partialRight(props.selectAnswer, false);
-        answerInputs = (
-          <FillTheBlankDnd
-            currentAnswer={this.props.response}
-            selectAnswer={selectAnswer}
-          />
-        );
-        break;
       case 'movable_object_chain':
         selectAnswer = _.partialRight(props.selectAnswer, false);
         answerInputs = (
@@ -269,8 +259,7 @@ export default class UniversalInput extends React.Component {
             wordChain={props.response}
             itemClassName="c-object"
             answerBoxClassName="c-object-answers"
-            noStartBlock={true}
-            isDisabled={props.isResult}
+            noStartBlock
           />
         );
         break;
@@ -283,7 +272,6 @@ export default class UniversalInput extends React.Component {
             wordChain={props.response}
             itemClassName="c-word"
             answerBoxClassName="c-word-answers"
-            isDisabled={props.isResult}
           />
         );
         break;
@@ -291,24 +279,7 @@ export default class UniversalInput extends React.Component {
         selectAnswer = _.partialRight(props.selectAnswer, false);
         // Movable words sandbox stores both audio files, and word id's in global
         // state. Grab only the word id's for the word chain.
-        words = props.response.filter((word) => typeof word === 'string');
-        audioBlob = props.response.filter((audBlob) => typeof audBlob !== 'string')[0];
-        if (words) {
-          console.log(`word is ${words}`);
-        }
-
-        if (audioBlob) {
-          answerAudioURL = window.URL.createObjectURL(audioBlob);
-          console.log(`audio blob is ${answerAudioURL}`);
-        }
-        // if (questRslt.correct === true) {
-        //   audioBlob = props.response.filter((item) => typeof item === 'Blob');
-        //   console.log(`audio blob is ${audioBlob}`);
-        // // answerAudioURL = window.URL.createObjectURL(questRslt.answerIds[0]);
-        //   answerAudioURL = window.URL.createObjectURL(audioBlob);
-        //   // console.log(`audio blob is ${audioBlob}`);
-        // }
-        // savedResponse = answerAudioURL;
+        words = props.response.filter(rItem => typeof rItem === 'string');
         answerInputs = (
           <SentenceSandbox
             answers={item.answers}
@@ -336,9 +307,20 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
+      case 'clix_drag_and_drop':
+        selectAnswer = _.partialRight(props.selectAnswer, false);
+        answerInputs = (
+          <ClixDragAndDrop
+            answers={item.answers}
+            zones={item.question_meta.zones}
+            targets={item.question_meta.targets}
+            selectAnswer={selectAnswer}
+            selectedAnswers={props.response}
+          />
+        );
+        break;
       default:
         answerInputs = undefined;
-
     }
 
     return (
