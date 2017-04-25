@@ -33,6 +33,7 @@ export class Question extends React.Component {
     item: React.PropTypes.shape({
       id: React.PropTypes.string,
       type: React.PropTypes.string,
+      isRemoving: React.PropTypes.bool,
       bankId: React.PropTypes.string,
       name: React.PropTypes.string,
       question: React.PropTypes.shape({
@@ -145,6 +146,7 @@ export class Question extends React.Component {
     const { item } = this.props;
     const saveItem = _.cloneDeep(this.state.item);
     saveItem.id = item.id;
+    saveItem.language = this.state.language;
     this.props.updateItem(this.props.bankId, saveItem);
   }
 
@@ -156,7 +158,8 @@ export class Question extends React.Component {
       question: {
         type,
         choices: {},
-      }
+      },
+      language: this.state.language
     });
   }
 
@@ -194,6 +197,21 @@ export class Question extends React.Component {
     this.setState({ activeChoice: choiceId });
   }
 
+  getDuplicateAnswers() {
+    const itemType = this.props.item.type;
+    if (!_.includes(Question.stateDrivenTypes, itemType)) { return []; }
+
+    const propChoices = this.props.item.question.choices;
+    const stateChoices = this.state.item.question.choices;
+
+    return _({})
+      .merge(propChoices, stateChoices)
+      .map(itemType === 'imageSequence' ? 'order' : 'answerOrder')
+      .groupBy()
+      .pickBy(x => x.length > 1)
+      .keys()
+      .value();
+  }
 
   blurOptions(e) {
     const currentTarget = e.currentTarget;
@@ -245,9 +263,11 @@ export class Question extends React.Component {
           selectChoice={choiceId => this.selectChoice(choiceId)}
           blurOptions={e => this.blurOptions(e)}
           createChoice={(text, fileIds, type) =>
-            this.props.createChoice(bankId, item.id, text, fileIds, type)}
+            this.props.createChoice(bankId, item.id, text, fileIds, type, this.state.language)}
           deleteChoice={choice => this.deleteChoice(choice)}
+          language={this.state.language}
           save={() => this.saveStateItem()}
+          duplicateAnswers={this.getDuplicateAnswers()}
         />
       );
     }
@@ -258,11 +278,6 @@ export class Question extends React.Component {
     const { item } = this.props;
     const { name, type, id, question, bankId } = item;
     const { multipleAnswer, multipleReflection, reflection } = types;
-    const defaultLanguage = this.state.language;
-    const chosenLanguage = _.find(item.question.texts,
-      textObj => textObj.languageTypeId === defaultLanguage);
-    const questionText = _.get(chosenLanguage, 'text', '');
-    const languageTypeId = _.get(chosenLanguage, 'languageTypeId') || defaultLanguage;
 
     return (
       <div>
@@ -303,15 +318,17 @@ export class Question extends React.Component {
   }
 
   render() {
-    const { name, type, id } = this.props.item;
+    const { name, type, id, isRemoving } = this.props.item;
     const className = this.getClassName();
     return (
       <div
+        key={id}
         className={`au-o-item au-c-question ${className}`}
         onClick={() => this.props.activateItem(id)}
         onFocus={() => this.props.activateItem(id)}
       >
         <QuestionHeader
+          isRemoving={isRemoving}
           name={name}
           type={type}
           deleteAssessmentItem={this.props.deleteAssessmentItem}
