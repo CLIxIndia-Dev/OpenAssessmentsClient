@@ -88,7 +88,7 @@ class AudioUpload extends React.Component {
       audioEl = <audio src={this.props.savedResponse || this.state.audioURL} type="audio/wav" controls />; // show audio element
     }
     if (this.props.isDisabled) {
-      hideButClass = 'c-btn--subdue'
+      hideButClass = 'c-btn--subdue';
     }
     return (
       <div className="c-record">

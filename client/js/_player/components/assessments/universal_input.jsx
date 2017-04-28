@@ -38,7 +38,7 @@ export default class UniversalInput extends React.Component {
 
     // Graded user response object containing keys
     // correct:true/false, feedback:'Answer feedback'
-    questionResult    : React.PropTypes.object.isRequired,
+    questionResult    : React.PropTypes.object,
 
     // User facing strings of the language specified by the 'locale' setting
     localizedStrings: React.PropTypes.object,
@@ -71,30 +71,34 @@ export default class UniversalInput extends React.Component {
     let containerStyle = '';
 
     // if answer submitted, show savedResponse in UI
-    // disable specific question type if correct answer submitted,
-    // TODO, leverage isDisabled prop instead, and remove cursor: pointer from file_upload
     let answerAudioURL = null;
     let savedResponse = null;
 
-    if (questRslt.correct === true) {
+    if (questRslt && questRslt.correct === true) {
       switch (questionType) {
         case 'file_upload_question':
           savedResponse = questRslt.answerIds[0].name;
-          containerStyle = 'c-disable-pointer-n-keys';
+          containerStyle = 'c-disable-pointer-n-keys'; // turn off mouse actions
           break;
         case 'audio_upload_question':
-          answerAudioURL = window.URL.createObjectURL(questRslt.answerIds[0]);
-          savedResponse = answerAudioURL;
+          // grab audio recording src
+          if (window && window.URL && window.URL.createObjectURL) {
+            answerAudioURL = window.URL.createObjectURL(questRslt.answerIds[0]);
+            savedResponse = answerAudioURL;
+          }
           break;
         case 'movable_words_sandbox':
-          audioBlob = questRslt.answerIds.filter(audBlob => typeof audBlob !== 'string')[0];
-          answerAudioURL = window.URL.createObjectURL(audioBlob);
-          savedResponse = answerAudioURL;
+          if (window && window.URL && window.URL.createObjectURL) {
+            // grab audio recording src
+            audioBlob = questRslt.answerIds.filter(audBlob => typeof audBlob !== 'string')[0];
+            answerAudioURL = window.URL.createObjectURL(audioBlob);
+            savedResponse = answerAudioURL;
+          }
           break;
         case 'movable_object_chain':
         case 'movable_words_sentence':
         case 'fill_the_blank_question':
-          containerStyle = 'c-disable-pointer-n-keys';
+          containerStyle = 'c-disable-pointer-n-keys'; // turn off mouse actions
           break;
         default:
           savedResponse = questRslt.answerIds;
