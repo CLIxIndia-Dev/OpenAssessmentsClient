@@ -25,6 +25,17 @@ describe('AssessmentForm component', () => {
           },
           choices: [],
         },
+      }, {
+        id: '78',
+        name: 'IMATITLESPEC',
+        type: '3',
+        index: 2,
+        question: {
+          text: {
+            name: 'NAMEME',
+          },
+          choices: [],
+        },
       }],
       bankId: '',
       name: 'IMASPEC',
@@ -46,6 +57,24 @@ describe('AssessmentForm component', () => {
 
   it('renders one labels', () => {
     expect(result.find('.test_label').length).toBe(1);
+  });
+
+  it('renders the N of M selector', () => {
+    expect(result.find('#nOfM').length).toBe(1);
+  });
+
+  it('shows equal number of select options as number of items', () => {
+    // Note that the first select is always "N of M" -- thus
+    //   for assessment with 1 item, no additional options
+    expect(result.find('.n-of-m-option').length).toBe(2);
+  });
+
+  it('shows a counter for N of M options', () => {
+    expect(result.find('.n-of-m-option').length).toBe(2);
+  });
+
+  it('formats the N of M option text correct', () => {
+    expect(result.find('.n-of-m-option').last().html()).toContain('1 of 2');
   });
 
   it('creates a new item', () => {
