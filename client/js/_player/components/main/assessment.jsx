@@ -72,7 +72,8 @@ export class Assessment extends React.Component {
       assessmentResult: React.PropTypes.string,
       isSubmitted: React.PropTypes.bool,
       currentItemIndex: React.PropTypes.number,
-      checkedResponses: React.PropTypes.array
+      checkedResponses: React.PropTypes.array,
+      numQuestionsChecking: React.PropTypes.number,
     }),
     assessmentViewed: React.PropTypes.func,
     settings: React.PropTypes.shape({
@@ -88,6 +89,7 @@ export class Assessment extends React.Component {
     sendSize: React.PropTypes.func,
     scrollParentToTop: React.PropTypes.func,
     hideLMSNavigation: React.PropTypes.func,
+    resetQuestionResults: React.PropTypes.func,
     submitAssessment: React.PropTypes.func,
     allQuestions: React.PropTypes.arrayOf(React.PropTypes.shape({})),
     responses: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.shape({}))),
@@ -185,6 +187,7 @@ export class Assessment extends React.Component {
         question={props.allQuestions[index]}
         response={props.responses[index] || []}
         currentItemIndex={index}
+        numQuestionsChecking={props.assessmentProgress.numQuestionsChecking}
         questionCount={props.questionCount}
         questionResult={props.questionResults[index] || {}}
         allQuestions={props.allQuestions}
@@ -297,6 +300,7 @@ export class Assessment extends React.Component {
 
   submitButtonClicked() {
     this.props.submitAssessment();
+    this.props.resetQuestionResults();
   }
 
   /**

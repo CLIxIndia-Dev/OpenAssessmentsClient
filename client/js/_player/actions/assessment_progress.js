@@ -6,7 +6,8 @@ const constants = [
   'LEVEL_SELECTED',
   'RETAKE_ASSESSMENT',
   'ASSESSMENT_VIEWED',
-  'CHECK_QUESTIONS'
+  'CHECK_QUESTIONS',
+  'ASSESSMENT_RESET_QUESTIONRESULTS'
 ];
 
 const requests = [
@@ -19,7 +20,7 @@ const requests = [
 
 export const Constants = wrapper(constants, requests);
 
-export const start = (assessmentId) => ({
+export const start = assessmentId => ({
   type: Constants.ASSESSMENT_START,
   assessmentId
 });
