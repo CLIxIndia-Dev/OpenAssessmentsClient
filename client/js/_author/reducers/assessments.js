@@ -78,6 +78,23 @@ export default function banks(state = initialState, action) {
       return newState;
     }
 
+    case 'UPDATE_N_OF_M_DONE': {
+      const newState = _.cloneDeep(state);
+
+      // An offered should always exist by this point
+      //   ....but just in case not.
+      if (action.original.bankId in newState &&
+          action.original.assessmentId in newState[action.original.bankId] &&
+          newState[action.original.bankId][action.original.assessmentId].assessmentOffered) {
+        newState[
+          action.original.bankId
+        ][
+          action.original.assessmentId
+        ].assessmentOffered.nOfM = action.payload;
+      }
+      return newState;
+    }
+
     case 'DELETE_ASSESSMENT_DONE': {
       const newState = _.cloneDeep(state);
       const bankId = action.original.bankId;

@@ -63,6 +63,7 @@ describe('_edit_assessment component', () => {
       updatePath: () => {},
       banks: [],
       updateSingleItemOrPage: () => {},
+      updateNofM: () => { handleFunction = true; },
       isPublished: false,
     };
     result = TestUtils.renderIntoDocument(<EditAssessment {...props} />);
@@ -105,6 +106,12 @@ describe('_edit_assessment component', () => {
   it('componentDidMount to be called', () => {
     expect(didMount).toBeTruthy();
     expect(didGetAssessmentItems).toBeTruthy();
+  });
+
+  it('runs updateNofM', () => {
+    expect(handleFunction).toBeFalsy();
+    result.updateNofM();
+    expect(handleFunction).toBeTruthy();
   });
 
 });

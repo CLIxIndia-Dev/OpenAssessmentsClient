@@ -23,6 +23,7 @@ class AssessmentForm extends React.Component {
     updateNofM: React.PropTypes.func,
     deleteAssessmentItem: React.PropTypes.func,
     localizeStrings: React.PropTypes.func,
+    assessmentOffered: React.PropTypes.shape
   };
 
   constructor() {
@@ -80,7 +81,8 @@ class AssessmentForm extends React.Component {
         <div className="au-c-dropdown au-c-dropdown--small au-u-ml-md au-u-right">
           <label htmlFor="assessmentFormSelect01" />
           <select
-            defaultValue={-1}
+            defaultValue={this.props.assessmentOffered ?
+              this.props.assessmentOffered.nOfM : -1}
             onChange={e => this.props.updateNofM(e.target.value)}
             name=""
             id="nOfM"

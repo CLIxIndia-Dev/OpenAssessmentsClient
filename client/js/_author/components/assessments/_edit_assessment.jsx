@@ -46,6 +46,8 @@ export class EditAssessment extends React.Component {
     getAssessments: React.PropTypes.func.isRequired,
     updateAssessment: React.PropTypes.func.isRequired,
     updateSingleItemOrPage: React.PropTypes.func.isRequired,
+    updateNofM: React.PropTypes.func.isRequired,
+    createAssessmentOffered: React.PropTypes.func.isRequired,
     updateAssessmentItems: React.PropTypes.func.isRequired,
     getAssessmentItems: React.PropTypes.func.isRequired,
     createItemInAssessment: React.PropTypes.func.isRequired,
@@ -102,6 +104,11 @@ export class EditAssessment extends React.Component {
     );
   }
 
+  updateNofM(nOfM) {
+    const { assessment } = this.props;
+    this.props.updateNofM(assessment, nOfM);
+  }
+
   updateSingleItemOrPage(setSinglePage) {
     const { settings, assessment } = this.props;
     const { assessmentOffered } = assessment;
@@ -147,6 +154,7 @@ export class EditAssessment extends React.Component {
           bankId={this.props.params.bankId}
           publishedAndOffered={publishedAndOffered}
           updateSingleItemOrPage={setSinglePage => this.updateSingleItemOrPage(setSinglePage)}
+          updateNofM={nOfM => this.updateNofM(nOfM)}
           {...this.props.assessment}
           updateAssessment={newFields => this.updateAssessment(newFields)}
           updateItemOrder={itemIds => this.updateItemOrder(itemIds)}

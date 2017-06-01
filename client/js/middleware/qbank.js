@@ -271,6 +271,31 @@ function createItemInAssessment(store, bankId, assessmentId, item, itemIds, acti
 
 }
 
+function createAssessmentOffered(store, bankId, assessmentId) {
+  const state = store.getState();
+
+  return api.post(
+    `assessment/banks/${bankId}/assessments/${assessmentId}/assessmentsoffered`,
+    state.settings.api_url,
+    state.jwt,
+    state.settings.csrf_token,
+    null,
+    null
+  );
+}
+
+function updateOfferedNofM(store, bankId, offeredId, nOfM) {
+  const state = store.getState();
+  return api.put(
+    `assessment/banks/${bankId}/assessmentsoffered/${offeredId}`,
+    state.settings.api_url,
+    state.jwt,
+    state.settings.csrf_token,
+    null,
+    nOfM
+  );
+}
+
 const qbank = {
 
   [BankConstants.GET_BANKS_HIERARCHY]: (store, action) => {
@@ -323,9 +348,8 @@ const qbank = {
     url    : (url, action) => `${url}/assessment/banks/${action.bankId}/assessments?isolated`,
   },
 
-  [AssessmentConstants.CREATE_ASSESSMENT_OFFERED]: {
-    method : Network.POST,
-    url    : (url, action) => `${url}/assessment/banks/${action.bankId}/assessments/${action.assessmentId}/assessmentsoffered`,
+  [AssessmentConstants.CREATE_ASSESSMENT_OFFERED]: (store, action) => {
+    createAssessmentOffered(store, action.bankId, action.assessmentId);
   },
 
   [AssessmentConstants.GET_ASSESSMENT_OFFERED]: {
@@ -529,6 +553,43 @@ const qbank = {
       actions.push(assessmentActions.editOrPublishAssessment(assessment, publishedBankId));
 
       dispatchMany(actions, store);
+    }
+  },
+
+  [AssessmentConstants.UPDATE_N_OF_M]: (store, action) => {
+    let offeredId;
+    if (!action.assessmentOfferedId) {
+      // need to create the offered first
+      createAssessmentOffered(store, action.bankId, action.assessmentId)
+      .then((res) => {
+        const offered = res.body;
+        offeredId = offered.id;
+        store.dispatch({
+          type: AssessmentConstants.CREATE_ASSESSMENT_OFFERED + DONE,
+          original: action,
+          payload: offered
+        });
+        return updateOfferedNofM(action.bankId, offeredId, action.nOfM);
+      })
+      .then(() => {
+        const updatedAction = _.cloneDeep(action);
+        updatedAction.assessmentOfferedId = offeredId;
+        store.dispatch({
+          type: action.type + DONE,
+          original: updatedAction,
+          payload: updatedAction.nOfM
+        });
+      });
+    } else {
+      // just update the offered with N of M
+      updateOfferedNofM(action.bankId, action.assessmentOfferedId, action.nOfM)
+      .then(() => {
+        store.dispatch({
+          type: action.type + DONE,
+          original: action,
+          payload: action.nOfM
+        });
+      });
     }
   },
 
