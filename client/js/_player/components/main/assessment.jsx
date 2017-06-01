@@ -89,7 +89,6 @@ export class Assessment extends React.Component {
     sendSize: React.PropTypes.func,
     scrollParentToTop: React.PropTypes.func,
     hideLMSNavigation: React.PropTypes.func,
-    resetQuestionResults: React.PropTypes.func,
     submitAssessment: React.PropTypes.func,
     allQuestions: React.PropTypes.arrayOf(React.PropTypes.shape({})),
     responses: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.shape({}))),
