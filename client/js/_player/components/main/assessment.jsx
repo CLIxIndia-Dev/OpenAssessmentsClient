@@ -300,7 +300,6 @@ export class Assessment extends React.Component {
 
   submitButtonClicked() {
     this.props.submitAssessment();
-    this.props.resetQuestionResults();
   }
 
   /**
