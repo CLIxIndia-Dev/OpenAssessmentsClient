@@ -81,7 +81,7 @@ class AssessmentForm extends React.Component {
       <div className="au-o-item__top">
         <div className="au-c-dropdown au-c-dropdown--small au-u-ml-md au-u-right">
           <select
-            ariaLabel={strings.nOfMLabel}
+            aria-label={strings.nOfMLabel}
             onChange={e => this.props.updateNofM(e.target.value)}
             name=""
             id="nOfM"
