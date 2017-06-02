@@ -108,15 +108,15 @@ describe('_edit_assessment component', () => {
   });
 
   it('componentDidMount to be called', () => {
-    expect(didMount).toBeTruthy();
-    expect(didGetAssessmentItems).toBeTruthy();
-    expect(didGetAssessmentOffered).toBeTruthy();
+    expect(didMount).toEqual(true);
+    expect(didGetAssessmentItems).toEqual(true);
+    expect(didGetAssessmentOffered).toEqual(true);
   });
 
   it('runs updateNofM', () => {
-    expect(handleFunction).toBeFalsy();
+    expect(handleFunction).toEqual(false);
     result.updateNofM();
-    expect(handleFunction).toBeTruthy();
+    expect(handleFunction).toEqual(true);
   });
 
 });
