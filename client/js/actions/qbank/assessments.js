@@ -180,7 +180,9 @@ export function updateSingleItemOrPage(assessmentOffered, genusTypeId) {
 }
 
 export function updateNofM(assessment, nOfM) {
-  const offeredId = assessment.assessmentOffered ? assessment.assessmentOffered.id : null;
+  const offeredId = assessment.assessmentOffered &&
+    assessment.assessmentOffered.length > 0 ?
+    assessment.assessmentOffered[0].id : null;
   return {
     bankId: assessment.bankId,
     assessmentId: assessment.id,

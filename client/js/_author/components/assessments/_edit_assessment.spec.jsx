@@ -10,11 +10,13 @@ describe('_edit_assessment component', () => {
   let handleFunction;
   let didMount;
   let didGetAssessmentItems;
+  let didGetAssessmentOffered;
 
   beforeEach(() => {
     handleFunction = false;
     didMount = false;
     didGetAssessmentItems = false;
+    didGetAssessmentOffered = false;
 
     props = {
       params: {
@@ -45,6 +47,7 @@ describe('_edit_assessment component', () => {
       updateAssessmentItems: () => { handleFunction = true; },
       getAssessmentItems: () => { didGetAssessmentItems = true; },
       createItemInAssessment: () => { handleFunction = true; },
+      getAssessmentOffered: () => { didGetAssessmentOffered = true; },
       updateItem: () => { handleFunction = true; },
       items: [
         {
@@ -64,6 +67,7 @@ describe('_edit_assessment component', () => {
       banks: [],
       updateSingleItemOrPage: () => {},
       updateNofM: () => { handleFunction = true; },
+      createAssessmentOffered: () => {},
       isPublished: false,
     };
     result = TestUtils.renderIntoDocument(<EditAssessment {...props} />);
@@ -106,6 +110,7 @@ describe('_edit_assessment component', () => {
   it('componentDidMount to be called', () => {
     expect(didMount).toBeTruthy();
     expect(didGetAssessmentItems).toBeTruthy();
+    expect(didGetAssessmentOffered).toBeTruthy();
   });
 
   it('runs updateNofM', () => {

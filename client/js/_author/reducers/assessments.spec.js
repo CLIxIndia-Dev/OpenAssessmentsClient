@@ -14,9 +14,9 @@ describe('assessments reducer', () => {
       const initialState = {
         1: {
           2: {
-            assessmentOffered: {
+            assessmentOffered: [{
               nOfM: -1
-            }
+            }]
           }
         }
       };
@@ -29,16 +29,16 @@ describe('assessments reducer', () => {
         payload: 5
       };
       const state = banks(initialState, action);
-      expect(state[1][2].assessmentOffered.nOfM).toEqual(5);
+      expect(state[1][2].assessmentOffered[0].nOfM).toEqual(5);
     });
 
     it('does not update the assessment offered value of other assessments', () => {
       const initialState = {
         1: {
           2: {
-            assessmentOffered: {
+            assessmentOffered: [{
               nOfM: -1
-            }
+            }]
           }
         }
       };
@@ -51,7 +51,7 @@ describe('assessments reducer', () => {
         payload: 5
       };
       const state = banks(initialState, action);
-      expect(state[1][2].assessmentOffered.nOfM).toEqual(-1);
+      expect(state[1][2].assessmentOffered[0].nOfM).toEqual(-1);
     });
   });
 });

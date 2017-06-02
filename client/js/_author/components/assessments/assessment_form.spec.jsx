@@ -37,8 +37,11 @@ describe('AssessmentForm component', () => {
           choices: [],
         },
       }],
-      bankId: '',
+      bankId: '123',
       name: 'IMASPEC',
+      assessmentOffered: [{
+        nOfM: 1
+      }],
       updateAssessment: () => {},
       updateItemOrder: () => { updateItemOrderFunction = true; },
       createItem: () => { createItem = true; },
@@ -64,17 +67,29 @@ describe('AssessmentForm component', () => {
   });
 
   it('shows equal number of select options as number of items', () => {
-    // Note that the first select is always "N of M" -- thus
+    // Note that the first select is always "all"
     //   for assessment with 1 item, no additional options
-    expect(result.find('.n-of-m-option').length).toBe(2);
-  });
-
-  it('shows a counter for N of M options', () => {
     expect(result.find('.n-of-m-option').length).toBe(2);
   });
 
   it('formats the N of M option text correct', () => {
     expect(result.find('.n-of-m-option').last().html()).toContain('1 of 2');
+  });
+
+  it('should pull N of M from the offered', () => {
+    expect(result.find('select').prop('value')).toEqual(1);
+  });
+
+  it('should have default N of M value when no offereds', () => {
+    props.assessmentOffered = [];
+    result = shallow(<AssessmentForm {...props} />);
+    expect(result.find('select').prop('value')).toEqual(-1);
+  });
+
+  it('should have default N of M value when offereds not defined', () => {
+    props.assessmentOffered = null;
+    result = shallow(<AssessmentForm {...props} />);
+    expect(result.find('select').prop('value')).toEqual(-1);
   });
 
   it('creates a new item', () => {
@@ -112,4 +127,5 @@ describe('AssessmentForm component', () => {
     result.instance().moveItem(oldIndex, newIndex);
     expect(updateItemOrderFunction).toBeTruthy();
   });
+
 });

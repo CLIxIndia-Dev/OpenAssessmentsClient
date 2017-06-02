@@ -271,16 +271,22 @@ function createItemInAssessment(store, bankId, assessmentId, item, itemIds, acti
 
 }
 
-function createAssessmentOffered(store, bankId, assessmentId) {
+function createAssessmentOffered(store, bankId, assessmentId, body) {
   const state = store.getState();
+  let finalBody = body;
 
+  if (!finalBody) {
+    finalBody = {
+      dummyId: '123'
+    };
+  }
   return api.post(
     `assessment/banks/${bankId}/assessments/${assessmentId}/assessmentsoffered`,
     state.settings.api_url,
     state.jwt,
     state.settings.csrf_token,
     null,
-    null
+    finalBody
   );
 }
 
@@ -557,37 +563,34 @@ const qbank = {
   },
 
   [AssessmentConstants.UPDATE_N_OF_M]: (store, action) => {
-    let offeredId;
     if (!action.assessmentOfferedId) {
       // need to create the offered first
-      createAssessmentOffered(store, action.bankId, action.assessmentId)
+      createAssessmentOffered(store, action.bankId, action.assessmentId, action.body)
       .then((res) => {
         const offered = res.body;
-        offeredId = offered.id;
+        console.log('about to dispatch to the create offered action');
         store.dispatch({
           type: AssessmentConstants.CREATE_ASSESSMENT_OFFERED + DONE,
           original: action,
-          payload: offered
+          payload: [offered]
         });
-        return updateOfferedNofM(action.bankId, offeredId, action.nOfM);
-      })
-      .then(() => {
+
         const updatedAction = _.cloneDeep(action);
-        updatedAction.assessmentOfferedId = offeredId;
+        updatedAction.assessmentOfferedId = offered.id;
         store.dispatch({
-          type: action.type + DONE,
+          type: updatedAction.type + DONE,
           original: updatedAction,
           payload: updatedAction.nOfM
         });
       });
     } else {
       // just update the offered with N of M
-      updateOfferedNofM(action.bankId, action.assessmentOfferedId, action.nOfM)
+      updateOfferedNofM(store, action.bankId, action.assessmentOfferedId, action.body)
       .then(() => {
         store.dispatch({
           type: action.type + DONE,
           original: action,
-          payload: action.nOfM
+          payload: action.body.nOfM
         });
       });
     }

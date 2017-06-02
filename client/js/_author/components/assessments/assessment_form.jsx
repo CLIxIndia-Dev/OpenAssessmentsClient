@@ -23,7 +23,8 @@ class AssessmentForm extends React.Component {
     updateNofM: React.PropTypes.func,
     deleteAssessmentItem: React.PropTypes.func,
     localizeStrings: React.PropTypes.func,
-    assessmentOffered: React.PropTypes.shape
+    assessmentOffered: React.PropTypes.arrayOf(
+      React.PropTypes.shape({ nOfM: React.PropTypes.number }))
   };
 
   constructor() {
@@ -79,20 +80,21 @@ class AssessmentForm extends React.Component {
     return (
       <div className="au-o-item__top">
         <div className="au-c-dropdown au-c-dropdown--small au-u-ml-md au-u-right">
-          <label htmlFor="assessmentFormSelect01" />
           <select
-            defaultValue={this.props.assessmentOffered ?
-              this.props.assessmentOffered.nOfM : -1}
+            ariaLabel={strings.nOfMLabel}
             onChange={e => this.props.updateNofM(e.target.value)}
             name=""
             id="nOfM"
+            value={this.props.assessmentOffered &&
+              this.props.assessmentOffered.length > 0 ?
+              this.props.assessmentOffered[0].nOfM : -1}
           >
             <option
               className="n-of-m-option"
-              key="n_of_m_off"
+              key="n_of_m_all"
               value={-1}
             >
-              {strings.nOfMLabel}</option>
+              {strings.all}</option>
             {
               _.map(_.range(1, this.props.items.length), (ind) => {
                 const label = stringFormatter.formatString(
