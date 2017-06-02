@@ -568,7 +568,6 @@ const qbank = {
       createAssessmentOffered(store, action.bankId, action.assessmentId, action.body)
       .then((res) => {
         const offered = res.body;
-        console.log('about to dispatch to the create offered action');
         store.dispatch({
           type: AssessmentConstants.CREATE_ASSESSMENT_OFFERED + DONE,
           original: action,
