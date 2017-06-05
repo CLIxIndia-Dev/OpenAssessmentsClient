@@ -79,11 +79,15 @@ class AssessmentForm extends React.Component {
     const strings = this.props.localizeStrings('assessmentForm');
     return (
       <div className="au-o-item__top">
-        <div className="au-c-dropdown au-c-dropdown--small au-u-ml-md au-u-right">
+        <div className="au-c-dropdown au-c-dropdown--small au-c-dropdown-with-side-label au-c-input-label--left au-u-ml-md au-u-right">
+          <label
+            className="au-u-mr-sm"
+            htmlFor="nOfM"
+          >
+            {strings.nOfMLabel}</label>
           <select
-            aria-label={strings.nOfMLabel}
             onChange={e => this.props.updateNofM(e.target.value)}
-            name=""
+            name="nOfM"
             id="nOfM"
             value={this.props.assessmentOffered &&
               this.props.assessmentOffered.length > 0 ?
