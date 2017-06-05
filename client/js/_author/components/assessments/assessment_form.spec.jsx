@@ -66,6 +66,15 @@ describe('AssessmentForm component', () => {
     expect(result.find('#nOfM').length).toBe(1);
   });
 
+  it('includes the right class so renders in one line', () => {
+    expect(result.find('.au-c-dropdown--side-label').length).toBe(1);
+  });
+
+  it('renders the label', () => {
+    expect(result.find('label.au-u-mr-sm').length).toBe(1);
+    expect(result.find('label.au-u-mr-sm').html()).toContain('for="nOfM"');
+  });
+
   it('shows equal number of select options as number of items', () => {
     // Note that the first select is always "all"
     //   for assessment with 1 item, no additional options

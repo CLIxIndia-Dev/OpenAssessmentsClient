@@ -79,7 +79,7 @@ class AssessmentForm extends React.Component {
     const strings = this.props.localizeStrings('assessmentForm');
     return (
       <div className="au-o-item__top">
-        <div className="au-c-dropdown au-c-dropdown--small au-c-dropdown-with-side-label au-c-input-label--left au-u-ml-md au-u-right">
+        <div className="au-c-dropdown au-c-dropdown--small au-c-dropdown--side-label au-c-input-label--left au-u-ml-md au-u-right">
           <label
             className="au-u-mr-sm"
             htmlFor="nOfM"
