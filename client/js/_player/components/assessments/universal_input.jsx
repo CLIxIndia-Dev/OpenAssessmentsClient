@@ -25,6 +25,12 @@ export default class UniversalInput extends React.Component {
     // Assessment configuration settings. these should never be modified.
     settings: React.PropTypes.object,
 
+    // Assessment to be rendered
+    assessment          : React.PropTypes.object,
+
+    // The position of the item in the array of items
+    currentItemIndex  : React.PropTypes.number,
+
     // Item to be displayed
     item: React.PropTypes.object.isRequired,
 
@@ -48,6 +54,20 @@ export default class UniversalInput extends React.Component {
     audioRecordStop: React.PropTypes.func
   };
 
+  setAudioTimeout() {
+    // find audioTimeout in seconds, use default if no timeout set
+    const currentItemIndex = this.props.currentItemIndex;
+    const audioTimeout = this.props.assessment.items[currentItemIndex].json.timeValue;
+    const { hours, minutes, seconds } = audioTimeout;
+    const audioTimeToSeconds = (hours * 3600) + (minutes * 60) + seconds;
+    const defaultAudioTimeout = this.props.settings.audio_recorder_timeout;
+
+    if (audioTimeout) {
+      return audioTimeToSeconds;
+    }
+    return defaultAudioTimeout;
+  }
+
   wasSelected(id) {
     if (this.props.response) {
       return this.props.response.indexOf(id) > -1;
@@ -59,50 +79,47 @@ export default class UniversalInput extends React.Component {
     const props = this.props;
     const item = props.item;
     let answerInputs;
-    let multipleChoiceAnswer;
-    let selectFileUploadAnswer;
-    let selectAudioAnswer;
-    let selectAnswer;
-    let words;
-    let audioBlob;
-    let multipleAnswer;
-    const questRslt = this.props.questionResult;
-    const questionType = this.props.item.question_type;
-    let containerStyle = '';
 
     // if answer submitted, show savedResponse in UI
-    let answerAudioURL = null;
+    const questRslt = this.props.questionResult;
     let savedResponse = null;
+    let containerStyle = '';
 
     if (questRslt && questRslt.correct === true) {
+      const questionType = this.props.item.question_type;
       switch (questionType) {
-        case 'file_upload_question':
+        case 'file_upload_question': {
           savedResponse = questRslt.answerIds[0].name;
           containerStyle = 'c-disable-pointer-n-keys'; // turn off mouse actions
           break;
-        case 'audio_upload_question':
+        }
+        case 'audio_upload_question': {
           // grab audio recording src
           if (window && window.URL && window.URL.createObjectURL) {
-            answerAudioURL = window.URL.createObjectURL(questRslt.answerIds[0]);
+            const answerAudioURL = window.URL.createObjectURL(questRslt.answerIds[0]);
             savedResponse = answerAudioURL;
           }
           break;
-        case 'movable_words_sandbox':
+        }
+        case 'movable_words_sandbox': {
           if (window && window.URL && window.URL.createObjectURL) {
             // grab audio recording src
-            audioBlob = questRslt.answerIds.filter(audBlob => typeof audBlob !== 'string')[0];
-            answerAudioURL = window.URL.createObjectURL(audioBlob);
+            const audioBlob = questRslt.answerIds.filter(audBlob => typeof audBlob !== 'string')[0];
+            const answerAudioURL = window.URL.createObjectURL(audioBlob);
             savedResponse = answerAudioURL;
           }
           break;
+        }
         case 'movable_object_chain':
         case 'movable_words_sentence':
-        case 'fill_the_blank_question':
+        case 'fill_the_blank_question': {
           containerStyle = 'c-disable-pointer-n-keys'; // turn off mouse actions
           break;
-        default:
+        }
+        default: {
           savedResponse = questRslt.answerIds;
           containerStyle = 'empty';
+        }
       }
     }
 
@@ -110,8 +127,8 @@ export default class UniversalInput extends React.Component {
       case 'edx_multiple_choice':
       case 'multiple_choice_question':
       case 'true_false_question':
-      case 'survey_question':
-        multipleChoiceAnswer = (answer) => {
+      case 'survey_question': {
+        const multipleChoiceAnswer = (answer) => {
           const selectRadio = _.partialRight(props.selectAnswer, true);
           const id = `${item.id}_${answer.id}`;
           return (
@@ -133,7 +150,8 @@ export default class UniversalInput extends React.Component {
           </ul>
         ));
         break;
-      case 'edx_dropdown':
+      }
+      case 'edx_dropdown': {
         answerInputs = item.answers.map(answer => (
           <Option
             isDisabled={props.isResult}
@@ -143,7 +161,8 @@ export default class UniversalInput extends React.Component {
           />
         ));
         break;
-      case 'matching_question':
+      }
+      case 'matching_question': {
         answerInputs = (
           <Matching
             isDisabled={props.isResult}
@@ -152,8 +171,9 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
+      }
       case 'edx_numerical_input':
-      case 'edx_text_input':
+      case 'edx_text_input': {
         answerInputs = item.answers.map(answer => (
           <TextField
             isDisabled={props.isResult}
@@ -163,9 +183,10 @@ export default class UniversalInput extends React.Component {
           />
         ));
         break;
+      }
       case 'text_input_question':
       case 'text_only_question':
-      case 'short_answer_question':
+      case 'short_answer_question': {
         answerInputs = (
           <div className="c-text-answer">
             <textarea
@@ -178,7 +199,8 @@ export default class UniversalInput extends React.Component {
           </div>
         );
         break;
-      case 'numerical_input_question':
+      }
+      case 'numerical_input_question': {
         answerInputs = (
           <div className="c-text-answer">
             <textarea
@@ -191,8 +213,9 @@ export default class UniversalInput extends React.Component {
           </div>
         );
         break;
-      case 'multiple_answers_question':
-        multipleAnswer = (answer) => {
+      }
+      case 'multiple_answers_question': {
+        const multipleAnswer = (answer) => {
           const selectCheckbox = _.partialRight(props.selectAnswer, false);
           const id = `${item.id}_${answer.id}`;
           return (
@@ -213,7 +236,8 @@ export default class UniversalInput extends React.Component {
           </ul>
         ));
         break;
-      case 'edx_image_mapped_input':
+      }
+      case 'edx_image_mapped_input': {
         answerInputs = item.answers.map(answer => (
           <MappedImage
             key={`${item.id}_${answer.id}`}
@@ -221,7 +245,8 @@ export default class UniversalInput extends React.Component {
           />
         ));
         break;
-      case 'edx_drag_and_drop':
+      }
+      case 'edx_drag_and_drop': {
         answerInputs = item.answers.map(answer => (
           <DragAndDrop
             key={`${item.id}_${answer.id}`}
@@ -229,8 +254,9 @@ export default class UniversalInput extends React.Component {
           />
         ));
         break;
-      case 'file_upload_question':
-        selectFileUploadAnswer = _.partialRight(props.selectAnswer, true);
+      }
+      case 'file_upload_question': {
+        const selectFileUploadAnswer = _.partialRight(props.selectAnswer, true);
         answerInputs = (
           <FileUpload
             localizedStrings={this.props.localizedStrings.fileUpload}
@@ -240,13 +266,14 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      case 'audio_upload_question':
-        selectAudioAnswer = _.partialRight(props.selectAnswer, true);
+      }
+      case 'audio_upload_question': {
+        const selectAudioAnswer = _.partialRight(props.selectAnswer, true);
         answerInputs = (
           <AudioUpload
             localizedStrings={this.props.localizedStrings.audioUpload}
             selectAnswer={selectAudioAnswer}
-            timeout={this.props.settings.audio_recorder_timeout}
+            audioTimeout={this.setAudioTimeout()}
             audioRecordStart={this.props.audioRecordStart}
             audioRecordStop={this.props.audioRecordStop}
             isDisabled={props.isResult}
@@ -254,8 +281,9 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      case 'movable_object_chain':
-        selectAnswer = _.partialRight(props.selectAnswer, false);
+      }
+      case 'movable_object_chain': {
+        const selectAnswer = _.partialRight(props.selectAnswer, false);
         answerInputs = (
           <MovableWords
             answers={item.answers}
@@ -267,8 +295,9 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      case 'movable_words_sentence':
-        selectAnswer = _.partialRight(props.selectAnswer, false);
+      }
+      case 'movable_words_sentence': {
+        const selectAnswer = _.partialRight(props.selectAnswer, false);
         answerInputs = (
           <MovableWords
             answers={item.answers}
@@ -279,11 +308,12 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      case 'movable_words_sandbox':
-        selectAnswer = _.partialRight(props.selectAnswer, false);
+      }
+      case 'movable_words_sandbox': {
+        const selectAnswer = _.partialRight(props.selectAnswer, false);
         // Movable words sandbox stores both audio files, and word id's in global
         // state. Grab only the word id's for the word chain.
-        words = props.response.filter(rItem => typeof rItem === 'string');
+        const words = props.response.filter(rItem => typeof rItem === 'string');
         answerInputs = (
           <SentenceSandbox
             answers={item.answers}
@@ -293,14 +323,16 @@ export default class UniversalInput extends React.Component {
             timeout={this.props.settings.audio_recorder_timeout}
             itemClassName="c-word"
             answerBoxClassName="c-word-answers"
+            audioTimeout={this.setAudioTimeout()}
             audioRecordStart={this.props.audioRecordStart}
             audioRecordStop={this.props.audioRecordStop}
             savedResponse={savedResponse || undefined}
           />
         );
         break;
-      case 'fill_the_blank_question':
-        selectAnswer = _.partialRight(props.selectAnswer, false);
+      }
+      case 'fill_the_blank_question': {
+        const selectAnswer = _.partialRight(props.selectAnswer, false);
         answerInputs = (
           <MovableWordsFillTheBlank
             answers={item.answers}
@@ -311,8 +343,9 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      case 'clix_drag_and_drop':
-        selectAnswer = _.partialRight(props.selectAnswer, false);
+      }
+      case 'clix_drag_and_drop': {
+        const selectAnswer = _.partialRight(props.selectAnswer, false);
         answerInputs = (
           <ClixDragAndDrop
             answers={item.answers}
@@ -323,8 +356,10 @@ export default class UniversalInput extends React.Component {
           />
         );
         break;
-      default:
+      }
+      default: {
         answerInputs = undefined;
+      }
     }
 
     return (

@@ -456,6 +456,20 @@ describe('Assessment Questions', () => {
         selectAnswer: () => {},
         questionResult: {},
         isResult: false,
+        assessment: {
+          items: [{
+            json: {
+              timeValue: {
+                hours: 0,
+                minutes: 0,
+                seconds: 5,
+              }
+            }
+          }],
+        },
+        currentItemIndex: 0,
+        audioRecordStart: () => {},
+        audioRecordStop: () => {},
       };
     });
 
