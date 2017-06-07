@@ -456,18 +456,6 @@ describe('Assessment Questions', () => {
         selectAnswer: () => {},
         questionResult: {},
         isResult: false,
-        assessment: {
-          items: [{
-            json: {
-              timeValue: {
-                hours: 0,
-                minutes: 0,
-                seconds: 5,
-              }
-            }
-          }],
-        },
-        currentItemIndex: 0,
         audioRecordStart: () => {},
         audioRecordStop: () => {},
       };
@@ -479,7 +467,7 @@ describe('Assessment Questions', () => {
       result = '';
     });
 
-    it('Enables the file buttons for answering', () => {
+    it('Enables the *save answer* button', () => {
       mountResult(); // to find disabled attr in child
       expect(result.find('button[disabled=true]').exists()).toBe(false);
     });

@@ -9,9 +9,6 @@ export default class Item extends React.Component {
     // Assessment configuration settings. these should never be modified.
     settings          : React.PropTypes.object,
 
-    // Assessment to be rendered
-    assessment          : React.PropTypes.object.isRequired,
-
     // Item to be displayed
     question          : React.PropTypes.object.isRequired,
 
@@ -164,8 +161,6 @@ export default class Item extends React.Component {
         <div className="c-answers">
           <UniversalInput
             settings={this.props.settings}
-            assessment={this.props.assessment}
-            currentItemIndex={this.props.currentItemIndex}
             item={this.props.question}
             isResult={this.disabledCheck()}
             selectAnswer={this.props.selectAnswer}

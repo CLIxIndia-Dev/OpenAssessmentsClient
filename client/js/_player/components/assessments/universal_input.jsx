@@ -25,12 +25,6 @@ export default class UniversalInput extends React.Component {
     // Assessment configuration settings. these should never be modified.
     settings: React.PropTypes.object,
 
-    // Assessment to be rendered
-    assessment          : React.PropTypes.object,
-
-    // The position of the item in the array of items
-    currentItemIndex  : React.PropTypes.number,
-
     // Item to be displayed
     item: React.PropTypes.object.isRequired,
 
@@ -53,20 +47,6 @@ export default class UniversalInput extends React.Component {
     audioRecordStart: React.PropTypes.func,
     audioRecordStop: React.PropTypes.func
   };
-
-  setAudioTimeout() {
-    // find audioTimeout in seconds, use default if no timeout set
-    const currentItemIndex = this.props.currentItemIndex;
-    const audioTimeout = this.props.assessment.items[currentItemIndex].json.timeValue;
-    const { hours, minutes, seconds } = audioTimeout;
-    const audioTimeToSeconds = (hours * 3600) + (minutes * 60) + seconds;
-    const defaultAudioTimeout = this.props.settings.audio_recorder_timeout;
-
-    if (audioTimeout) {
-      return audioTimeToSeconds;
-    }
-    return defaultAudioTimeout;
-  }
 
   wasSelected(id) {
     if (this.props.response) {
@@ -273,7 +253,7 @@ export default class UniversalInput extends React.Component {
           <AudioUpload
             localizedStrings={this.props.localizedStrings.audioUpload}
             selectAnswer={selectAudioAnswer}
-            audioTimeout={this.setAudioTimeout()}
+            audioTimeout={props.item.audioTimeout || props.settings.audio_recorder_timeout}
             audioRecordStart={this.props.audioRecordStart}
             audioRecordStop={this.props.audioRecordStop}
             isDisabled={props.isResult}
@@ -320,10 +300,9 @@ export default class UniversalInput extends React.Component {
             selectAnswer={selectAnswer}
             wordChain={words}
             localizedStrings={this.props.localizedStrings.audioUpload}
-            timeout={this.props.settings.audio_recorder_timeout}
             itemClassName="c-word"
             answerBoxClassName="c-word-answers"
-            audioTimeout={this.setAudioTimeout()}
+            audioTimeout={props.item.audioTimeout || props.settings.audio_recorder_timeout}
             audioRecordStart={this.props.audioRecordStart}
             audioRecordStop={this.props.audioRecordStop}
             savedResponse={savedResponse || undefined}
