@@ -1,5 +1,5 @@
 import Request from 'superagent';
-import SuperagentMock from 'superagent-mock';
+import superagentMock from 'superagent-mock';
 
 import Config from './superagent-qbank-mock-config';
 
@@ -13,7 +13,7 @@ const logger = function(log) {
   mockedCall = log;
 };
 
-const superagentMock = SuperagentMock(Request, Config, logger);
+const mock = superagentMock(Request, Config, logger);
 
 const apiUrl = 'https://www.example.com';
 const store = Helper.mockStore({
@@ -26,7 +26,7 @@ const store = Helper.mockStore({
 
 describe('qbank middleware', () => {
   afterAll(() => {
-    superagentMock.unset();
+    mock.unset();
   });
 
   it('creates an assessment offered for N of M if none passed in', () => {
