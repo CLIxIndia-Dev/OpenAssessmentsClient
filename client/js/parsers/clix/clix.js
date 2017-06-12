@@ -1,5 +1,4 @@
 import _ from 'lodash';
-
 import { transformItem as transformQti2 }  from '../qti2/qti';
 
 export function transformDragAndDrop(question) {
@@ -30,7 +29,6 @@ export function transformItem(item) {
     case 'question-type%3Aqti-order-interaction-mw-sandbox%40ODL.MIT.EDU':
     case 'question-type%3Aqti-upload-interaction-audio%40ODL.MIT.EDU': {
       const qti = transformQti2(item.xml);
-      console.log(JSON.stringify(qti, null, 2));
       let questionType = item.question_type;
       let audioTimeinSecs = null;
       const mapGenusType = {
