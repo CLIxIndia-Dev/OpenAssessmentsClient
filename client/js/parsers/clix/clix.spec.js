@@ -12,8 +12,8 @@ describe('transformItem', () => {
         json: {
           genusTypeId: 'question-type%3Aqti-upload-interaction-audio%40ODL.MIT.EDU',
           timeValue: {
-            hours: 0,
-            minutes: 0,
+            hours: 1,
+            minutes: 1,
             seconds: 3,
           },
         },
@@ -24,10 +24,17 @@ describe('transformItem', () => {
         json: {
           genusTypeId: 'question-type%3Aqti-order-interaction-mw-sandbox%40ODL.MIT.EDU',
           timeValue: {
-            hours: 0,
-            minutes: 0,
+            hours: 1,
+            minutes: 1,
             seconds: 5,
           },
+        },
+        title: '',
+        xml: '',
+      },
+      {
+        json: {
+          genusTypeId: 'question-type%3Aqti-upload-interaction-audio%40ODL.MIT.EDU',
         },
         title: '',
         xml: '',
@@ -42,7 +49,7 @@ describe('transformItem', () => {
     item = state.assessment.items[0];
     item.xml = $($.parseXML(data));
     result = transformItem(item);
-    expect(result.audioTimeout).toEqual(3);
+    expect(result.audioTimeout).toEqual(3663);
   });
 
   it('transforms MW Sandbox question with timeValue into allQuestions state', () => {
@@ -50,6 +57,14 @@ describe('transformItem', () => {
     item = state.assessment.items[1];
     item.xml = $($.parseXML(data));
     result = transformItem(item);
-    expect(result.audioTimeout).toEqual(5);
+    expect(result.audioTimeout).toEqual(3665);
+  });
+
+  it('transforms ART question with timeValue of null into allQuestions state', () => {
+    data = readFixture('clix/audio-upload.xml');
+    item = state.assessment.items[2];
+    item.xml = $($.parseXML(data));
+    result = transformItem(item);
+    expect(result.audioTimeout).toEqual(null);
   });
 });
