@@ -10,7 +10,7 @@ describe('question component', () => {
   let props;
   let result;
   let movedUp;
-  let itemUpdated
+  let itemUpdated;
   let iframe;
   let div;
 
