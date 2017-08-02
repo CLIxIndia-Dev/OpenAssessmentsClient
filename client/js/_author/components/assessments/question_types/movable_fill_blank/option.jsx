@@ -78,6 +78,6 @@ multipleChoiceOptions.propTypes = {
   language: React.PropTypes.string,
   wordType: React.PropTypes.string,
   strings: React.PropTypes.shape({
-    newOption: React.PropTypes.string
+    newOption: React.PropTypes.string.isRequired
   }).isRequired,
 };
