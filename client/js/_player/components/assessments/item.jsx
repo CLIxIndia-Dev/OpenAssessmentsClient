@@ -40,6 +40,8 @@ export default class Item extends React.Component {
     audioPause        : React.PropTypes.func.isRequired,
     audioRecordStart  : React.PropTypes.func.isRequired,
     audioRecordStop   : React.PropTypes.func.isRequired,
+
+    sendSize          : React.PropTypes.func
   }
 
   componentDidMount() {
@@ -51,7 +53,7 @@ export default class Item extends React.Component {
     if (!_.isFunction(videojs)) { return; }
     // Look for videos that should be using videojs.
     const videoJSElements = document.querySelectorAll('video.video-js');
-    _.each(videoJSElements,(element) => videojs(element));
+    _.each(videoJSElements, element => videojs(element));
 
     const material = document.getElementsByClassName('c-question')[0];
     if (material !== undefined) {
@@ -146,7 +148,7 @@ export default class Item extends React.Component {
       }
     }
     return (
-      <div>
+      <div aria-live="polite">
         {answerFeedback}
       </div>
     );

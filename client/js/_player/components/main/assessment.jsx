@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React        from 'react';
 import { connect }  from 'react-redux';
 import { Helmet } from 'react-helmet';
+=======
+import React           from 'react';
+import { connect }     from 'react-redux';
+import { LiveMessage } from 'react-aria-live';
+>>>>>>> initial test
 
 import * as AssessmentProgress    from '../../actions/assessment_progress';
 import * as CommunicationActions  from '../../actions/communications';
@@ -392,11 +398,12 @@ export class Assessment extends React.Component {
         <Helmet>
           <html lang={this.props.localizedStrings.getLanguage()} />
         </Helmet>
-        <div className="c-header">
+        <LiveMessage aria-live="polite" message={`Question ${counter} loaded`} />
+        <header className="c-header">
           {this.renderRemainingStatus()}
-          <div className="c-header__title">{titleText}</div>
-          <div className="c-header__question-number">{counter}</div>
-        </div>
+          <h1 className="c-header__title">{titleText}</h1>
+          <h2 className="c-header__question-number">{counter}</h2>
+        </header>
         {warning}
         {content}
         {nav}
