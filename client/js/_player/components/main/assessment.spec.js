@@ -2,6 +2,8 @@ import React                   from 'react';
 import TestUtils               from 'react-dom/test-utils';
 import ReactDOM                from 'react-dom';
 import { Provider }            from 'react-redux';
+import { shallow }             from 'enzyme';
+import { LiveAnnouncer }       from 'react-aria-live';
 
 import appHistory              from '../../history';
 import localizeStrings         from '../../selectors/localize';
@@ -117,7 +119,9 @@ function reset(){
 
   result = TestUtils.renderIntoDocument(
     <Provider store={configureStore({settings})}>
-      <Assessment {...props} />
+      <LiveAnnouncer>
+        <Assessment {...props} />
+      </LiveAnnouncer>
     </Provider>
   );
   subject = ReactDOM.findDOMNode(result);
@@ -151,11 +155,60 @@ describe("assessment", function() {
     props.assessmentProgress.assessmentResult = "done";
     result = TestUtils.renderIntoDocument(
       <Provider store={configureStore({settings})}>
-        <Assessment {...props} />
+        <LiveAnnouncer>
+          <Assessment {...props} />
+        </LiveAnnouncer>
       </Provider>
     );
     subject = ReactDOM.findDOMNode(result);
 
     expect(appHistory.push).toHaveBeenCalledWith("assessment-result");
+  });
+
+  it('Correctly appends a non-breaking space to a repeated message', () => {
+    // Here we just test the component state, since the
+    //   actual LiveAnnouncer area is outside of the component.
+    props.assessmentLoaded = false;
+    props.currentItem = 0;
+    result = shallow(<Assessment {...props} />, {
+      context: {
+        announcePolite: () => ''
+      }
+    });
+
+    result.setProps({
+      assessmentLoaded: true
+    });
+
+    expect(result.state('ariaMessage')).toEqual('Question 1 of 10 loaded');
+    expect(result.state('previousMessages')).toEqual(['Question 1 of 10 loaded', '']);
+
+    result.setProps({
+      currentItem: 1
+    });
+
+    expect(result.state('ariaMessage')).toEqual('Question 2 of 10 loaded');
+    expect(result.state('previousMessages')).toEqual(['Question 2 of 10 loaded', 'Question 1 of 10 loaded']);
+
+    result.setProps({
+      currentItem: 0
+    });
+
+    expect(result.state('ariaMessage')).toEqual('Question 1 of 10 loaded\u00A0');
+    expect(result.state('previousMessages')).toEqual(['Question 1 of 10 loaded\u00A0', 'Question 2 of 10 loaded']);
+
+    result.setProps({
+      currentItem: 1
+    });
+
+    expect(result.state('ariaMessage')).toEqual('Question 2 of 10 loaded\u00A0');
+    expect(result.state('previousMessages')).toEqual(['Question 2 of 10 loaded\u00A0', 'Question 1 of 10 loaded\u00A0']);
+
+    result.setProps({
+      currentItem: 0
+    });
+
+    expect(result.state('ariaMessage')).toEqual('Question 1 of 10 loaded');
+    expect(result.state('previousMessages')).toEqual(['Question 1 of 10 loaded', 'Question 2 of 10 loaded\u00A0']);
   });
 });

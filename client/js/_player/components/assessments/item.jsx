@@ -148,7 +148,7 @@ export default class Item extends React.Component {
       }
     }
     return (
-      <div aria-live="polite">
+      <div>
         {answerFeedback}
       </div>
     );
