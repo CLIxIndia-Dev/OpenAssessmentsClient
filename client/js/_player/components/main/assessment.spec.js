@@ -165,50 +165,14 @@ describe("assessment", function() {
     expect(appHistory.push).toHaveBeenCalledWith("assessment-result");
   });
 
-  it('Correctly appends a non-breaking space to a repeated message', () => {
-    // Here we just test the component state, since the
-    //   actual LiveAnnouncer area is outside of the component.
-    props.assessmentLoaded = false;
-    props.currentItem = 0;
-    result = shallow(<Assessment {...props} />, {
-      context: {
-        announcePolite: () => ''
-      }
-    });
+  it('adds a tabIndex to the wrapping div, to make it focusable', () => {
+    const wrapper = TestUtils.findRenderedDOMComponentWithClass(result, 'o-assessment-container');
+    expect(wrapper.tabIndex).toEqual(-1);
+  });
 
-    result.setProps({
-      assessmentLoaded: true
-    });
-
-    expect(result.state('ariaMessage')).toEqual('Question 1 of 10 loaded');
-    expect(result.state('previousMessages')).toEqual(['Question 1 of 10 loaded', '']);
-
-    result.setProps({
-      currentItem: 1
-    });
-
-    expect(result.state('ariaMessage')).toEqual('Question 2 of 10 loaded');
-    expect(result.state('previousMessages')).toEqual(['Question 2 of 10 loaded', 'Question 1 of 10 loaded']);
-
-    result.setProps({
-      currentItem: 0
-    });
-
-    expect(result.state('ariaMessage')).toEqual('Question 1 of 10 loaded\u00A0');
-    expect(result.state('previousMessages')).toEqual(['Question 1 of 10 loaded\u00A0', 'Question 2 of 10 loaded']);
-
-    result.setProps({
-      currentItem: 1
-    });
-
-    expect(result.state('ariaMessage')).toEqual('Question 2 of 10 loaded\u00A0');
-    expect(result.state('previousMessages')).toEqual(['Question 2 of 10 loaded\u00A0', 'Question 1 of 10 loaded\u00A0']);
-
-    result.setProps({
-      currentItem: 0
-    });
-
-    expect(result.state('ariaMessage')).toEqual('Question 1 of 10 loaded');
-    expect(result.state('previousMessages')).toEqual(['Question 1 of 10 loaded', 'Question 2 of 10 loaded\u00A0']);
+  it('sets aria attributes on the question counter heading', () => {
+    const counter = TestUtils.findRenderedDOMComponentWithClass(result, 'c-header__question-number');
+    expect(counter.getAttribute('aria-live')).toEqual('polite');
+    expect(counter.getAttribute('aria-atomic')).toEqual('true');
   });
 });

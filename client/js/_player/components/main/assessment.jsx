@@ -2,7 +2,6 @@ import _               from 'lodash';
 import React           from 'react';
 import { connect }     from 'react-redux';
 import { Helmet }      from 'react-helmet';
-import { LiveMessage } from 'react-aria-live';
 
 import * as AssessmentProgress    from '../../actions/assessment_progress';
 import * as CommunicationActions  from '../../actions/communications';
@@ -141,16 +140,6 @@ export class Assessment extends React.Component {
     // return true;
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      ariaMessage: '',
-      previousMessages: ['', '']
-      // need to add previousMessages for this bug in Safari / VoiceOver
-      //  https://core.trac.wordpress.org/ticket/36853
-    };
-  }
-
   componentWillMount() {
     if (this.props.assessmentProgress.assessmentResult != null) {
       appHistory.push('assessment-result');
@@ -171,7 +160,7 @@ export class Assessment extends React.Component {
       this.props.assessmentLoaded !==
       nextProps.assessmentLoaded
     ) {
-      this.updateAriaMessage(nextProps);
+      this.wrapper.focus();
     }
   }
 
@@ -376,46 +365,6 @@ export class Assessment extends React.Component {
     return <div className="c-header__remaining">{text}</div>;
   }
 
-  updateAriaMessage = (propsArg) => {
-    const props = propsArg || this.props;
-    if (!props.assessmentLoaded) return;
-
-    // Here we add a no-break space so Safari / VoiceOver doesn't think this is
-    //   the same message. This is a known VoiceOver bug.
-    // https://core.trac.wordpress.org/ticket/36853
-    // The problem we run into is that when toggling between
-    //   the questions with Next / Previous buttons, the messages
-    //   alternate between two different `aria-live` containers in the DOM.
-    //   (which is how LiveAnnouncer works). When you change directions,
-    //   i.e. go from Question 2 -> Question 1 -> Question 2,
-    //   the same message appears in the same `aria-live` container.
-    //   ("Question 2 of 5 loaded" will appear in the same `div`, while
-    //    "Question 1 of 5 loaded" appears in the other `div`).
-    //   VoiceOver does not announce the second "Question 2" as a
-    //   new message, so we add a non-breaking space to change the message,
-    //   which VoiceOver will then read.
-    let message = `${this.getCounter(propsArg)} loaded`;
-    const previousMessages = _.assign([], this.state.previousMessages);
-
-    // need to compare two messages back, to make sure we're
-    //   covering the corner case. i.e.
-    //   Question 2 -> Question 1 -> Question 2
-    if (message === this.state.previousMessages[1]) {
-      message += '\u00A0';
-    }
-
-    // set the new message as the top of the previousMessages stack
-    previousMessages.splice(0, 0, message);
-    // pop the last message off the stack. We only need to keep 2
-    //   previousMessages
-    previousMessages.splice(2, 1);
-
-    this.setState({
-      ariaMessage: message,
-      previousMessages
-    });
-  }
-
   render() {
     // only show the alert window if they've attempted a question in Summative
     const hasAttempted = this.props.assessmentProgress.checkedResponses ?
@@ -453,20 +402,23 @@ export class Assessment extends React.Component {
     }
     return (
       <div
-        ref={(wrapper) => { this.wrapper = wrapper; }}
-        tabIndex={-1}
         className="o-assessment-container"
         lang={this.props.settings.locale}
         dir={this.props.localizedStrings.dir}
+        ref={(wrapper) => { this.wrapper = wrapper; }}
+        tabIndex={-1}
       >
         <Helmet>
           <html lang={this.props.localizedStrings.getLanguage()} />
         </Helmet>
-        <LiveMessage aria-live="polite" message={this.state.ariaMessage} />
         <header className="c-header">
           {this.renderRemainingStatus()}
           <h1 className="c-header__title">{titleText}</h1>
-          <h2 className="c-header__question-number">{counter}</h2>
+          <h2
+            className="c-header__question-number"
+            aria-live="polite"
+            aria-atomic
+          >{counter}</h2>
         </header>
         {warning}
         {content}
