@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 
 import Button                      from '../common/button';
@@ -57,28 +55,30 @@ export default class TwoButtonNav extends React.Component {
         return <NextButton/>;
 
       case PRIMARY_ACTION.CHECK_ANSWERS:
-        return <CheckButton/>;
+        return <CheckButton />;
 
       case PRIMARY_ACTION.SUBMIT:
-        return <Button buttonClass='c-btn c-btn--finish'
-                       buttonText={props.localizedStrings.submitButton}
-                       onClick={props.submitAssessment}/>;
+        return (<Button
+          buttonClass="c-btn c-btn--finish"
+          buttonText={props.localizedStrings.submitButton}
+          onClick={props.submitAssessment}
+        />);
     }
   }
 
   secondaryButton(props) {
-    if(props.secondaryAction.buttonState === SECONDARY_ACTION.PREV) {
-      return <PrevButton/>;
+    if (props.secondaryAction.buttonState === SECONDARY_ACTION.PREV) {
+      return <PrevButton />;
     }
   }
 
   render() {
     return (
-      <div className='c-assessment-navigation'>
-        <div className='c-button-slot'>
+      <div className="c-assessment-navigation">
+        <div className="c-button-slot">
           {this.secondaryButton(this.props)}
         </div>
-        <div className='c-button-slot'>
+        <div className="c-button-slot">
           {this.primaryButton(this.props)}
         </div>
       </div>
