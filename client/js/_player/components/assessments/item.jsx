@@ -200,16 +200,14 @@ export default class Item extends React.Component {
       feedback => questionResult.feedback.indexOf(feedback) >= 0));
   }
 
-  submittedResponse = (currentProps, nextProps) => {
+  submittedResponse = (currentProps, nextProps) =>
     // Detect change in state if user submitted a response
-    return currentProps.numQuestionsChecking > 0 && nextProps.numQuestionsChecking === 0;
-  }
+    currentProps.numQuestionsChecking > 0 && nextProps.numQuestionsChecking === 0
 
-  submittedNullResponse = (currentProps, nextProps) => {
+  submittedNullResponse = (currentProps, nextProps) =>
     // Detect first time user tries to submit no response -- clicks
     //   "Check Answer" button without selecting an answer.
-    return _.isEmpty(currentProps.questionResult) && !_.isEmpty(nextProps.questionResult);
-  }
+    _.isEmpty(currentProps.questionResult) && !_.isEmpty(nextProps.questionResult)
 
   disabledCheck() {
     const questRslt = this.props.questionResult;

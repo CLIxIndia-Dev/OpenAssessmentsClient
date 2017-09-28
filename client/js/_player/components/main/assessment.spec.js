@@ -2,7 +2,6 @@ import React                   from 'react';
 import TestUtils               from 'react-dom/test-utils';
 import ReactDOM                from 'react-dom';
 import { Provider }            from 'react-redux';
-import { shallow }             from 'enzyme';
 import { LiveAnnouncer }       from 'react-aria-live';
 
 import appHistory              from '../../history';
