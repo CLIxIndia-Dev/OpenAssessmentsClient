@@ -381,7 +381,7 @@ export class Assessment extends React.Component {
     if (!props.assessmentLoaded) return;
 
     // Here we add a no-break space so Safari / VoiceOver doesn't think this is
-    //   the same message
+    //   the same message. This is a known VoiceOver bug.
     // https://core.trac.wordpress.org/ticket/36853
     // The problem we run into is that when toggling between
     //   the questions with Next / Previous buttons, the messages
@@ -391,8 +391,8 @@ export class Assessment extends React.Component {
     //   the same message appears in the same `aria-live` container.
     //   ("Question 2 of 5 loaded" will appear in the same `div`, while
     //    "Question 1 of 5 loaded" appears in the other `div`).
-    //   VoiceOver does not announce this as a new message, so
-    //   adding the non-breaking space changes the message,
+    //   VoiceOver does not announce the second "Question 2" as a
+    //   new message, so we add a non-breaking space to change the message,
     //   which VoiceOver will then read.
     let message = `${this.getCounter(propsArg)} loaded`;
     const previousMessages = _.assign([], this.state.previousMessages);
