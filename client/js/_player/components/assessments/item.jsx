@@ -5,15 +5,14 @@ import UniversalInput          from './universal_input';
 
 
 // TODO:
-//   1) Need to handle the case for no response selected,
-//      and make sure it doesn't re-read "Please select an answer"
-//      when navigating between questions.
-//      * IDEA: Set a prop in assessment.jsx, for "navigated"?
-//              Can we already do this? So if navigating to this Item, do not
-//              set the focus on the feedback element?
-//   2) Need to handle the case for repeated feedbacks, whether
-//      it's the same feedback on all wrong answers, or the student
-//      picks the same wrong answer multiple times (i.e. A -> B -> A).
+//   1) Think about how to handle the case for when the student
+//      submits "no answer" multiple times (i.e. A -> B -> A).
+//      Should we shift focus to the feedback element each time?
+//      (Currently we handle just the first case).
+//      It's not clear that handling this is actually possible, but is
+//      something we should think about. Because when someone clicks
+//      "Check Answer" multiple times, the component actually doesn't
+//      change, so it's not re-rendered...
 
 export default class Item extends React.Component {
 
@@ -53,6 +52,7 @@ export default class Item extends React.Component {
     audioRecordStart  : React.PropTypes.func.isRequired,
     audioRecordStop   : React.PropTypes.func.isRequired,
 
+    // Handle media elements that might change the size of the DOM
     sendSize          : React.PropTypes.func
   }
 
