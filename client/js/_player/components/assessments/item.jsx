@@ -224,7 +224,7 @@ export default class Item extends React.Component {
         <section className="c-question-prompt" aria-label="question">
           <div dangerouslySetInnerHTML={{ __html: this.props.question.material }} />
         </section>
-        <section className="c-answers" aria-label="response region">
+        <section className="c-answers" aria-label="response">
           <UniversalInput
             settings={this.props.settings}
             item={this.props.question}
