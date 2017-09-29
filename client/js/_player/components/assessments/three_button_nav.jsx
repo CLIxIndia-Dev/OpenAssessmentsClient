@@ -16,7 +16,7 @@ export default class ThreeButtonNav extends React.Component {
 
   render() {
     return (
-      <nav className="c-assessment-navigation" aria-label="question nav">
+      <nav className="c-assessment-navigation" aria-label="question">
         <div className="c-button-slot">
           <PrevButton/>
         </div>
