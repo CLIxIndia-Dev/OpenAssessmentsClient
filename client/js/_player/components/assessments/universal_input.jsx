@@ -127,7 +127,7 @@ export default class UniversalInput extends React.Component {
         answerInputs = (
           <fieldset>
             <legend
-              className="sr-only"
+              className="visuallyhidden"
               dangerouslySetInnerHTML={{ __html: props.item.material }}
             />
             {_.chunk(item.answers, 2).map(row => (
@@ -221,7 +221,7 @@ export default class UniversalInput extends React.Component {
         answerInputs = (
           <fieldset>
             <legend
-              className="sr-only"
+              className="visuallyhidden"
               dangerouslySetInnerHTML={{ __html: props.item.material }}
             />
             {_.chunk(item.answers, 2).map(row => (

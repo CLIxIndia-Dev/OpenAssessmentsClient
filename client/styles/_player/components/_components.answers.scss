@@ -1,5 +1,9 @@
 .c-answers{
   padding: 0 3rem;
+
+  fieldset{
+    border: none;
+  }
 }
 
 .o-grid{
@@ -335,14 +339,4 @@
 
 .c-disable-pointer-n-keys {
   pointer-events: none;
-}
-
-.c-answers fieldset {
-  border: none;
-}
-
-.sr-only {
-  position: absolute;
-  display: block;
-  left: -600000px;
 }
