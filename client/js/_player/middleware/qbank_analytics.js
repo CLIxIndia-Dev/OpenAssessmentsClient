@@ -111,12 +111,12 @@ function getAnswerSelectedData(store, action) {
           targetZone  : action.answerData.id,
           answerData  : action.answerData
         }
-      }
+      };
       // removed a draggable from the zone
       return {
         action        : 'cleared zone',
         targetZone    : action.answerData.id
-      }
+      };
 
     default:
       break;
