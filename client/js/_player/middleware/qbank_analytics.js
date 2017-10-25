@@ -110,8 +110,8 @@ function getAnswerSelectedData(store, action) {
           action      : 'dropped draggable onto zone',
           targetZone  : action.answerData.id,
           answerData  : action.answerData
-        }
-      };
+        };
+      }
       // removed a draggable from the zone
       return {
         action        : 'cleared zone',
