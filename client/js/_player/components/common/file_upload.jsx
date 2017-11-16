@@ -20,8 +20,7 @@ export default class FileUpload extends React.Component {
   constructor() {
     super();
     this.state = {
-      uplFile: '',
-      inputFocused: false
+      uplFile: ''
     };
   }
 

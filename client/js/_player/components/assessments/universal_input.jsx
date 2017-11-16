@@ -51,8 +51,7 @@ export default class UniversalInput extends React.Component {
   constructor() {
     super();
     this.state = {
-      focusedItem: null,
-      selectedRadio: null
+      focusedItem: null
     };
   }
 

@@ -8,7 +8,10 @@ export default class CheckBox extends React.Component {
     isHtml: React.PropTypes.bool,
     selectAnswer: React.PropTypes.func.isRequired,
     isDisabled: React.PropTypes.bool,
-    checked: React.PropTypes.bool
+    checked: React.PropTypes.bool,
+    name: React.PropTypes.string.isRequired,
+    focused: React.PropTypes.bool,
+    onFocus: React.PropTypes.func.isRequired
   }
 
   selectAnswer() {
@@ -32,22 +35,23 @@ export default class CheckBox extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    const { id, name, isDisabled, isHtml, checked, focused, onFocus } = props;
+    const {
+      id, name, isDisabled, isHtml, checked, focused, onFocus
+    } = this.props;
 
     return (
       <div className="o-grid">
         <label
           htmlFor={id}
           key={id}
-          className={isDisabled  // eslint-disable-line no-nested-ternary
+          className={isDisabled // eslint-disable-line no-nested-ternary
           ? 'c-answer-container--disabled'
           : (focused && !isDisabled // eslint-disable-line no-nested-ternary
           ? 'c-answer-container is-focused' : (((checked && !isDisabled)
           ? 'c-answer-container is-checked'
           : 'c-answer-container')))
           }
-          onClick={() => this.selectAnswer()}
+          onKeyDown={(e) => { if (e.keyCode === 32) { this.selectAnswer(); } }}
         >
           <div className="c-answer-container__radio">
             <div

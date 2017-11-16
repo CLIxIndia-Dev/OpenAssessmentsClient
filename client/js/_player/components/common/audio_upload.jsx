@@ -88,7 +88,7 @@ class AudioUpload extends React.Component {
       buttonText = this.props.localizedStrings.record;
       audioEl = (
         <div className="c-audio-bar">
-          <audio src={this.props.savedResponse || this.state.audioURL} type="audio/wav" controls />
+          <audio src={this.props.savedResponse || this.state.audioURL} type="audio/wav" controls /> {/* eslint-disable jsx-a11y/media-has-caption */}
         </div> // show audio element
       );
     }

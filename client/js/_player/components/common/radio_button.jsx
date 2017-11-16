@@ -3,16 +3,15 @@ import React                             from 'react';
 export default class RadioButton extends React.Component {
 
   static propTypes = {
-    // Item being displayed
     item: React.PropTypes.object.isRequired,
-
-    // Unique html element id
     id: React.PropTypes.string.isRequired,
-
+    isHtml: React.PropTypes.bool,
     selectAnswer: React.PropTypes.func.isRequired,
-
-    // Whether or not input should be disabled
     isDisabled: React.PropTypes.bool,
+    checked: React.PropTypes.bool,
+    name: React.PropTypes.string.isRequired,
+    focused: React.PropTypes.bool,
+    onFocus: React.PropTypes.func.isRequired
   }
 
   selectAnswer() {
@@ -38,15 +37,16 @@ export default class RadioButton extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    const { id, name, isDisabled, isHtml, checked, focused, onFocus } = props;
+    const {
+      id, item, name, isDisabled, isHtml, checked, focused, onFocus
+    } = this.props;
 
     return (
       <div className="o-grid">
         <label
           htmlFor={id}
           key={id}
-          className={isDisabled  // eslint-disable-line no-nested-ternary
+          className={isDisabled // eslint-disable-line no-nested-ternary
           ? 'c-answer-container--disabled'
           : ((focused && !isDisabled) || (checked && !isDisabled)
           ? 'c-answer-container is-focused'
@@ -82,7 +82,7 @@ export default class RadioButton extends React.Component {
             </div>
           </div>
           <div className="c-answer-container__content">
-            {this.renderMaterial(props.item.material, isHtml)}
+            {this.renderMaterial(item.material, isHtml)}
           </div>
         </label>
       </div>
