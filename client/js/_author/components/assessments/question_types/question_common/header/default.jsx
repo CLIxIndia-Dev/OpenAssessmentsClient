@@ -97,5 +97,5 @@ DefaultHeader.propTypes = {
   toggleReorder: React.PropTypes.func,
   isRemoving: React.PropTypes.bool,
   togglePreview: React.PropTypes.func,
-  type: React.PropTypes.string
+  type: React.PropTypes.string,
 };

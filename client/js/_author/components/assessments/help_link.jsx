@@ -32,7 +32,7 @@ function helpLink(props) {
 
 helpLink.propTypes = {
   to: React.PropTypes.string.isRequired,
-  icon: React.PropTypes.bool
+  icon: React.PropTypes.bool,
 };
 
 export default helpLink;
