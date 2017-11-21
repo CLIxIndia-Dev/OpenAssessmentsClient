@@ -1,0 +1,29 @@
+body {
+  margin: 2rem;
+}
+
+img[src$='.svg?sanitize=true'] {
+  width: 24px;
+}
+
+img[src$='.png'] {
+  max-width: 50vw;
+}
+
+.image-container {
+  text-align: center;
+}
+
+#table-of-contents {
+  float: right;
+  background: lightgray;
+  border-radius: 5px;
+  padding: 1rem 2rem 1rem 1rem;
+  position: sticky;
+  top: 1rem;
+  max-width: 20%;
+}
+
+.content {
+  padding-right: 25%;
+}
