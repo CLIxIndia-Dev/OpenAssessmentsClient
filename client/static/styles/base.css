@@ -22,6 +22,8 @@ img[src$='.png'] {
   position: sticky;
   top: 1rem;
   max-width: 20%;
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 .content {
