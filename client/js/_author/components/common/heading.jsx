@@ -28,7 +28,7 @@ export default function heading(props) {
         <img src={logo} alt="CLI Logo" className="au-c-logo" />
         <HelpLink
           icon
-          to="/Getting-Started-as-an-Author.html"
+          to="/Help.html#getting-started-as-an-author"
         />
       </div>
       {content()}
