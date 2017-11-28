@@ -57,7 +57,7 @@ function serializeAnswers(originalChoices, newChoiceAttributes, language) {
     if (_.get(choice, 'isCorrect')) { correctId = key; }
   });
 
-  const serializedAnswers = _(newChoiceAttributes)
+  const serializedAnswers = _(originalChoices)
   .entries()
   .filter(choice =>
     choice[1].id !== 'new' &&
