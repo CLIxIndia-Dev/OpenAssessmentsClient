@@ -63,20 +63,20 @@ function serializeAnswers(originalChoices, newChoiceAttributes, language) {
     (!_.isUndefined(choice[1].feedback) || !_.isUndefined(choice[1].isCorrect))
   )
   .map((choice) => {
-    const originalChoiceId = choice[0];
-    const original = choice[1];
-    const newChoice = newChoiceAttributes[originalChoiceId];
-    const text = newChoice
-      ? newChoice.feedback
-      : findLanguageText(original.feedbacks, language);
+      const originalChoiceId = choice[0];
+      const original = choice[1];
+      const newChoice = newChoiceAttributes[originalChoiceId];
+      const text = newChoice
+        ? newChoice.feedback
+        : findLanguageText(original.feedbacks, language);
     return scrub({
       id: original.answerId,
       genusTypeId: correctAnswer(correctId, original.id, original.isCorrect),
       feedback: languageText(text, language),
       type: genusTypes.answer.multipleChoice,
       choiceIds: [original.id],
-      fileIds: newChoice ? newChoice.fileIds : null,
-      delete: newChoice ? newChoice.delete : null
+        fileIds: newChoice ? newChoice.fileIds : null,
+        delete: newChoice ? newChoice.delete : null
     });
   })
   .value();
