@@ -120,7 +120,6 @@ export default class ItemChain extends React.Component {
       let startBlock = (
         <div
           className={startBlockClassName}
-          aria-hidden
         />);
 
       if(this.props.noStartBlock) {
