@@ -49,11 +49,14 @@ export default {
     audioUpload: {
       record: "రికార్డు చేయండి",
       stop: "ఆపండిు",
-      recordTime: "Recording time"
+      recordTime: "రికార్డింగ్ సమయం"
     },
     fileUpload: {
       chooseFile: "అప్లోడ్ కై ఫైల్ ని ఎంచండి",
-      noFile: "No file chosen"
+      noFile: "ఫైల్ ఎంపిక చెయ్యలేదు"
+    },
+    textArea: {
+      placeholder: "ఇక్కడ జవాబు ఇవ్వండి ..."
     },
     middleware: {
       // Text displayed when a user tries to check an answer without

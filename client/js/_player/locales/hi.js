@@ -49,11 +49,14 @@ export default {
     audioUpload: {
       record: "दर्ज करें",
       stop: "रुकिए",
-      recordTime: "Recording time"
+      recordTime: "रिकॉर्डिंग समय"
     },
     fileUpload: {
       chooseFile: "अपलोड करने के लिए एक फाइल चुनें",
-      noFile: "No file chosen"
+      noFile: "कोई फ़ाइल नहीं चुनी गई"
+    },
+    textArea: {
+      placeholder: "यहां उत्तर दर्ज करें ..."
     },
     middleware: {
       // Text displayed when a user tries to check an answer without

@@ -51,6 +51,9 @@ export default {
       chooseFile: "Choose a File to Upload",
       noFile: "No file chosen"
     },
+    shortAnswer: {
+      textArea: "Enter answer here..."
+    },
     middleware: {
       // Text displayed when a user tries to check an answer without
       // selecting one first (Applies to questions that presents discrete number
