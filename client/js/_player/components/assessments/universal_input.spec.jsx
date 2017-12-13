@@ -3,6 +3,7 @@ import ReactDOM                  from 'react-dom';
 import TestUtils                 from 'react-dom/test-utils';
 import { mount, shallow }        from 'enzyme';
 import UniversalInput            from './universal_input';
+import CheckBox                  from '../common/checkbox';
 
 describe('Assessment Questions', () => {
 
@@ -362,7 +363,7 @@ describe('Assessment Questions', () => {
           selectAnswer={selectAnswer}
         />
       );
-      result = TestUtils.renderIntoDocument(Content);
+      result = mount(Content);
     });
 
     afterEach(() => {
@@ -372,7 +373,7 @@ describe('Assessment Questions', () => {
     });
 
     it('Renders the checkboxes', () => {
-      expect(TestUtils.scryRenderedComponentsWithType(result, 'checkbox')).toBeDefined();
+      expect(result.find(CheckBox).length).toEqual(2);
     });
 
     it('Renders the a11y components', () => {
@@ -381,8 +382,8 @@ describe('Assessment Questions', () => {
     });
 
     it('Checkbox text is rendered', () => {
-      expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[0].material);
-      expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[1].material);
+      expect(result.find(CheckBox).first().html()).toContain(item.answers[0].material);
+      expect(result.find(CheckBox).last().html()).toContain(item.answers[1].material);
     });
   });
 
@@ -410,7 +411,7 @@ describe('Assessment Questions', () => {
           selectAnswer={selectAnswer}
         />
       );
-      result = TestUtils.renderIntoDocument(Content);
+      result = mount(Content);
     });
 
     afterEach(() => {
@@ -420,7 +421,7 @@ describe('Assessment Questions', () => {
     });
 
     it('Renders the checkboxes', () => {
-      expect(TestUtils.scryRenderedComponentsWithType(result, 'checkbox')).toBeDefined();
+      expect(result.find(CheckBox).length).toEqual(2);
     });
 
     it('Renders the a11y components', () => {
@@ -429,8 +430,8 @@ describe('Assessment Questions', () => {
     });
 
     it('Checkbox text is rendered', () => {
-      expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[0].material);
-      expect(ReactDOM.findDOMNode(result).textContent).toContain(item.answers[1].material);
+      expect(result.find(CheckBox).first().html()).toContain(item.answers[0].material);
+      expect(result.find(CheckBox).last().html()).toContain(item.answers[1].material);
     });
   });
 

@@ -38,24 +38,23 @@ describe('transformItem', () => {
         },
         title: '',
         xml: '',
-      },
-      {
-        json: {
-          genusTypeId: 'question-type%3Aqti-choice-interaction-multi-select-survey%40ODL.MIT.EDU',
-        },
-        title: '',
-        xml: '',
-      },
-      {
-        json: {
-          genusTypeId: 'question-type%3Aqti-choice-interaction-survey%40ODL.MIT.EDU',
-        },
-        title: '',
-        xml: '',
       }],
     },
   };
-
+  const multiSelectSurvey = {
+    json: {
+      genusTypeId: 'question-type%3Aqti-choice-interaction-multi-select-survey%40ODL.MIT.EDU',
+    },
+    title: '',
+    xml: '',
+  };
+  const survey = {
+    json: {
+      genusTypeId: 'question-type%3Aqti-choice-interaction-survey%40ODL.MIT.EDU',
+    },
+    title: '',
+    xml: '',
+  };
 
   it('transforms ART question with timeValue into allQuestions state', () => {
     // the clix parser expects xml, pass it in as a file
@@ -84,7 +83,7 @@ describe('transformItem', () => {
 
   it('transforms multi-select Reflection question type', () => {
     data = readFixture('clix/multi-select-survey-question.xml');
-    item = state.assessment.items[3];
+    item = multiSelectSurvey;
     item.xml = $($.parseXML(data));
     result = transformItem(item);
     expect(result.question_type).toEqual('multiple_answer_survey_question');
@@ -92,7 +91,7 @@ describe('transformItem', () => {
 
   it('transforms Reflection question type', () => {
     data = readFixture('clix/survey-question.xml');
-    item = state.assessment.items[4];
+    item = survey;
     item.xml = $($.parseXML(data));
     result = transformItem(item);
     expect(result.question_type).toEqual('survey_question');
