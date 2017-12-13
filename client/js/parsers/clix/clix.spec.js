@@ -38,6 +38,20 @@ describe('transformItem', () => {
         },
         title: '',
         xml: '',
+      },
+      {
+        json: {
+          genusTypeId: 'question-type%3Aqti-choice-interaction-multi-select-survey%40ODL.MIT.EDU',
+        },
+        title: '',
+        xml: '',
+      },
+      {
+        json: {
+          genusTypeId: 'question-type%3Aqti-choice-interaction-survey%40ODL.MIT.EDU',
+        },
+        title: '',
+        xml: '',
       }],
     },
   };
@@ -66,5 +80,21 @@ describe('transformItem', () => {
     item.xml = $($.parseXML(data));
     result = transformItem(item);
     expect(result.audioTimeout).toEqual(null);
+  });
+
+  it('transforms multi-select Reflection question type', () => {
+    data = readFixture('clix/multi-select-survey-question.xml');
+    item = state.assessment.items[3];
+    item.xml = $($.parseXML(data));
+    result = transformItem(item);
+    expect(result.question_type).toEqual('multiple_answer_survey_question');
+  });
+
+  it('transforms Reflection question type', () => {
+    data = readFixture('clix/survey-question.xml');
+    item = state.assessment.items[4];
+    item.xml = $($.parseXML(data));
+    result = transformItem(item);
+    expect(result.question_type).toEqual('survey_question');
   });
 });
