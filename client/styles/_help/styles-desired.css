@@ -1,8 +1,8 @@
-@import './base/html5reset.css' screen;
+/*@import './base/html5reset.css' screen;
 @import './base/responsive.css' screen;
 @import './base/fonts.css' screen;
 @import './base/video-js.min.css' screen;
-@import './base/videojs-skin-colors.css' screen;
+@import './base/videojs-skin-colors.css' screen;*/
 
 *, *:after, *:before {
   box-sizing: border-box;
