@@ -1,18 +1,33 @@
 import React from 'react';
 
 export default function ListItem(props) {
-  const { selectItem, bank, onFocus } = props;
+  const { selectItem, bank, onFocus, ariaLabel, isClickable } = props;
+
+  if (isClickable) {
+    return (
+      <tr
+        onClick={() => selectItem()}
+        onKeyDown={(e) => { if (e.keyCode === 13) { selectItem(); } }}
+        tabIndex="0"
+        role="button"
+        aria-label={ariaLabel || bank.displayName.text}
+        onFocus={() => onFocus(true)}
+        onMouseEnter={() => onFocus(true)}
+        onMouseLeave={() => onFocus(false)}
+        className={props.focused ? 'focused' : ''}
+      >
+        {
+         props.children
+        }
+      </tr>
+    );
+  }
+
   return (
     <tr
-      onClick={() => selectItem()}
-      onKeyDown={(e) => { if (e.keyCode === 13) { selectItem(); } }}
+      role="navigation"
       tabIndex="0"
-      role="button"
-      aria-label={bank.displayName ? bank.displayName.text : 'bank item'}
-      onFocus={() => onFocus(true)}
-      onMouseEnter={() => onFocus(true)}
-      onMouseLeave={() => onFocus(false)}
-      className={props.focused ? 'focused' : ''}
+      aria-label={ariaLabel || bank.displayName.text}
     >
       {
        props.children
@@ -31,4 +46,6 @@ ListItem.propTypes = {
   }).isRequired,
   focused: React.PropTypes.bool.isRequired,
   children: React.PropTypes.node,
+  ariaLabel: React.PropTypes.string,
+  isClickable: React.PropTypes.bool
 };

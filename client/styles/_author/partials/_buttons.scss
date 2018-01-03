@@ -42,8 +42,8 @@
 }
 
 .au-c-btn--square{
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
   text-align: center;
 
   &:active{
@@ -171,24 +171,24 @@
   color: $white;
   @include transition(all 0.1s ease);
 
-  i{
-    color: $white;
+  .svg-24px{
+    fill: $white;
     @include transition(color 0.1s ease);
   }
 
-  &:hover{
+  &:hover, &:focus{
     background-color: $white;
     color: $purple;
 
-    i{
-      color: $purple;
+    .svg-24px{
+      fill: $purple;
     }
   }
   &.is-inactive{
     color: rgba(255,255,255,0.5);
     pointer-events: none;
-    i{
-      color: rgba(255,255,255,0.5);
+    .svg-24px{
+      fill: rgba(255,255,255,0.5);
     }
   }
 }

@@ -5,14 +5,18 @@ export default function DeleteButton(props) {
   const isPublished = assessment.isPublished;
   return (
     <button
+      aria-label="Delete assessment"
       className={`au-c-btn au-c-btn--square au-c-btn--table ${isPublished ? 'is-inactive' : ''}`}
+      disabled={isPublished}
       onClick={(e) => {
         e.stopPropagation();
         deleteAssessment(assessment.bankId, assessment.id);
       }}
       onFocus={onFocus}
     >
-      <i className="material-icons">delete</i>
+      <svg className="svg-24px">
+        <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_delete_24px" />
+      </svg>
     </button>
   );
 }

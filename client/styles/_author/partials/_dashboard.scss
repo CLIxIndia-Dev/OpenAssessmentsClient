@@ -30,6 +30,11 @@
     }
   }
 
+  .svg-24px{
+    width: 24px;
+    height: 24px;
+  }
+
   th{
     height: 5rem;
     border-bottom: $border;
@@ -90,13 +95,13 @@
   }
 
   tr{
-    &:hover, &.focused{
+    &:hover, &:focus{
       td{
         background: $purple;
 
         &:nth-of-type(1){
-          i{
-            color: $white;
+          .svg-24px{
+            fill: $white;
           }
         }
         &:nth-of-type(2){
@@ -104,28 +109,25 @@
           color: $white;
         }
         &:nth-of-type(3){
-          i{
-            color: $white;
+          .svg-24px{
+            fill: $white;
           }
         }
         &:nth-of-type(4){
 
         }
       }
-      .au-c-table__icons{
-        @include display-flex;
-      }
       .au-c-publish{
         background-color: $purple2;
         color: $white;
 
-        i{
-          color: $white;
+        .svg-24px{
+          fill: $white;
         }
 
         &.is-published{
-          i{
-            color: $white;
+          .svg-24px{
+            fill: $white;
           }
         }
 
@@ -133,8 +135,8 @@
           background-color: $white;
           color: $purple;
 
-          i{
-            color: $purple;
+          .svg-24px{
+            fill: $purple;
           }
         }
       }
@@ -156,8 +158,8 @@
       &:nth-of-type(1){
         padding-left: 2rem;
         width: 6rem;
-        i{
-          color: $gray9;
+        .svg-24px{
+          fill: $gray9;
         }
       }
       &:nth-of-type(2){
@@ -168,12 +170,12 @@
         @include truncate;
       }
       &:nth-of-type(3){
-        i{
-          color: $gray9;
+        .svg-24px{
+          fill: $gray9;
         }
         .is-published{
-          i{
-            color: $green;
+          .svg-24px{
+            fill: $green;
           }
         }
       }
@@ -185,7 +187,7 @@
 }
 
   .au-c-table__icons{
-    display: none;
+    @include display-flex;
     @include align-items(center);
     float: right;
   }
@@ -235,21 +237,21 @@
   display: block;
   position: relative;
 
-  i{
+  .svg-24px{
     position: absolute;
     @include center(horizontal);
     top: 0.3rem;
     width: 3rem;
     height: 3rem;
-    color: $white;
+    fill: $white;
     @include transition(color 0.1s ease);
   }
 
-  &:hover{
+  &:hover, &:focus{
     background-color: $white;
 
-    i{
-      color: $purple;
+    .svg-24px{
+      fill: $purple;
     }
   }
 }

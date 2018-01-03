@@ -6,8 +6,18 @@ export default function BankFolder(props) {
   const { bank } = props;
   const displayName = _.get(bank, 'displayName.text');
   return (
-    <ListItem {...props} selectItem={() => props.getBankChildren(bank.id)} onFocus={props.onFocus}>
-      <td><i className="material-icons">folder</i></td>
+    <ListItem
+      {...props}
+      isClickable
+      ariaLabel={`Assessment catalog: ${displayName}`}
+      selectItem={() => props.getBankChildren(bank.id)}
+      onFocus={props.onFocus}
+    >
+      <td>
+        <svg className="svg-24px">
+          <use xlinkHref="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_folder_24px" />
+        </svg>
+      </td>
       <td>{displayName}</td>
       <td />
       <td />

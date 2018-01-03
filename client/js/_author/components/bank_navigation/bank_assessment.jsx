@@ -43,7 +43,7 @@ export class BankAssessment extends React.Component {
     }
   }
 
-  selectItem() {
+  selectItem = () => {
     const { assessment } = this.props;
     if (assessment.isPublished) {
       appHistory.push(`banks/${assessment.bankId}/assessments/${assessment.id}/preview`);
@@ -74,11 +74,14 @@ export class BankAssessment extends React.Component {
       <ListItem
         {...this.props}
         bank={assessment}
-        selectItem={() => this.selectItem()}
+        selectItem={() => {}}
+        ariaLabel={`Assessment: ${assessment.displayName.text}`}
         onFocus={this.props.onFocus}
       >
         <td>
-          <i className="material-icons">description</i>
+          <svg className="svg-24px">
+            <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px" />
+          </svg>
         </td>
         <td>{displayName}</td>
         <td>
@@ -93,7 +96,10 @@ export class BankAssessment extends React.Component {
         <td>
           <div className="au-c-table__icons">
             <EmbedButton {...this.props} />
-            <EditButton {...this.props} />
+            <EditButton
+              {...this.props}
+              selectItem={this.selectItem}
+            />
             <PreviewButton {...this.props} />
             <DeleteButton
               {...this.props}
