@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function ListItem(props) {
-  const { selectItem, bank, onFocus, ariaLabel, isClickable } = props;
+  const {
+    selectItem, bank, onFocus, label, isClickable
+  } = props;
 
   if (isClickable) {
     return (
@@ -10,7 +12,7 @@ export default function ListItem(props) {
         onKeyDown={(e) => { if (e.keyCode === 13) { selectItem(); } }}
         tabIndex="0"
         role="button"
-        aria-label={ariaLabel || bank.displayName.text}
+        aria-label={label || bank.displayName.text}
         onFocus={() => onFocus(true)}
         onMouseEnter={() => onFocus(true)}
         onMouseLeave={() => onFocus(false)}
@@ -27,7 +29,7 @@ export default function ListItem(props) {
     <tr
       role="navigation"
       tabIndex="0"
-      aria-label={ariaLabel || bank.displayName.text}
+      aria-label={label || bank.displayName.text}
     >
       {
        props.children
@@ -46,6 +48,6 @@ ListItem.propTypes = {
   }).isRequired,
   focused: React.PropTypes.bool.isRequired,
   children: React.PropTypes.node,
-  ariaLabel: React.PropTypes.string,
+  label: React.PropTypes.string,
   isClickable: React.PropTypes.bool
 };

@@ -9,7 +9,7 @@ export default function BankFolder(props) {
     <ListItem
       {...props}
       isClickable
-      ariaLabel={`Assessment catalog: ${displayName}`}
+      label={`Assessment catalog: ${displayName}`}
       selectItem={() => props.getBankChildren(bank.id)}
       onFocus={props.onFocus}
     >

@@ -79,12 +79,14 @@ export default class SearchMedia extends React.Component {
         }
 
         <ReactPaginate
-          previousLabel={<svg className="svg-24px">
-            <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_left_24px" />
-          </svg>}
-          nextLabel={<svg className="svg-24px">
-            <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_right_24px" />
-          </svg>}
+          previousLabel={
+            <svg className="svg-24px">
+              <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_left_24px" />
+            </svg>}
+          nextLabel={
+            <svg className="svg-24px">
+              <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_right_24px" />
+            </svg>}
           breakLabel={<span>...</span>}
           pageCount={_.size(filteredMedia) / 8}
           marginPagesDisplayed={1}

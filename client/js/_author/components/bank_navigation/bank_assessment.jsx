@@ -75,7 +75,7 @@ export class BankAssessment extends React.Component {
         {...this.props}
         bank={assessment}
         selectItem={() => {}}
-        ariaLabel={`Assessment: ${assessment.displayName.text}`}
+        label={`Assessment: ${assessment.displayName.text}`}
         onFocus={this.props.onFocus}
       >
         <td>
