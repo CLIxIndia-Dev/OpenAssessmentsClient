@@ -24,14 +24,14 @@ describe('Bank Icon', () => {
 
   it('returns a cloud up icon', () => {
     result = TestUtils.renderIntoDocument(<Stub><BankIcon type="Publish" /></Stub>);
-    const item = TestUtils.findRenderedDOMComponentWithTag(result, 'i');
-    expect(item.textContent).toContain('cloud_upload');
+    const item = TestUtils.findRenderedDOMComponentWithTag(result, 'use');
+    expect(item.getAttribute('href')).toContain('cloud_upload');
   });
 
   it('returns a cloud down icon', () => {
     result = TestUtils.renderIntoDocument(<Stub><BankIcon type="Published" /></Stub>);
-    const item = TestUtils.findRenderedDOMComponentWithTag(result, 'i');
-    expect(item.textContent).toContain('cloud_done');
+    const item = TestUtils.findRenderedDOMComponentWithTag(result, 'use');
+    expect(item.getAttribute('href')).toContain('cloud_done');
   });
 
 });
