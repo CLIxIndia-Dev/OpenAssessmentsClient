@@ -10,13 +10,7 @@ ShallowWrapper {
   "length": 1,
   "node": <tr
     aria-label="Spec Name"
-    className=""
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    role="button"
+    role="navigation"
     tabIndex="0"
 >
     
@@ -24,13 +18,7 @@ ShallowWrapper {
   "nodes": Array [
     <tr
       aria-label="Spec Name"
-      className=""
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="button"
+      role="navigation"
       tabIndex="0"
 >
       
@@ -95,13 +83,7 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <tr
           aria-label="Spec Name"
-          className=""
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          role="button"
+          role="navigation"
           tabIndex="0"
 >
           
@@ -109,13 +91,7 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <tr
           aria-label="Spec Name"
-          className=""
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          role="button"
+          role="navigation"
           tabIndex="0"
 >
           

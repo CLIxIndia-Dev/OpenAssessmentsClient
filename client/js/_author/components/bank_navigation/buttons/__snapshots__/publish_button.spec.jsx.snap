@@ -9,27 +9,33 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <button
+    aria-label="Publish assessment"
     className="au-c-btn au-c-btn--square au-c-publish "
     onClick={[Function]}
     onFocus={[Function]}
 >
-    <i
-        className="material-icons"
+    <svg
+        className="svg-24px"
     >
-        cloud_upload
-    </i>
+        <use
+            href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px"
+        />
+    </svg>
 </button>,
   "nodes": Array [
     <button
+      aria-label="Publish assessment"
       className="au-c-btn au-c-btn--square au-c-publish "
       onClick={[Function]}
       onFocus={[Function]}
 >
-      <i
-            className="material-icons"
+      <svg
+            className="svg-24px"
       >
-            cloud_upload
-      </i>
+            <use
+                  href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px"
+            />
+      </svg>
 </button>,
   ],
   "options": Object {},
@@ -81,27 +87,33 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <button
+          aria-label="Publish assessment"
           className="au-c-btn au-c-btn--square au-c-publish "
           onClick={[Function]}
           onFocus={[Function]}
 >
-          <i
-                    className="material-icons"
+          <svg
+                    className="svg-24px"
           >
-                    cloud_upload
-          </i>
+                    <use
+                              href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px"
+                    />
+          </svg>
 </button>,
         "_debugID": 2,
         "_renderedOutput": <button
+          aria-label="Publish assessment"
           className="au-c-btn au-c-btn--square au-c-publish "
           onClick={[Function]}
           onFocus={[Function]}
 >
-          <i
-                    className="material-icons"
+          <svg
+                    className="svg-24px"
           >
-                    cloud_upload
-          </i>
+                    <use
+                              href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px"
+                    />
+          </svg>
 </button>,
       },
       "_renderedNodeType": 0,

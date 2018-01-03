@@ -37,11 +37,13 @@ exports[`image_option component renders a snapshot 1`] = `
       className="au-c-answer--delete au-u-right"
       onClick={[Function]}
     >
-      <i
-        className="material-icons"
+      <svg
+        className="svg-24px"
       >
-        close
-      </i>
+        <use
+          href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px"
+        />
+      </svg>
     </button>
   </div>
   <div

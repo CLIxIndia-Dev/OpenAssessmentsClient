@@ -9,6 +9,7 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ListItem
+    ariaLabel="Assessment: Spec Name"
     assessment={
         Object {
             "bankId": "",
@@ -38,11 +39,13 @@ ShallowWrapper {
     togglePublishAssessment={[Function]}
 >
     <td>
-        <i
-            className="material-icons"
+        <svg
+            className="svg-24px"
         >
-            description
-        </i>
+            <use
+                href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
+            />
+        </svg>
     </td>
     <td>
         Spec Name
@@ -101,6 +104,7 @@ ShallowWrapper {
                 focused={false}
                 getEmbedCode={[Function]}
                 onFocus={[Function]}
+                selectItem={[Function]}
                 togglePublishAssessment={[Function]}
             />
             <PreviewButton
@@ -144,6 +148,7 @@ ShallowWrapper {
 </ListItem>,
   "nodes": Array [
     <ListItem
+      ariaLabel="Assessment: Spec Name"
       assessment={
             Object {
                   "bankId": "",
@@ -173,11 +178,13 @@ ShallowWrapper {
       togglePublishAssessment={[Function]}
 >
       <td>
-            <i
-                  className="material-icons"
+            <svg
+                  className="svg-24px"
             >
-                  description
-            </i>
+                  <use
+                        href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
+                  />
+            </svg>
       </td>
       <td>
             Spec Name
@@ -236,6 +243,7 @@ ShallowWrapper {
                         focused={false}
                         getEmbedCode={[Function]}
                         onFocus={[Function]}
+                        selectItem={[Function]}
                         togglePublishAssessment={[Function]}
                   />
                   <PreviewButton
@@ -325,6 +333,7 @@ ShallowWrapper {
           "togglePublishAssessment": [Function],
         },
         "refs": Object {},
+        "selectItem": [Function],
         "state": Object {
           "deleting": false,
         },
@@ -347,6 +356,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ListItem
+          ariaLabel="Assessment: Spec Name"
           assessment={
                     Object {
                               "bankId": "",
@@ -376,11 +386,13 @@ ShallowWrapper {
           togglePublishAssessment={[Function]}
 >
           <td>
-                    <i
-                              className="material-icons"
+                    <svg
+                              className="svg-24px"
                     >
-                              description
-                    </i>
+                              <use
+                                        href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
+                              />
+                    </svg>
           </td>
           <td>
                     Spec Name
@@ -439,6 +451,7 @@ ShallowWrapper {
                                         focused={false}
                                         getEmbedCode={[Function]}
                                         onFocus={[Function]}
+                                        selectItem={[Function]}
                                         togglePublishAssessment={[Function]}
                               />
                               <PreviewButton
@@ -482,6 +495,7 @@ ShallowWrapper {
 </ListItem>,
         "_debugID": 2,
         "_renderedOutput": <ListItem
+          ariaLabel="Assessment: Spec Name"
           assessment={
                     Object {
                               "bankId": "",
@@ -511,11 +525,13 @@ ShallowWrapper {
           togglePublishAssessment={[Function]}
 >
           <td>
-                    <i
-                              className="material-icons"
+                    <svg
+                              className="svg-24px"
                     >
-                              description
-                    </i>
+                              <use
+                                        href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
+                              />
+                    </svg>
           </td>
           <td>
                     Spec Name
@@ -574,6 +590,7 @@ ShallowWrapper {
                                         focused={false}
                                         getEmbedCode={[Function]}
                                         onFocus={[Function]}
+                                        selectItem={[Function]}
                                         togglePublishAssessment={[Function]}
                               />
                               <PreviewButton

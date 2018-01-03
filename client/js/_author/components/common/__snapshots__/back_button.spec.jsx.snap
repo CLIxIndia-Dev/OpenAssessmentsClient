@@ -12,11 +12,13 @@ ShallowWrapper {
     className="au-c-btn au-c-btn--sm au-c-btn--outline au-c-btn--back"
     onClick={[Function]}
 >
-    <i
-        className="material-icons"
+    <svg
+        className="svg-24px"
     >
-        keyboard_arrow_left
-    </i>
+        <use
+            href="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_left_24px"
+        />
+    </svg>
     Back
 </button>,
   "nodes": Array [
@@ -24,11 +26,13 @@ ShallowWrapper {
       className="au-c-btn au-c-btn--sm au-c-btn--outline au-c-btn--back"
       onClick={[Function]}
 >
-      <i
-            className="material-icons"
+      <svg
+            className="svg-24px"
       >
-            keyboard_arrow_left
-      </i>
+            <use
+                  href="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_left_24px"
+            />
+      </svg>
       Back
 </button>,
   ],
@@ -74,11 +78,13 @@ ShallowWrapper {
           className="au-c-btn au-c-btn--sm au-c-btn--outline au-c-btn--back"
           onClick={[Function]}
 >
-          <i
-                    className="material-icons"
+          <svg
+                    className="svg-24px"
           >
-                    keyboard_arrow_left
-          </i>
+                    <use
+                              href="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_left_24px"
+                    />
+          </svg>
           Back
 </button>,
         "_debugID": 2,
@@ -86,11 +92,13 @@ ShallowWrapper {
           className="au-c-btn au-c-btn--sm au-c-btn--outline au-c-btn--back"
           onClick={[Function]}
 >
-          <i
-                    className="material-icons"
+          <svg
+                    className="svg-24px"
           >
-                    keyboard_arrow_left
-          </i>
+                    <use
+                              href="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_left_24px"
+                    />
+          </svg>
           Back
 </button>,
       },

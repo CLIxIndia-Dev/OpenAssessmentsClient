@@ -42,11 +42,13 @@ ShallowWrapper {
                 className="au-c-answer--delete"
                 onClick={[Function]}
             >
-                <i
-                    className="material-icons"
+                <svg
+                    className="svg-24px"
                 >
-                    close
-                </i>
+                    <use
+                        href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px"
+                    />
+                </svg>
             </button>
         </div>
         <div
@@ -122,11 +124,13 @@ ShallowWrapper {
                         className="au-c-answer--delete"
                         onClick={[Function]}
                   >
-                        <i
-                              className="material-icons"
+                        <svg
+                              className="svg-24px"
                         >
-                              close
-                        </i>
+                              <use
+                                    href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px"
+                              />
+                        </svg>
                   </button>
             </div>
             <div
@@ -264,11 +268,13 @@ ShallowWrapper {
                                         className="au-c-answer--delete"
                                         onClick={[Function]}
                               >
-                                        <i
-                                                  className="material-icons"
+                                        <svg
+                                                  className="svg-24px"
                                         >
-                                                  close
-                                        </i>
+                                                  <use
+                                                            href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px"
+                                                  />
+                                        </svg>
                               </button>
                     </div>
                     <div
@@ -344,11 +350,13 @@ ShallowWrapper {
                                         className="au-c-answer--delete"
                                         onClick={[Function]}
                               >
-                                        <i
-                                                  className="material-icons"
+                                        <svg
+                                                  className="svg-24px"
                                         >
-                                                  close
-                                        </i>
+                                                  <use
+                                                            href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px"
+                                                  />
+                                        </svg>
                               </button>
                     </div>
                     <div

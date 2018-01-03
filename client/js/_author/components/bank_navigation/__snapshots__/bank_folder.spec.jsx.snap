@@ -9,6 +9,7 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ListItem
+    ariaLabel="Assessment catalog: Spec Name"
     bank={
         Object {
             "displayName": Object {
@@ -18,15 +19,18 @@ ShallowWrapper {
     }
     focused={false}
     getBankChildren={[Function]}
+    isClickable={true}
     onFocus={[Function]}
     selectItem={[Function]}
 >
     <td>
-        <i
-            className="material-icons"
+        <svg
+            className="svg-24px"
         >
-            folder
-        </i>
+            <use
+                href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_folder_24px"
+            />
+        </svg>
     </td>
     <td>
         Spec Name
@@ -36,6 +40,7 @@ ShallowWrapper {
 </ListItem>,
   "nodes": Array [
     <ListItem
+      ariaLabel="Assessment catalog: Spec Name"
       bank={
             Object {
                   "displayName": Object {
@@ -45,15 +50,18 @@ ShallowWrapper {
       }
       focused={false}
       getBankChildren={[Function]}
+      isClickable={true}
       onFocus={[Function]}
       selectItem={[Function]}
 >
       <td>
-            <i
-                  className="material-icons"
+            <svg
+                  className="svg-24px"
             >
-                  folder
-            </i>
+                  <use
+                        href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_folder_24px"
+                  />
+            </svg>
       </td>
       <td>
             Spec Name
@@ -117,6 +125,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ListItem
+          ariaLabel="Assessment catalog: Spec Name"
           bank={
                     Object {
                               "displayName": Object {
@@ -126,15 +135,18 @@ ShallowWrapper {
           }
           focused={false}
           getBankChildren={[Function]}
+          isClickable={true}
           onFocus={[Function]}
           selectItem={[Function]}
 >
           <td>
-                    <i
-                              className="material-icons"
+                    <svg
+                              className="svg-24px"
                     >
-                              folder
-                    </i>
+                              <use
+                                        href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_folder_24px"
+                              />
+                    </svg>
           </td>
           <td>
                     Spec Name
@@ -144,6 +156,7 @@ ShallowWrapper {
 </ListItem>,
         "_debugID": 2,
         "_renderedOutput": <ListItem
+          ariaLabel="Assessment catalog: Spec Name"
           bank={
                     Object {
                               "displayName": Object {
@@ -153,15 +166,18 @@ ShallowWrapper {
           }
           focused={false}
           getBankChildren={[Function]}
+          isClickable={true}
           onFocus={[Function]}
           selectItem={[Function]}
 >
           <td>
-                    <i
-                              className="material-icons"
+                    <svg
+                              className="svg-24px"
                     >
-                              folder
-                    </i>
+                              <use
+                                        href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_folder_24px"
+                              />
+                    </svg>
           </td>
           <td>
                     Spec Name

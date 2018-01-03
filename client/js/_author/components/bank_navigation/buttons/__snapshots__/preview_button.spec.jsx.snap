@@ -9,27 +9,35 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <button
+    aria-label="Preview assessment"
     className="au-c-btn au-c-btn--square au-c-btn--table is-inactive"
+    disabled={true}
     onClick={[Function]}
     onFocus={[Function]}
 >
-    <i
-        className="material-icons"
+    <svg
+        className="svg-24px"
     >
-        remove_red_eye
-    </i>
+        <use
+            href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px"
+        />
+    </svg>
 </button>,
   "nodes": Array [
     <button
+      aria-label="Preview assessment"
       className="au-c-btn au-c-btn--square au-c-btn--table is-inactive"
+      disabled={true}
       onClick={[Function]}
       onFocus={[Function]}
 >
-      <i
-            className="material-icons"
+      <svg
+            className="svg-24px"
       >
-            remove_red_eye
-      </i>
+            <use
+                  href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px"
+            />
+      </svg>
 </button>,
   ],
   "options": Object {},
@@ -83,27 +91,35 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <button
+          aria-label="Preview assessment"
           className="au-c-btn au-c-btn--square au-c-btn--table is-inactive"
+          disabled={true}
           onClick={[Function]}
           onFocus={[Function]}
 >
-          <i
-                    className="material-icons"
+          <svg
+                    className="svg-24px"
           >
-                    remove_red_eye
-          </i>
+                    <use
+                              href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px"
+                    />
+          </svg>
 </button>,
         "_debugID": 2,
         "_renderedOutput": <button
+          aria-label="Preview assessment"
           className="au-c-btn au-c-btn--square au-c-btn--table is-inactive"
+          disabled={true}
           onClick={[Function]}
           onFocus={[Function]}
 >
-          <i
-                    className="material-icons"
+          <svg
+                    className="svg-24px"
           >
-                    remove_red_eye
-          </i>
+                    <use
+                              href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px"
+                    />
+          </svg>
 </button>,
       },
       "_renderedNodeType": 0,
