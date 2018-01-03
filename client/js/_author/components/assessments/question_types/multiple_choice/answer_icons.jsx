@@ -13,7 +13,7 @@ export default function answerIcons(props) {
       onClick={props.moveUp}
     >
       <svg className="svg-24px">
-        <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_upward_24px" />
+        <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_upward_24px" />
       </svg>
     </button>
   );
@@ -24,7 +24,7 @@ export default function answerIcons(props) {
       onClick={props.moveDown}
     >
       <svg className="svg-24px">
-        <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_downward_24px" />
+        <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_downward_24px" />
       </svg>
     </button>
   );
@@ -39,7 +39,7 @@ export default function answerIcons(props) {
         onClick={props.deleteChoice}
       >
         <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+          <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
         </svg>
       </button>
     </div>

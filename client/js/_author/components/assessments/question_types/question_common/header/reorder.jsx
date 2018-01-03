@@ -27,7 +27,7 @@ class ReorderHeader extends React.Component {
           onClick={!this.props.topItem && this.props.moveUp}
         >
           <svg className="svg-24px">
-            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_upward_24px" />
+            <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_upward_24px" />
           </svg>
         </button>
         <button
@@ -36,7 +36,7 @@ class ReorderHeader extends React.Component {
           onClick={!this.props.bottomItem && this.props.moveDown}
         >
           <svg className="svg-24px">
-            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_downward_24px" />
+            <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_downward_24px" />
           </svg>
         </button>
         <button

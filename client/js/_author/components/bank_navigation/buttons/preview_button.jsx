@@ -14,7 +14,7 @@ export default function PreviewButton(props) {
       onFocus={props.onFocus}
     >
       <svg className="svg-24px">
-        <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
+        <use href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
       </svg>
     </button>
   );

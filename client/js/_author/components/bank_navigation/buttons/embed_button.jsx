@@ -50,7 +50,7 @@ export default function EmbedButton(props) {
               onFocus={props.onFocus}
             >
               <svg className="svg-24px">
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-content-symbol.svg#ic_content_paste_24px" />
+                <use href="/icons/MaterialDesign-svg-sprite-content-symbol.svg#ic_content_paste_24px" />
               </svg>
             </button>
           </CopyToClipboard>

@@ -45,7 +45,7 @@ function dropObject(props) {
             onClick={() => updateObject({ delete: true })}
           >
             <svg className="svg-24px">
-              <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+              <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
             </svg>
           </button>
         </div>

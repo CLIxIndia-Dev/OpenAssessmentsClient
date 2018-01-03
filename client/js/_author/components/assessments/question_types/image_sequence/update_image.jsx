@@ -44,7 +44,7 @@ export class UpdateImage extends React.Component {
         />
         <label htmlFor={`newImageId-${this.props.item.id}`}>
           <svg className="svg-24px">
-            <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_find_in_page_24px" />
+            <use href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_find_in_page_24px" />
           </svg>
         </label>
       </div>

@@ -205,7 +205,7 @@ export class DropZone extends React.Component {
             onClick={() => this.props.editZone(zone.id, { delete: true })}
           >
             <svg className="svg-24px">
-              <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_delete_24px" />
+              <use href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_delete_24px" />
             </svg>
           </button>
         </div>

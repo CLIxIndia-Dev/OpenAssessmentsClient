@@ -68,7 +68,7 @@ export default function DefaultHeader(props) {
         onClick={props.togglePreview}
       >
         <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
+          <use href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
         </svg>
       </button>
       <button
@@ -77,7 +77,7 @@ export default function DefaultHeader(props) {
         onClick={props.toggleReorder}
       >
         <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_swap_vert_24px" />
+          <use href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_swap_vert_24px" />
         </svg>
       </button>
       <button
@@ -86,7 +86,7 @@ export default function DefaultHeader(props) {
         onClick={() => props.deleteAssessmentItem(props.id)}
       >
         <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_delete_24px" />
+          <use href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_delete_24px" />
         </svg>
       </button>
       <HelpLink

@@ -11,7 +11,7 @@ export default function EditButton(props) {
       onClick={props.selectItem}
     >
       <svg className="svg-24px">
-        <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_edit_24px" />
+        <use href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_edit_24px" />
       </svg>
     </button>
   );

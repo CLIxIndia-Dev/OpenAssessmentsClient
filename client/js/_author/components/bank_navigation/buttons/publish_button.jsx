@@ -6,12 +6,12 @@ export default function PublishButton(props) {
   const icon = isPublished ?
     (
       <svg className="svg-24px">
-        <use xlinkHref="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_done_24px" />
+        <use href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_done_24px" />
       </svg>
     ) :
     (
       <svg className="svg-24px">
-        <use xlinkHref="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px" />
+        <use href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px" />
       </svg>
     );
   const ariaLabel = isPublished ? 'Unpublish assessment' : 'Publish assessment';
