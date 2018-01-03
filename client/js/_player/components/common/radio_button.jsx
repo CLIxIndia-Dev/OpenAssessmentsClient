@@ -57,16 +57,19 @@ export default class RadioButton extends React.Component {
           <div className="c-answer-container__radio">
             <div className="c-radio-button">
               <div className="c-radio-button__border">
-                <i
+                <svg
                   className={(focused && !isDisabled) || (checked && !isDisabled)
-                  ? 'material-icons c-material-icon-resize radio_button--focused'
-                  : 'material-icons c-material-icon-resize'}
-                  aria-hidden
+                  ? 'svg-24px c-material-icon-resize radio_button--focused'
+                  : 'svg-24px c-material-icon-resize'}
                 >
-                  {checked
-                  ? 'radio_button_checked'
-                  : 'radio_button_unchecked'}
-                </i>
+                  <use
+                    href={
+                    checked
+                    ? '/icons/MaterialDesign-svg-sprite-toggle-symbol.svg#ic_radio_button_checked_24px'
+                    : '/icons/MaterialDesign-svg-sprite-toggle-symbol.svg#ic_radio_button_unchecked_24px'
+                    }
+                  />
+                </svg>
                 <input
                   type="radio"
                   disabled={isDisabled}
