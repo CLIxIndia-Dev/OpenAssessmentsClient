@@ -9,7 +9,6 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ListItem
-    ariaLabel="Assessment: Spec Name"
     assessment={
         Object {
             "bankId": "",
@@ -34,6 +33,7 @@ ShallowWrapper {
     deleteAssessment={[Function]}
     focused={false}
     getEmbedCode={[Function]}
+    label="Assessment: Spec Name"
     onFocus={[Function]}
     selectItem={[Function]}
     togglePublishAssessment={[Function]}
@@ -148,7 +148,6 @@ ShallowWrapper {
 </ListItem>,
   "nodes": Array [
     <ListItem
-      ariaLabel="Assessment: Spec Name"
       assessment={
             Object {
                   "bankId": "",
@@ -173,6 +172,7 @@ ShallowWrapper {
       deleteAssessment={[Function]}
       focused={false}
       getEmbedCode={[Function]}
+      label="Assessment: Spec Name"
       onFocus={[Function]}
       selectItem={[Function]}
       togglePublishAssessment={[Function]}
@@ -356,7 +356,6 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ListItem
-          ariaLabel="Assessment: Spec Name"
           assessment={
                     Object {
                               "bankId": "",
@@ -381,6 +380,7 @@ ShallowWrapper {
           deleteAssessment={[Function]}
           focused={false}
           getEmbedCode={[Function]}
+          label="Assessment: Spec Name"
           onFocus={[Function]}
           selectItem={[Function]}
           togglePublishAssessment={[Function]}
@@ -495,7 +495,6 @@ ShallowWrapper {
 </ListItem>,
         "_debugID": 2,
         "_renderedOutput": <ListItem
-          ariaLabel="Assessment: Spec Name"
           assessment={
                     Object {
                               "bankId": "",
@@ -520,6 +519,7 @@ ShallowWrapper {
           deleteAssessment={[Function]}
           focused={false}
           getEmbedCode={[Function]}
+          label="Assessment: Spec Name"
           onFocus={[Function]}
           selectItem={[Function]}
           togglePublishAssessment={[Function]}
