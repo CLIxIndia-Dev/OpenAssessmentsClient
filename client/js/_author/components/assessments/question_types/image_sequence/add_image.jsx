@@ -42,7 +42,9 @@ export class AddImage extends React.Component {
           type="file"
         />
         <label htmlFor={`newImageId-${this.props.item.id}`}>
-          <i className="material-icons">find_in_page</i>
+          <svg className="svg-24px">
+            <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_find_in_page_24px" />
+          </svg>
         </label>
       </div>
     );

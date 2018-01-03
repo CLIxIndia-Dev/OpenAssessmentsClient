@@ -58,14 +58,14 @@
   display: none;
 }
 
-.au-c-question-icons i{
+.au-c-question-icons .svg-24px{
   width: 3rem;
   height: 3rem;
   border-radius: $radius;
   text-align: center;
   font-size: 2rem;
   line-height: 3rem;
-  color: $gray10;
+  fill: $gray10;
   cursor: pointer;
 
   &:hover{
@@ -79,10 +79,10 @@
 }
 
 .au-c-question-icons--reorder {
-  i{
+  .svg-24px{
     display: block;
     background: $blue2;
-    color: $white;
+    fill: $white;
 
     &:hover{
       background: darken($blue2, 20%);

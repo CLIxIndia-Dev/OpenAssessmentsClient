@@ -12,7 +12,9 @@ function addZoneDropdown(props) {
           onClick={props.toggle}
         >
           {props.text}
-          <i className="material-icons">arrow_drop_down</i>
+          <svg className="svg-24px">
+            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_24px" />
+          </svg>
         </button>
         <ul className={`au-c-button-dropdown__dropdown ${props.active ? 'is-active' : ''}`}>
           <li>
@@ -21,7 +23,9 @@ function addZoneDropdown(props) {
               className="au-c-btn au-c-btn--sm au-c-btn--dropdown-item"
               onClick={props.addByRegion}
             >
-              <i className="material-icons">open_in_new</i>
+              <svg className="svg-24px">
+                <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_open_in_new_24px" />
+              </svg>
               {strings.byRegion}
             </button>
           </li>
@@ -31,7 +35,9 @@ function addZoneDropdown(props) {
               className="au-c-btn au-c-btn--sm au-c-btn--dropdown-item"
               onClick={props.addByImage}
             >
-              <i className="material-icons">image</i>
+              <svg className="svg-24px">
+                <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_image_24px" />
+              </svg>
               {strings.byImage}
             </button>
           </li>

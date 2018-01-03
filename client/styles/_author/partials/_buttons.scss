@@ -23,7 +23,7 @@
   height: 3rem;
   padding: 0 2rem;
 
-  i{
+  .svg-24px{
     margin-right: 0.8rem;
     margin-left: -0.4rem;
     font-size: 2rem;
@@ -34,7 +34,7 @@
   height: 4rem;
   padding: 0 2rem;
 
-  i{
+  .svg-24px{
     margin-right: 0.8rem;
     margin-left: -0.4rem;
     font-size: 2rem;
@@ -63,13 +63,18 @@
   &:hover{
     background-color: $maroon;
     color: $white;
+
+    .svg-24px{
+      fill: $white;
+    }
   }
 }
 
   .au-c-btn--back{
     padding: 0 1.5rem;
 
-    i{
+    .svg-24px{
+      fill: $maroon;
       margin-right: 0.5rem;
       margin-left: -1rem;
     }
@@ -81,9 +86,17 @@
   color: $white;
   @include transition(all 0.1s ease);
 
+  .svg-24px{
+    fill: $white;
+  }
+
   &:hover{
     background-color: $white;
     color: $green;
+
+    .svg-24px{
+      fill: $green;
+    }
   }
 }
 
@@ -128,8 +141,8 @@
     border-color: $maroon-disabled;
     color: rgba(255,255,255,0.5);
     pointer-events: none;
-    i{
-      color: rgba(255,255,255,0.5);
+    .svg-24px{
+      fill: rgba(255,255,255,0.5);
     }
   }
 }
@@ -147,10 +160,10 @@
   border: 0.1rem solid transparent;
   @include transition(all 0.1s ease);
 
-  i{
+  .svg-24px{
     font-size: 2rem;
     margin-right: 1rem;
-    color: $gray8;
+    fill: $gray8;
   }
 
   &:hover{
@@ -234,7 +247,8 @@
     border-color: darken($maroon, 10%);
   }
 
-  i{
+  .svg-24px{
+    fill: $white;
     margin-left: 1rem;
     margin-right: -0.5rem;
   }
@@ -254,7 +268,8 @@
     background-color: darken($maroon, 15%);
   }
 
-  i{
+  .svg-24px{
+    fill: $white;
     margin-right: 1rem;
     margin-left: 0rem;
   }

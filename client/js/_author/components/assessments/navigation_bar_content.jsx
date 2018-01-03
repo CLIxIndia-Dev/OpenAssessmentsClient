@@ -56,11 +56,13 @@ class NavigationBarContent extends React.Component {
           {
             this.props.isPublished ?
               <button
+                aria-label="Preview assessment"
                 className="au-c-btn au-c-btn--sm au-c-btn--maroon au-u-ml-md"
                 onClick={() => appHistory.push(`banks/${bankId}/assessments/${id}/preview`)}
               >
-                <i className="material-icons">remove_red_eye</i>
-
+                <svg className="svg-24px">
+                  <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
+                </svg>
                 {strings.preview}
               </button> : null
          }

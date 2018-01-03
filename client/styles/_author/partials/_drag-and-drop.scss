@@ -217,12 +217,12 @@
     &:hover{
       box-shadow: 0 0 0.7rem rgba(0,0,0,0.5);
 
-      .au-c-answer--delete i{
+      .au-c-answer--delete .svg-24px{
         display: inline-block;
       }
     }
 
-  .au-c-answer--delete i{
+  .au-c-answer--delete .svg-24px{
     display: none;
   }
 
@@ -238,7 +238,7 @@
   }
 
   &.is-active{
-    .au-c-answer--delete i{
+    .au-c-answer--delete .svg-24px{
       display: inline-block;
     }
     .au-c-dropdown{

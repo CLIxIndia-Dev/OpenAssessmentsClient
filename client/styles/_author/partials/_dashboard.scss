@@ -30,11 +30,6 @@
     }
   }
 
-  .svg-24px{
-    width: 24px;
-    height: 24px;
-  }
-
   th{
     height: 5rem;
     border-bottom: $border;
@@ -68,9 +63,9 @@
       color: $gray8;
       height: 3.5rem;
 
-      i{
+      .svg-24px{
         font-size: 2rem;
-        color: $gray4;
+        fill: $gray4;
         position: absolute;
 
         &.top{
@@ -83,13 +78,13 @@
         }
 
         &.is-active{
-          color: $gray10;
+          fill: $gray10;
         }
       }
 
       &.is-active{
         @include bold;
-        color: $gray10;
+        fill: $gray10;
       }
     }
   }

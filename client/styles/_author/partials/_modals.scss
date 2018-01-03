@@ -40,9 +40,9 @@
   padding: 0;
   cursor: pointer;
 
-  i{
+  .svg-24px{
     font-size: 3rem;
-    color: $gray8;
+    fill: $gray8;
 
     &:hover{
       color: $blue;
@@ -103,6 +103,10 @@
   @include align-items(center);
   @include justify-content(center);
   cursor: pointer;
+
+  .svg-24px{
+    fill: $gray9;
+  }
 
   &:hover {
     color: $text-color;
@@ -167,12 +171,12 @@
     border: $border;
     padding: 0 4rem 0 1rem;
   }
-  i{
+  .svg-24px{
     position: absolute;
     right: 0.8rem;
     top: 0.6rem;
     font-size: 2.2rem;
-    color: $gray9;
+    fill: $gray9;
   }
 }
 

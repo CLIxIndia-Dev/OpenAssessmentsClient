@@ -15,9 +15,6 @@ export default function PublishButton(props) {
       </svg>
     );
   const ariaLabel = isPublished ? 'Unpublish assessment' : 'Publish assessment';
-  // const icon = isPublished ?
-  //   <i className="material-icons is-published">cloud_done</i> :
-  //   <i className="material-icons">cloud_upload</i>;
   if (!assessment.isToggling) {
     return (
       <button

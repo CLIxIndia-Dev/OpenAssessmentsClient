@@ -181,7 +181,9 @@ export class EditorUploadModal extends React.Component {
             language={getLanguage(this.state.language)}
           />
           <button onClick={() => this.closeModal()} className="au-c-wysiwyg-modal__close">
-            <i className="material-icons">close</i>
+            <svg className="svg-24px">
+              <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+            </svg>
           </button>
         </div>
 
@@ -210,7 +212,9 @@ export class EditorUploadModal extends React.Component {
                 type="file"
               />
               <div className="au-c-wysiwyg-media__upload">
-                <i className="material-icons">find_in_page</i>
+                <svg className="svg-24px">
+                  <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_find_in_page_24px" />
+                </svg>
               </div>
             </label>
           </div>

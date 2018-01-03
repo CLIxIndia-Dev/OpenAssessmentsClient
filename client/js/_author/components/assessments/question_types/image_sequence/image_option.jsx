@@ -38,7 +38,9 @@ function imageOption(props) {
           </select>
         </div>
         <button className="au-c-answer--delete au-u-right" onClick={() => deleteChoice(props)}>
-          <i className="material-icons">close</i>
+          <svg className="svg-24px">
+            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+          </svg>
         </button>
       </div>
       <div className="au-c-input au-c-input-label--left">

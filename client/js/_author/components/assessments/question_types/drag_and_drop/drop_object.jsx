@@ -44,7 +44,9 @@ function dropObject(props) {
             className="au-c-answer--delete"
             onClick={() => updateObject({ delete: true })}
           >
-            <i className="material-icons">close</i>
+            <svg className="svg-24px">
+              <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+            </svg>
           </button>
         </div>
 

@@ -12,7 +12,9 @@ export default function answerIcons(props) {
       tabIndex="0"
       onClick={props.moveUp}
     >
-      <i className="material-icons">arrow_upward</i>
+      <svg className="svg-24px">
+        <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_upward_24px" />
+      </svg>
     </button>
   );
   const downButton = (
@@ -21,7 +23,9 @@ export default function answerIcons(props) {
       tabIndex="0"
       onClick={props.moveDown}
     >
-      <i className="material-icons">arrow_downward</i>
+      <svg className="svg-24px">
+        <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_downward_24px" />
+      </svg>
     </button>
   );
 
@@ -34,7 +38,9 @@ export default function answerIcons(props) {
         tabIndex="0"
         onClick={props.deleteChoice}
       >
-        <i className="material-icons">close</i>
+        <svg className="svg-24px">
+          <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+        </svg>
       </button>
     </div>
   );

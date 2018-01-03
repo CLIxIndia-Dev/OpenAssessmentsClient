@@ -22,16 +22,22 @@ class ReorderHeader extends React.Component {
     return (
       <div ref={ref => (this.header = ref)} className="au-o-right au-c-question-icons au-c-question-icons--reorder">
         <button
+          aria-label="Move question up"
           className={`au-c-btn au-c-btn--square ${hideUp}`}
           onClick={!this.props.topItem && this.props.moveUp}
         >
-          <i className="material-icons">arrow_upward</i>
+          <svg className="svg-24px">
+            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_upward_24px" />
+          </svg>
         </button>
         <button
+          aria-label="Move question down"
           className={`au-c-btn au-c-btn--square ${hideDown}`}
           onClick={!this.props.bottomItem && this.props.moveDown}
         >
-          <i className="material-icons">arrow_downward</i>
+          <svg className="svg-24px">
+            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_downward_24px" />
+          </svg>
         </button>
         <button
           onClick={this.props.toggleReorder}
