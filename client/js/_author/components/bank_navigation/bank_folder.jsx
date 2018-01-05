@@ -9,14 +9,17 @@ export default function BankFolder(props) {
     <ListItem
       {...props}
       isClickable
-      label={`Assessment catalog: ${displayName}`}
+      ariaLabel={`Assessment catalog: ${displayName}`}
       selectItem={() => props.getBankChildren(bank.id)}
       onFocus={props.onFocus}
     >
       <td>
-        <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_folder_24px" />
-        </svg>
+        <i
+          aria-hidden
+          className="material-icons"
+        >
+          folder
+        </i>
       </td>
       <td>{displayName}</td>
       <td />

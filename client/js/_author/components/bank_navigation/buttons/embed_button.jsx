@@ -44,14 +44,16 @@ export default function EmbedButton(props) {
           </label>
           <CopyToClipboard text={iframeCode}>
             <button
-              aria-label="Copy iframe code"
               className="au-c-btn au-c-btn--square au-c-btn--embed "
               onClick={e => e.stopPropagation()}
               onFocus={props.onFocus}
             >
-              <svg className="svg-24px">
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-content-symbol.svg#ic_content_paste_24px" />
-              </svg>
+              <i
+                aria-label="Copy iframe code"
+                className="material-icons"
+              >
+                content_paste
+              </i>
             </button>
           </CopyToClipboard>
         </div>

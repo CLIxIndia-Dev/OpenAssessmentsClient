@@ -4,15 +4,17 @@ export default function EditButton(props) {
   const isPublished = props.assessment.isPublished;
   return (
     <button
-      aria-label="Edit assessment"
       className={`au-c-btn au-c-btn--square au-c-btn--table ${isPublished ? 'is-inactive' : ''}`}
       disabled={isPublished}
       onFocus={props.onFocus}
       onClick={props.selectItem}
     >
-      <svg className="svg-24px">
-        <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_edit_24px" />
-      </svg>
+      <i
+        aria-label="Edit assessment"
+        className="material-icons"
+      >
+        edit
+      </i>
     </button>
   );
 }

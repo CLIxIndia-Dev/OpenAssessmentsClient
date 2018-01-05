@@ -75,13 +75,16 @@ export class BankAssessment extends React.Component {
         {...this.props}
         bank={assessment}
         selectItem={() => {}}
-        label={`Assessment: ${assessment.displayName.text}`}
+        ariaLabel={`Assessment item: ${displayName}`}
         onFocus={this.props.onFocus}
       >
         <td>
-          <svg className="svg-24px">
-            <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px" />
-          </svg>
+          <i
+            aria-label="Assessment"
+            className="material-icons"
+          >
+            description
+          </i>
         </td>
         <td>{displayName}</td>
         <td>

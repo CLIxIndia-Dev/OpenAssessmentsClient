@@ -30,11 +30,6 @@
     }
   }
 
-  .svg-24px{
-    width: 24px;
-    height: 24px;
-  }
-
   th{
     height: 5rem;
     border-bottom: $border;
@@ -100,8 +95,8 @@
         background: $purple;
 
         &:nth-of-type(1){
-          .svg-24px{
-            fill: $white;
+          i{
+            color: $white;
           }
         }
         &:nth-of-type(2){
@@ -109,8 +104,8 @@
           color: $white;
         }
         &:nth-of-type(3){
-          .svg-24px{
-            fill: $white;
+          i{
+            color: $white;
           }
         }
         &:nth-of-type(4){
@@ -121,13 +116,13 @@
         background-color: $purple2;
         color: $white;
 
-        .svg-24px{
-          fill: $white;
+        i{
+          color: $white;
         }
 
         &.is-published{
-          .svg-24px{
-            fill: $white;
+          i{
+            color: $white;
           }
         }
 
@@ -135,8 +130,8 @@
           background-color: $white;
           color: $purple;
 
-          .svg-24px{
-            fill: $purple;
+          i{
+            color: $purple;
           }
         }
       }
@@ -158,8 +153,8 @@
       &:nth-of-type(1){
         padding-left: 2rem;
         width: 6rem;
-        .svg-24px{
-          fill: $gray9;
+        i{
+          color: $gray9;
         }
       }
       &:nth-of-type(2){
@@ -170,12 +165,12 @@
         @include truncate;
       }
       &:nth-of-type(3){
-        .svg-24px{
-          fill: $gray9;
+        i{
+          color: $gray9;
         }
         .is-published{
-          .svg-24px{
-            fill: $green;
+          i{
+            color: $green;
           }
         }
       }
@@ -237,21 +232,21 @@
   display: block;
   position: relative;
 
-  .svg-24px{
+  i{
     position: absolute;
     @include center(horizontal);
     top: 0.3rem;
     width: 3rem;
     height: 3rem;
-    fill: $white;
+    color: $white;
     @include transition(color 0.1s ease);
   }
 
   &:hover, &:focus{
     background-color: $white;
 
-    .svg-24px{
-      fill: $purple;
+    i{
+      color: $purple;
     }
   }
 }
