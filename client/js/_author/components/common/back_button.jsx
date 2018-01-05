@@ -9,7 +9,7 @@ function backButton(props) {
       className="au-c-btn au-c-btn--sm au-c-btn--outline au-c-btn--back"
     >
       <svg className="svg-24px">
-        <use href="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_left_24px" />
+        <use xlinkHref="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_left_24px" />
       </svg>
       {strings.back}
     </button>

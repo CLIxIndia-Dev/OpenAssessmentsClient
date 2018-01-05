@@ -182,7 +182,7 @@ export class EditorUploadModal extends React.Component {
           />
           <button onClick={() => this.closeModal()} className="au-c-wysiwyg-modal__close">
             <svg className="svg-24px">
-              <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+              <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
             </svg>
           </button>
         </div>
@@ -213,7 +213,7 @@ export class EditorUploadModal extends React.Component {
               />
               <div className="au-c-wysiwyg-media__upload">
                 <svg className="svg-24px">
-                  <use href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_find_in_page_24px" />
+                  <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_find_in_page_24px" />
                 </svg>
               </div>
             </label>

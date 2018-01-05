@@ -61,7 +61,7 @@ class NavigationBarContent extends React.Component {
                 onClick={() => appHistory.push(`banks/${bankId}/assessments/${id}/preview`)}
               >
                 <svg className="svg-24px">
-                  <use href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
+                  <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
                 </svg>
                 {strings.preview}
               </button> : null

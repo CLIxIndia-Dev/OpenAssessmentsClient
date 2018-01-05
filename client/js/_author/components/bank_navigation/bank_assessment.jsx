@@ -80,7 +80,7 @@ export class BankAssessment extends React.Component {
       >
         <td>
           <svg className="svg-24px">
-            <use href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px" />
+            <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px" />
           </svg>
         </td>
         <td>{displayName}</td>

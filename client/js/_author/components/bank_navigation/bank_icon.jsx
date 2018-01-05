@@ -10,13 +10,13 @@ export default function bankIcon(props) {
     case 'Publish':
       return (
         <svg className="svg-24px">
-          <use href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px" />
+          <use xlinkHref="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_upload_24px" />
         </svg>
       );
     case 'Published':
       return (
         <svg className="svg-24px">
-          <use href="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_done_24px" />
+          <use xlinkHref="/icons/MaterialDesign-svg-sprite-file-symbol.svg#ic_cloud_done_24px" />
         </svg>
       );
     default:

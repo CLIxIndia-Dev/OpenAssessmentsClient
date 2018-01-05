@@ -63,7 +63,7 @@ function option(props) {
       />
       <button onClick={props.deleteChoice} className="au-c-answer--delete">
         <svg className="svg-24px">
-          <use href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
+          <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
         </svg>
       </button>
     </div>
