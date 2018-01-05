@@ -50,5 +50,5 @@ ListItem.propTypes = {
   focused: PropTypes.bool.isRequired,
   children: PropTypes.node,
   ariaLabel: PropTypes.string,
-  isClickable: .PropTypes.bool
+  isClickable: PropTypes.bool
 };
