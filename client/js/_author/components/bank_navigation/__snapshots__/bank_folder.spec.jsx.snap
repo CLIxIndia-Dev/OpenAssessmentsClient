@@ -25,7 +25,7 @@ ShallowWrapper {
 >
     <td>
         <i
-            aria-hidden={true}
+            aria-label="Assessment catalog"
             className="material-icons"
         >
             folder
@@ -55,7 +55,7 @@ ShallowWrapper {
 >
       <td>
             <i
-                  aria-hidden={true}
+                  aria-label="Assessment catalog"
                   className="material-icons"
             >
                   folder
@@ -139,7 +139,7 @@ ShallowWrapper {
 >
           <td>
                     <i
-                              aria-hidden={true}
+                              aria-label="Assessment catalog"
                               className="material-icons"
                     >
                               folder
@@ -169,7 +169,7 @@ ShallowWrapper {
 >
           <td>
                     <i
-                              aria-hidden={true}
+                              aria-label="Assessment catalog"
                               className="material-icons"
                     >
                               folder

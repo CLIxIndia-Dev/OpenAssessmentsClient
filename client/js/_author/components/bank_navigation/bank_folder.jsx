@@ -15,7 +15,7 @@ export default function BankFolder(props) {
     >
       <td>
         <i
-          aria-hidden
+          aria-label="Assessment catalog"
           className="material-icons"
         >
           folder

@@ -9,7 +9,7 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ListItem
-    ariaLabel="Assessment item: Spec Name"
+    ariaLabel="Unpublished Assessment: Spec Name"
     assessment={
         Object {
             "bankId": "",
@@ -147,7 +147,7 @@ ShallowWrapper {
 </ListItem>,
   "nodes": Array [
     <ListItem
-      ariaLabel="Assessment item: Spec Name"
+      ariaLabel="Unpublished Assessment: Spec Name"
       assessment={
             Object {
                   "bankId": "",
@@ -354,7 +354,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ListItem
-          ariaLabel="Assessment item: Spec Name"
+          ariaLabel="Unpublished Assessment: Spec Name"
           assessment={
                     Object {
                               "bankId": "",
@@ -492,7 +492,7 @@ ShallowWrapper {
 </ListItem>,
         "_debugID": 2,
         "_renderedOutput": <ListItem
-          ariaLabel="Assessment item: Spec Name"
+          ariaLabel="Unpublished Assessment: Spec Name"
           assessment={
                     Object {
                               "bankId": "",

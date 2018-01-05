@@ -55,6 +55,8 @@ export class BankAssessment extends React.Component {
   render() {
     const { assessment } = this.props;
     const displayName = _.get(assessment, 'displayName.text');
+    const publishedStatus = assessment.isPublished;
+    const publishedPhase = publishedStatus ? 'Published' : 'Unpublished';
     // we pass empty functions to list item so that you cant open an assessment while its
     // being deleted.
     if (this.state.deleting) {
@@ -75,7 +77,7 @@ export class BankAssessment extends React.Component {
         {...this.props}
         bank={assessment}
         selectItem={() => {}}
-        ariaLabel={`Assessment item: ${displayName}`}
+        ariaLabel={`${publishedPhase} Assessment: ${displayName}`}
         onFocus={this.props.onFocus}
       >
         <td>
