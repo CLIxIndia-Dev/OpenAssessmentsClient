@@ -114,10 +114,6 @@
 }
 
 .c-radio-button {
-  .svg-24px{
-    width: 24px;
-    height: 24px;
-  }
 
   .c-radio-button__border {
     display: inline-block;
@@ -128,13 +124,10 @@
     cursor: pointer;
     font-size: 14px;
     border-radius: 50%;
-
-    .svg-24px {
-      fill: $radio-color;
-    }
+    color: $radio-color;
 
     .radio_button--focused {
-      fill: $radio-selected;
+      color: $radio-selected;
     }
   }
 
