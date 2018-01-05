@@ -23,13 +23,11 @@ ShallowWrapper {
             <div
                 className="au-c-input__contain"
             >
-                <svg
-                    className="svg-24px"
+                <i
+                    className="material-icons"
                 >
-                    <use
-                        href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_search_24px"
-                    />
-                </svg>
+                    search
+                </i>
                 <input
                     className="au-c-text-input au-c-text-input--small"
                     id="name2"
@@ -61,13 +59,11 @@ ShallowWrapper {
         marginPagesDisplayed={1}
         nextClassName="au-c-modal-media__pagination-next "
         nextLabel={
-            <svg
-                className="svg-24px"
+            <i
+                className="material-icons"
             >
-                <use
-                    href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_right_24px"
-                />
-            </svg>
+                keyboard_arrow_right
+            </i>
         }
         onPageChange={[Function]}
         pageClassName="au-c-modal-media__pagination-pages"
@@ -76,13 +72,11 @@ ShallowWrapper {
         pageRangeDisplayed={5}
         previousClassName="au-c-modal-media__pagination-previous "
         previousLabel={
-            <svg
-                className="svg-24px"
+            <i
+                className="material-icons"
             >
-                <use
-                    href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_left_24px"
-                />
-            </svg>
+                keyboard_arrow_left
+            </i>
         }
     />
 </div>,
@@ -102,13 +96,11 @@ ShallowWrapper {
                   <div
                         className="au-c-input__contain"
                   >
-                        <svg
-                              className="svg-24px"
+                        <i
+                              className="material-icons"
                         >
-                              <use
-                                    href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_search_24px"
-                              />
-                        </svg>
+                              search
+                        </i>
                         <input
                               className="au-c-text-input au-c-text-input--small"
                               id="name2"
@@ -140,13 +132,11 @@ ShallowWrapper {
             marginPagesDisplayed={1}
             nextClassName="au-c-modal-media__pagination-next "
             nextLabel={
-                  <svg
-                        className="svg-24px"
+                  <i
+                        className="material-icons"
                   >
-                        <use
-                              href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_right_24px"
-                        />
-                  </svg>
+                        keyboard_arrow_right
+                  </i>
             }
             onPageChange={[Function]}
             pageClassName="au-c-modal-media__pagination-pages"
@@ -155,20 +145,18 @@ ShallowWrapper {
             pageRangeDisplayed={5}
             previousClassName="au-c-modal-media__pagination-previous "
             previousLabel={
-                  <svg
-                        className="svg-24px"
+                  <i
+                        className="material-icons"
                   >
-                        <use
-                              href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_left_24px"
-                        />
-                  </svg>
+                        keyboard_arrow_left
+                  </i>
             }
       />
 </div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
+    "_instance":  {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
@@ -228,13 +216,11 @@ ShallowWrapper {
                               <div
                                         className="au-c-input__contain"
                               >
-                                        <svg
-                                                  className="svg-24px"
+                                        <i
+                                                  className="material-icons"
                                         >
-                                                  <use
-                                                            href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_search_24px"
-                                                  />
-                                        </svg>
+                                                  search
+                                        </i>
                                         <input
                                                   className="au-c-text-input au-c-text-input--small"
                                                   id="name2"
@@ -266,13 +252,11 @@ ShallowWrapper {
                     marginPagesDisplayed={1}
                     nextClassName="au-c-modal-media__pagination-next "
                     nextLabel={
-                              <svg
-                                        className="svg-24px"
+                              <i
+                                        className="material-icons"
                               >
-                                        <use
-                                                  href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_right_24px"
-                                        />
-                              </svg>
+                                        keyboard_arrow_right
+                              </i>
                     }
                     onPageChange={[Function]}
                     pageClassName="au-c-modal-media__pagination-pages"
@@ -281,13 +265,11 @@ ShallowWrapper {
                     pageRangeDisplayed={5}
                     previousClassName="au-c-modal-media__pagination-previous "
                     previousLabel={
-                              <svg
-                                        className="svg-24px"
+                              <i
+                                        className="material-icons"
                               >
-                                        <use
-                                                  href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_left_24px"
-                                        />
-                              </svg>
+                                        keyboard_arrow_left
+                              </i>
                     }
           />
 </div>,
@@ -307,13 +289,11 @@ ShallowWrapper {
                               <div
                                         className="au-c-input__contain"
                               >
-                                        <svg
-                                                  className="svg-24px"
+                                        <i
+                                                  className="material-icons"
                                         >
-                                                  <use
-                                                            href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_search_24px"
-                                                  />
-                                        </svg>
+                                                  search
+                                        </i>
                                         <input
                                                   className="au-c-text-input au-c-text-input--small"
                                                   id="name2"
@@ -345,13 +325,11 @@ ShallowWrapper {
                     marginPagesDisplayed={1}
                     nextClassName="au-c-modal-media__pagination-next "
                     nextLabel={
-                              <svg
-                                        className="svg-24px"
+                              <i
+                                        className="material-icons"
                               >
-                                        <use
-                                                  href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_right_24px"
-                                        />
-                              </svg>
+                                        keyboard_arrow_right
+                              </i>
                     }
                     onPageChange={[Function]}
                     pageClassName="au-c-modal-media__pagination-pages"
@@ -360,13 +338,11 @@ ShallowWrapper {
                     pageRangeDisplayed={5}
                     previousClassName="au-c-modal-media__pagination-previous "
                     previousLabel={
-                              <svg
-                                        className="svg-24px"
+                              <i
+                                        className="material-icons"
                               >
-                                        <use
-                                                  href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_left_24px"
-                                        />
-                              </svg>
+                                        keyboard_arrow_left
+                              </i>
                     }
           />
 </div>,

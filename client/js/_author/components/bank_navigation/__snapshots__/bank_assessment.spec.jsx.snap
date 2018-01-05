@@ -9,6 +9,7 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ListItem
+    ariaLabel="Assessment item: Spec Name"
     assessment={
         Object {
             "bankId": "",
@@ -33,19 +34,17 @@ ShallowWrapper {
     deleteAssessment={[Function]}
     focused={false}
     getEmbedCode={[Function]}
-    label="Assessment: Spec Name"
     onFocus={[Function]}
     selectItem={[Function]}
     togglePublishAssessment={[Function]}
 >
     <td>
-        <svg
-            className="svg-24px"
+        <i
+            aria-label="Assessment"
+            className="material-icons"
         >
-            <use
-                href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
-            />
-        </svg>
+            description
+        </i>
     </td>
     <td>
         Spec Name
@@ -148,6 +147,7 @@ ShallowWrapper {
 </ListItem>,
   "nodes": Array [
     <ListItem
+      ariaLabel="Assessment item: Spec Name"
       assessment={
             Object {
                   "bankId": "",
@@ -172,19 +172,17 @@ ShallowWrapper {
       deleteAssessment={[Function]}
       focused={false}
       getEmbedCode={[Function]}
-      label="Assessment: Spec Name"
       onFocus={[Function]}
       selectItem={[Function]}
       togglePublishAssessment={[Function]}
 >
       <td>
-            <svg
-                  className="svg-24px"
+            <i
+                  aria-label="Assessment"
+                  className="material-icons"
             >
-                  <use
-                        href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
-                  />
-            </svg>
+                  description
+            </i>
       </td>
       <td>
             Spec Name
@@ -288,7 +286,7 @@ ShallowWrapper {
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
+    "_instance":  {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
@@ -356,6 +354,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ListItem
+          ariaLabel="Assessment item: Spec Name"
           assessment={
                     Object {
                               "bankId": "",
@@ -380,19 +379,17 @@ ShallowWrapper {
           deleteAssessment={[Function]}
           focused={false}
           getEmbedCode={[Function]}
-          label="Assessment: Spec Name"
           onFocus={[Function]}
           selectItem={[Function]}
           togglePublishAssessment={[Function]}
 >
           <td>
-                    <svg
-                              className="svg-24px"
+                    <i
+                              aria-label="Assessment"
+                              className="material-icons"
                     >
-                              <use
-                                        href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
-                              />
-                    </svg>
+                              description
+                    </i>
           </td>
           <td>
                     Spec Name
@@ -495,6 +492,7 @@ ShallowWrapper {
 </ListItem>,
         "_debugID": 2,
         "_renderedOutput": <ListItem
+          ariaLabel="Assessment item: Spec Name"
           assessment={
                     Object {
                               "bankId": "",
@@ -519,19 +517,17 @@ ShallowWrapper {
           deleteAssessment={[Function]}
           focused={false}
           getEmbedCode={[Function]}
-          label="Assessment: Spec Name"
           onFocus={[Function]}
           selectItem={[Function]}
           togglePublishAssessment={[Function]}
 >
           <td>
-                    <svg
-                              className="svg-24px"
+                    <i
+                              aria-label="Assessment"
+                              className="material-icons"
                     >
-                              <use
-                                        href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_description_24px"
-                              />
-                    </svg>
+                              description
+                    </i>
           </td>
           <td>
                     Spec Name

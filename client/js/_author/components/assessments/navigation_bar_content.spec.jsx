@@ -46,13 +46,13 @@ describe('New Assessments View', () => {
 
   it('Determines Icon status', () => {
     result = TestUtils.renderIntoDocument(<Stub><AssessmentView {...props} /></Stub>);
-    let icons = TestUtils.scryRenderedDOMComponentsWithTag(result, 'use');
-    expect(icons[1].getAttribute('href')).toContain('cloud_done');
+    let icons = TestUtils.scryRenderedDOMComponentsWithTag(result, 'i');
+    expect(icons[1].textContent).toContain('cloud_done');
 
     props.isPublished = false;
     result = TestUtils.renderIntoDocument(<Stub><AssessmentView {...props} /></Stub>);
-    icons = TestUtils.scryRenderedDOMComponentsWithTag(result, 'use');
-    expect(icons[1].getAttribute('href')).toContain('cloud_upload');
+    icons = TestUtils.scryRenderedDOMComponentsWithTag(result, 'i');
+    expect(icons[1].textContent).toContain('cloud_upload');
   });
 
   it('should include a help link', () => {

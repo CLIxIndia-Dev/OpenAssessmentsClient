@@ -9,40 +9,36 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <button
-    aria-label="Edit assessment"
     className="au-c-btn au-c-btn--square au-c-btn--table "
     disabled={false}
     onClick={undefined}
     onFocus={[Function]}
 >
-    <svg
-        className="svg-24px"
+    <i
+        aria-label="Edit assessment"
+        className="material-icons"
     >
-        <use
-            href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_edit_24px"
-        />
-    </svg>
+        edit
+    </i>
 </button>,
   "nodes": Array [
     <button
-      aria-label="Edit assessment"
       className="au-c-btn au-c-btn--square au-c-btn--table "
       disabled={false}
       onClick={undefined}
       onFocus={[Function]}
 >
-      <svg
-            className="svg-24px"
+      <i
+            aria-label="Edit assessment"
+            className="material-icons"
       >
-            <use
-                  href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_edit_24px"
-            />
-      </svg>
+            edit
+      </i>
 </button>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
+    "_instance":  {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
@@ -87,35 +83,31 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <button
-          aria-label="Edit assessment"
           className="au-c-btn au-c-btn--square au-c-btn--table "
           disabled={false}
           onClick={undefined}
           onFocus={[Function]}
 >
-          <svg
-                    className="svg-24px"
+          <i
+                    aria-label="Edit assessment"
+                    className="material-icons"
           >
-                    <use
-                              href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_edit_24px"
-                    />
-          </svg>
+                    edit
+          </i>
 </button>,
         "_debugID": 2,
         "_renderedOutput": <button
-          aria-label="Edit assessment"
           className="au-c-btn au-c-btn--square au-c-btn--table "
           disabled={false}
           onClick={undefined}
           onFocus={[Function]}
 >
-          <svg
-                    className="svg-24px"
+          <i
+                    aria-label="Edit assessment"
+                    className="material-icons"
           >
-                    <use
-                              href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_edit_24px"
-                    />
-          </svg>
+                    edit
+          </i>
 </button>,
       },
       "_renderedNodeType": 0,

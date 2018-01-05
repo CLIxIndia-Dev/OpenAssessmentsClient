@@ -17,13 +17,11 @@ ShallowWrapper {
             onClick={[Function]}
         >
             Spec
-            <svg
-                className="svg-24px"
+            <i
+                className="material-icons"
             >
-                <use
-                    href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_24px"
-                />
-            </svg>
+                arrow_drop_down
+            </i>
         </button>
         <ul
             className="au-c-button-dropdown__dropdown "
@@ -34,13 +32,11 @@ ShallowWrapper {
                     id="reg_Spec"
                     onClick={[Function]}
                 >
-                    <svg
-                        className="svg-24px"
+                    <i
+                        className="material-icons"
                     >
-                        <use
-                            href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_open_in_new_24px"
-                        />
-                    </svg>
+                        open_in_new
+                    </i>
                     by region
                 </button>
             </li>
@@ -50,13 +46,11 @@ ShallowWrapper {
                     id="image_Spec"
                     onClick={[Function]}
                 >
-                    <svg
-                        className="svg-24px"
+                    <i
+                        className="material-icons"
                     >
-                        <use
-                            href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_image_24px"
-                        />
-                    </svg>
+                        image
+                    </i>
                     by image
                 </button>
             </li>
@@ -73,13 +67,11 @@ ShallowWrapper {
                   onClick={[Function]}
             >
                   Spec
-                  <svg
-                        className="svg-24px"
+                  <i
+                        className="material-icons"
                   >
-                        <use
-                              href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_24px"
-                        />
-                  </svg>
+                        arrow_drop_down
+                  </i>
             </button>
             <ul
                   className="au-c-button-dropdown__dropdown "
@@ -90,13 +82,11 @@ ShallowWrapper {
                               id="reg_Spec"
                               onClick={[Function]}
                         >
-                              <svg
-                                    className="svg-24px"
+                              <i
+                                    className="material-icons"
                               >
-                                    <use
-                                          href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_open_in_new_24px"
-                                    />
-                              </svg>
+                                    open_in_new
+                              </i>
                               by region
                         </button>
                   </li>
@@ -106,13 +96,11 @@ ShallowWrapper {
                               id="image_Spec"
                               onClick={[Function]}
                         >
-                              <svg
-                                    className="svg-24px"
+                              <i
+                                    className="material-icons"
                               >
-                                    <use
-                                          href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_image_24px"
-                                    />
-                              </svg>
+                                    image
+                              </i>
                               by image
                         </button>
                   </li>
@@ -122,7 +110,7 @@ ShallowWrapper {
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
+    "_instance":  {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
@@ -175,13 +163,11 @@ ShallowWrapper {
                               onClick={[Function]}
                     >
                               Spec
-                              <svg
-                                        className="svg-24px"
+                              <i
+                                        className="material-icons"
                               >
-                                        <use
-                                                  href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_24px"
-                                        />
-                              </svg>
+                                        arrow_drop_down
+                              </i>
                     </button>
                     <ul
                               className="au-c-button-dropdown__dropdown "
@@ -192,13 +178,11 @@ ShallowWrapper {
                                                   id="reg_Spec"
                                                   onClick={[Function]}
                                         >
-                                                  <svg
-                                                            className="svg-24px"
+                                                  <i
+                                                            className="material-icons"
                                                   >
-                                                            <use
-                                                                      href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_open_in_new_24px"
-                                                            />
-                                                  </svg>
+                                                            open_in_new
+                                                  </i>
                                                   by region
                                         </button>
                               </li>
@@ -208,13 +192,11 @@ ShallowWrapper {
                                                   id="image_Spec"
                                                   onClick={[Function]}
                                         >
-                                                  <svg
-                                                            className="svg-24px"
+                                                  <i
+                                                            className="material-icons"
                                                   >
-                                                            <use
-                                                                      href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_image_24px"
-                                                            />
-                                                  </svg>
+                                                            image
+                                                  </i>
                                                   by image
                                         </button>
                               </li>
@@ -231,13 +213,11 @@ ShallowWrapper {
                               onClick={[Function]}
                     >
                               Spec
-                              <svg
-                                        className="svg-24px"
+                              <i
+                                        className="material-icons"
                               >
-                                        <use
-                                                  href="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_24px"
-                                        />
-                              </svg>
+                                        arrow_drop_down
+                              </i>
                     </button>
                     <ul
                               className="au-c-button-dropdown__dropdown "
@@ -248,13 +228,11 @@ ShallowWrapper {
                                                   id="reg_Spec"
                                                   onClick={[Function]}
                                         >
-                                                  <svg
-                                                            className="svg-24px"
+                                                  <i
+                                                            className="material-icons"
                                                   >
-                                                            <use
-                                                                      href="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_open_in_new_24px"
-                                                            />
-                                                  </svg>
+                                                            open_in_new
+                                                  </i>
                                                   by region
                                         </button>
                               </li>
@@ -264,13 +242,11 @@ ShallowWrapper {
                                                   id="image_Spec"
                                                   onClick={[Function]}
                                         >
-                                                  <svg
-                                                            className="svg-24px"
+                                                  <i
+                                                            className="material-icons"
                                                   >
-                                                            <use
-                                                                      href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_image_24px"
-                                                            />
-                                                  </svg>
+                                                            image
+                                                  </i>
                                                   by image
                                         </button>
                               </li>
