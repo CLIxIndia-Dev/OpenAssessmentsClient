@@ -23,9 +23,7 @@ function navigationBarContent(props) {
           onClick={() => props.updatePath(null)}
           className={props.currentBankId ? 'au-c-btn au-c-btn--breadcrumb' : 'au-c-btn au-c-btn--breadcrumb is-active'}
         >
-          <svg className="svg-24px">
-            <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_home_24px" />
-          </svg>
+          <i className="material-icons">home</i>
           {strings.assessment}
         </button>
         {

@@ -18,12 +18,12 @@ describe('help_link component', () => {
   });
 
   it('should also render with an icon', () => {
-    expect(result.find('svg').length).toBe(0);
+    expect(result.find('.material-icons').length).toBe(0);
     props = {
       to: '/somewhere.html',
       icon: true
     };
     result = shallow(<HelpLink {...props} />);
-    expect(result.find('svg').length).toBe(1);
+    expect(result.find('.material-icons').length).toBe(1);
   });
 });

@@ -89,12 +89,12 @@
   padding: 0;
   cursor: pointer;
 
-  .svg-24px{
+  i{
     font-size: 3rem;
-    fill: $gray4;
+    color: $gray4;
 
     &:hover{
-      fill: $blue;
+      color: $blue;
     }
   }
 }

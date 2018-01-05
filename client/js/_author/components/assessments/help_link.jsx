@@ -13,9 +13,7 @@ function helpLink(props) {
         target="_blank"
         className="help-link"
       >
-        <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_help_24px" />
-        </svg>
+        <i className="material-icons">help</i>
       </a>
     );
   }

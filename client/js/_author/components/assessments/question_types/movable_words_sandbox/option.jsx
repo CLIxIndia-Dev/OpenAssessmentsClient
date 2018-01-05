@@ -76,9 +76,7 @@ export default function Option(props) {
         className="au-c-answer--delete"
         onClick={() => props.deleteChoice()}
       >
-        <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_close_24px" />
-        </svg>
+        <i className="material-icons">close</i>
       </button>
     </div>
   );

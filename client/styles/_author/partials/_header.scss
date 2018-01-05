@@ -10,10 +10,10 @@
     @include display-flex;
     @include align-items(center);
 
-    .svg-24px{
+    a {
       position: absolute;
       right: 2rem;
-      fill: $purple2;
+      color: $purple2;
     }
   }
 

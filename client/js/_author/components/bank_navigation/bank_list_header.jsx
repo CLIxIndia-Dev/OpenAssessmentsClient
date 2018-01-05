@@ -14,12 +14,12 @@ function bankListHeader(props) {
               onClick={() => props.sortBy('sortName')}
             >
               {strings.name}
-              <svg className={props.sortName === 'desc' ? 'svg-24px top is-active' : 'svg-24px top'}>
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_up_24px" />
-              </svg>
-              <svg className={props.sortName === 'asc' ? 'svg-24px bottom is-active' : 'svg-24px bottom'}>
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_down_24px" />
-              </svg>
+              <i className={props.sortName === 'desc' ? 'material-icons top is-active' : 'material-icons top'}>
+                keyboard_arrow_up
+              </i>
+              <i className={props.sortName === 'asc' ? 'material-icons bottom is-active' : 'material-icons bottom'}>
+                keyboard_arrow_down
+              </i>
             </button>
           </th>
           <th>
@@ -28,12 +28,12 @@ function bankListHeader(props) {
               onClick={() => props.sortBy('sortPublished')}
             >
               {strings.published}
-              <svg className={props.sortPublished === 'desc' ? 'svg-24px top is-active' : 'svg-24px top'}>
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_up_24px" />
-              </svg>
-              <svg className={props.sortPublished === 'asc' ? 'svg-24px bottom is-active' : 'svg-24px bottom'}>
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-hardware-symbol.svg#ic_keyboard_arrow_down_24px" />
-              </svg>
+              <i className={props.sortPublished === 'desc' ? 'material-icons top is-active' : 'material-icons top'}>
+                keyboard_arrow_up
+              </i>
+              <i className={props.sortPublished === 'asc' ? 'material-icons bottom is-active' : 'material-icons bottom'}>
+                keyboard_arrow_down
+              </i>
             </button>
           </th>
           <th />

@@ -19,9 +19,7 @@ export default function metaDataFileInputs(props) {
               type="file"
             />
             <div className="au-c-wysiwyg-media__upload">
-              <svg className="svg-24px">
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_find_in_page_24px" />
-              </svg>
+              <i className="material-icons">find_in_page</i>
             </div>
           </label>
         </div>

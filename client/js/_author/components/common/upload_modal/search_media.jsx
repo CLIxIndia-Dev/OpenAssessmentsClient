@@ -54,9 +54,7 @@ export default class SearchMedia extends React.Component {
           <div className="au-c-input au-c-input--search">
             <label htmlFor="name2" />
             <div className="au-c-input__contain">
-              <svg className="svg-24px">
-                <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_search_24px" />
-              </svg>
+              <i className="material-icons">search</i>
               <input
                 value={this.state.searchText}
                 onChange={e => this.setState({ searchText: e.target.value })}
@@ -79,12 +77,8 @@ export default class SearchMedia extends React.Component {
         }
 
         <ReactPaginate
-          previousLabel={<svg className="svg-24px">
-            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_left_24px" />
-          </svg>}
-          nextLabel={<svg className="svg-24px">
-            <use xlinkHref="/icons/MaterialDesign-svg-sprite-navigation-symbol.svg#ic_keyboard_arrow_right_24px" />
-          </svg>}
+          previousLabel={<i className="material-icons">keyboard_arrow_left</i>}
+          nextLabel={<i className="material-icons">keyboard_arrow_right</i>}
           breakLabel={<span>...</span>}
           pageCount={_.size(filteredMedia) / 8}
           marginPagesDisplayed={1}

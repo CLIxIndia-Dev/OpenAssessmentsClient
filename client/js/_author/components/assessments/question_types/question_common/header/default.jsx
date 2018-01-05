@@ -63,31 +63,25 @@ export default function DefaultHeader(props) {
   return (
     <div className="au-o-right au-c-question-icons">
       <button
-        aria-label="Preview question"
         className="au-c-btn au-c-btn--square"
+        tabIndex="0"
         onClick={props.togglePreview}
       >
-        <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
-        </svg>
+        <i className="material-icons">remove_red_eye</i>
       </button>
       <button
-        aria-label="Change question order"
         className="au-c-btn au-c-btn--square"
+        tabIndex="0"
         onClick={props.toggleReorder}
       >
-        <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_swap_vert_24px" />
-        </svg>
+        <i className="material-icons">swap_vert</i>
       </button>
       <button
-        aria-label="Delete question"
         className="au-c-btn au-c-btn--square"
+        tabIndex="0"
         onClick={() => props.deleteAssessmentItem(props.id)}
       >
-        <svg className="svg-24px">
-          <use xlinkHref="/icons/MaterialDesign-svg-sprite-action-symbol.svg#ic_delete_24px" />
-        </svg>
+        <i className="material-icons">delete</i>
       </button>
       <HelpLink
         to={helpLinkPath}
