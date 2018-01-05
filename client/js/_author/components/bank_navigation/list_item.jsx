@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function ListItem(props) {
   const {
@@ -39,15 +40,15 @@ export default function ListItem(props) {
 }
 
 ListItem.propTypes = {
-  selectItem: React.PropTypes.func.isRequired,
-  onFocus: React.PropTypes.func.isRequired,
-  bank: React.PropTypes.shape({
-    displayName: React.PropTypes.shape({
-      text: React.PropTypes.string
+  selectItem: PropTypes.func.isRequired,
+  onFocus: PropTypes.func.isRequired,
+  bank: PropTypes.shape({
+    displayName: PropTypes.shape({
+      text: PropTypes.string
     }).isRequired,
   }).isRequired,
-  focused: React.PropTypes.bool.isRequired,
-  children: React.PropTypes.node,
-  ariaLabel: React.PropTypes.string,
-  isClickable: React.PropTypes.bool
+  focused: PropTypes.bool.isRequired,
+  children: PropTypes.node,
+  ariaLabel: PropTypes.string,
+  isClickable: .PropTypes.bool
 };
