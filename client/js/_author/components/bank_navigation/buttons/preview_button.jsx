@@ -4,7 +4,6 @@ export default function PreviewButton(props) {
   const isPublished = props.assessment.isPublished;
   return (
     <button
-      aria-label="Preview assessment"
       className={`au-c-btn au-c-btn--square au-c-btn--table ${isPublished ? '' : 'is-inactive'}`}
       disabled={!isPublished}
       onClick={(e) => {
@@ -13,9 +12,12 @@ export default function PreviewButton(props) {
       }}
       onFocus={props.onFocus}
     >
-      <svg className="svg-24px">
-        <use href="/icons/MaterialDesign-svg-sprite-image-symbol.svg#ic_remove_red_eye_24px" />
-      </svg>
+      <i
+        aria-label="Preview assessment"
+        className="material-icons"
+      >
+        remove_red_eye
+      </i>
     </button>
   );
 }
