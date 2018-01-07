@@ -20,6 +20,10 @@
     }
   }
 
+  .au-c-table__tr-focused {
+    cursor: pointer;
+  }
+
   .au-deleting-assessment {
     height: 5rem;
     position: relative;
@@ -97,7 +101,6 @@
       color: $purple;
 
       i{
-        color: $white;
         color: $purple;
       }
 
@@ -248,7 +251,7 @@
       }
       &:nth-of-type(3){
         i{
-          color: $gray9;
+          color: $purple;
         }
         .is-published{
           i{
