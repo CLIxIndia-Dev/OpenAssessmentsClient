@@ -5,7 +5,7 @@ export default function DeleteButton(props) {
   const isPublished = assessment.isPublished;
   return (
     <button
-      className={`au-c-btn au-c-btn--square au-c-btn--table ${isPublished ? 'is-inactive' : ''}`}
+      className={`au-c-btn au-c-btn--square au-c-table__btn ${isPublished ? 'is-inactive' : ''}`}
       disabled={isPublished}
       onClick={(e) => {
         e.stopPropagation();

@@ -90,14 +90,45 @@
   }
 
   tr{
-    // border-left: 0.5em solid $white;
+
+    .au-c-table__btn {
+      background-color: $white;
+      margin-left: 1rem;
+      color: $purple;
+
+      i{
+        color: $white;
+        color: $purple;
+      }
+
+      &:hover, &:focus{
+        background-color: $white;
+        color: $purple;
+        outline-width: 0.15em;
+        outline-offset: 0.2em;
+
+        button {
+          background-color: $purple2;
+          color: $white;
+        }
+
+        i{
+          color: $purple;
+        }
+      }
+      &.is-inactive{
+        color: rgba(129, 129, 129, 0.5);
+        pointer-events: none;
+        i{
+          color: currentColor;
+        }
+      }
+    }
 
     &:hover {
-      // border-color: $purple;
 
       td{
         background: $purple;
-        // border-color: $purple;
 
         &:nth-of-type(1){
           i{
@@ -117,6 +148,40 @@
 
         }
       }
+
+      .au-c-table__btn {
+        background-color: $purple2;
+        margin-left: 1rem;
+        color: $white;
+
+        i{
+          color: $white;
+        }
+
+        &:hover, &:focus{
+          background-color: $white;
+          color: $purple;
+          outline-width: 0.15em;
+          outline-offset: 0.2em;
+
+          button {
+            background-color: $purple2;
+            color: $white;
+          }
+
+          i{
+            color: $purple;
+          }
+        }
+        &.is-inactive{
+          color: rgba(255,255,255,0.5);
+          pointer-events: none;
+          i{
+            color: rgba(255,255,255,0.5);
+          }
+        }
+      }
+
       .au-c-publish{
         background-color: $purple2;
         color: $white;
@@ -145,18 +210,7 @@
     &:focus{
       outline: 2px dotted $purple;
 
-      td{
-
-      }
       .au-c-publish{
-
-        i{
-        }
-
-        &.is-published{
-          i{
-          }
-        }
 
         &:hover{
           background-color: $white;
@@ -173,10 +227,6 @@
       height: 5rem;
       border-bottom: $border;
       vertical-align: middle;
-
-      button{
-        display: inline-block;
-      }
 
       i{
         font-size: 2rem;
@@ -216,7 +266,7 @@
 .au-c-table__icons{
   @include display-flex;
   @include align-items(center);
-  float: right;
+  @include justify-content(flex-end);
 }
 
 .au-c-publish{
@@ -225,8 +275,6 @@
 
 .au-c-scrollable{
   min-height: 60rem;
-  //max-height: 90rem;
-  //overflow: auto;
 }
 
 .au-c-input--purple{
@@ -237,7 +285,6 @@
     border: 0.2rem solid $purple2;
     border-right: none;
     background: $purple;
-    // height: 3rem;
     border-radius: $radius 0 0 $radius;
     width: 100%;
     padding: 0 1rem;

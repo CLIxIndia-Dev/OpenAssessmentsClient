@@ -46,6 +46,8 @@
   height: 3rem;
   width: 3rem;
   text-align: center;
+  @include justify-content(center);
+
 
   &:active{
     @include transform(scale(0.96));
@@ -163,40 +165,6 @@
     @include semi-bold;
     cursor: auto;
     pointer-events: none;
-  }
-}
-
-.au-c-btn--table{
-  background-color: $purple2;
-  margin-left: 1rem;
-  color: $white;
-  @include transition(all 0.1s ease);
-
-  i{
-    color: $white;
-    @include transition(color 0.1s ease);
-  }
-
-  &:hover, &:focus{
-    background-color: $white;
-    color: $purple;
-
-    button {
-      background-color: $purple2;
-      color: $white;
-    }
-
-    i{
-      color: $purple;
-    }
-  }
-  &.is-inactive{
-    color: rgba(255,255,255,0.5);
-    pointer-events: none;
-    i{
-      color: rgba(255,255,255,0.5);
-      color: currentColor;
-    }
   }
 }
 
