@@ -90,9 +90,14 @@
   }
 
   tr{
-    &:hover, &:focus{
+    // border-left: 0.5em solid $white;
+
+    &:hover {
+      // border-color: $purple;
+
       td{
         background: $purple;
+        // border-color: $purple;
 
         &:nth-of-type(1){
           i{
@@ -123,6 +128,33 @@
         &.is-published{
           i{
             color: $white;
+          }
+        }
+
+        &:hover{
+          background-color: $white;
+          color: $purple;
+
+          i{
+            color: $purple;
+          }
+        }
+      }
+    }
+
+    &:focus{
+      outline: 2px dotted $purple;
+
+      td{
+
+      }
+      .au-c-publish{
+
+        i{
+        }
+
+        &.is-published{
+          i{
           }
         }
 
@@ -181,15 +213,15 @@
   }
 }
 
-  .au-c-table__icons{
-    @include display-flex;
-    @include align-items(center);
-    float: right;
-  }
+.au-c-table__icons{
+  @include display-flex;
+  @include align-items(center);
+  float: right;
+}
 
-    .au-c-publish{
+.au-c-publish{
 
-    }
+}
 
 .au-c-scrollable{
   min-height: 60rem;
