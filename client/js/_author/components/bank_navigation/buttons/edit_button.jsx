@@ -4,7 +4,7 @@ export default function EditButton(props) {
   const isPublished = props.assessment.isPublished;
   return (
     <button
-      className={`au-c-btn au-c-btn--square au-c-btn--table ${isPublished ? 'is-inactive' : ''}`}
+      className={`au-c-btn au-c-btn--square au-c-table__btn ${isPublished ? 'is-inactive' : ''}`}
       disabled={isPublished}
       onFocus={props.onFocus}
       onClick={props.selectItem}

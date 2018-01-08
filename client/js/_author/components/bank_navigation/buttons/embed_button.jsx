@@ -61,7 +61,7 @@ export default function EmbedButton(props) {
     }
     return (
       <button
-        className="au-c-btn au-c-btn--sm au-c-btn--table"
+        className="au-c-btn au-c-btn--sm au-c-table__btn"
         onClick={(e) => {
           e.stopPropagation();
           getEmbedCode(assessment);
