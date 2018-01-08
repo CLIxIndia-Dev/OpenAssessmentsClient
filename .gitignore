@@ -15,6 +15,7 @@ secrets.js
 *.iml
 .env
 yarn-error.log
+yarn.lock
 
 config/secrets.js
 s3_website.yml
