@@ -98,15 +98,16 @@
     .au-c-table__btn {
       background-color: $white;
       margin-left: 1rem;
-      color: $purple;
+      color: $purple2;
 
       i{
-        color: $purple;
+        color: $purple2;
       }
 
       &:hover, &:focus{
-        background-color: $white;
-        color: $purple;
+        background-color: $purple2;
+        color: $white;
+        outline-color: $purple2;
         outline-width: 0.15em;
         outline-offset: 0.2em;
 
@@ -116,7 +117,7 @@
         }
 
         i{
-          color: $purple;
+          color: $white;
         }
       }
       &.is-inactive{
@@ -124,6 +125,28 @@
         pointer-events: none;
         i{
           color: currentColor;
+        }
+      }
+    }
+
+    .au-c-publish{
+
+      &:hover, &:focus{
+        background-color: $purple2;
+        color: $white;
+        outline-color: $purple2;
+        outline-width: 0.15em;
+        outline-offset: 0.2em;
+
+        i{
+          color: $white;
+        }
+
+        &.is-published{
+          background-color: $green;
+          i{
+            color: $white;
+          }
         }
       }
     }
@@ -163,7 +186,8 @@
 
         &:hover, &:focus{
           background-color: $white;
-          color: $purple;
+          color: $purple2;
+          outline-color: $white;
           outline-width: 0.15em;
           outline-offset: 0.2em;
 
@@ -177,10 +201,11 @@
           }
         }
         &.is-inactive{
-          color: rgba(255,255,255,0.5);
+          color: $purple2;
+          background-color: $purple;
           pointer-events: none;
           i{
-            color: rgba(255,255,255,0.5);
+            color: $purple2;
           }
         }
       }
@@ -193,37 +218,34 @@
           color: $white;
         }
 
-        &.is-published{
-          i{
-            color: $white;
-          }
-        }
-
-        &:hover{
+        &:hover, &:focus{
           background-color: $white;
-          color: $purple;
+          color: $purple2;
+          outline-color: $white;
+          outline-width: 0.15em;
+          outline-offset: 0.2em;
 
           i{
             color: $purple;
+          }
+
+          &.is-published{
+            i{
+              color: $purple2;
+            }
+          }
+        }
+
+        &.is-published{
+          i{
+            color: $white;
           }
         }
       }
     }
 
     &:focus{
-      outline: 2px dotted $purple;
-
-      .au-c-publish{
-
-        &:hover{
-          background-color: $white;
-          color: $purple;
-
-          i{
-            color: $purple;
-          }
-        }
-      }
+      outline: 2px dotted $purple2;
     }
 
     td{
@@ -251,7 +273,7 @@
       }
       &:nth-of-type(3){
         i{
-          color: $purple;
+          color: $purple2;
         }
         .is-published{
           i{
