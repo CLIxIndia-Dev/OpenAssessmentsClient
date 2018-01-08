@@ -27,12 +27,14 @@ function bankListHeader(props) {
               {strings.name}
               <i
                 aria-label="ascending"
-                className={props.sortName === 'asc' ? 'material-icons top is-active' : 'material-icons top'}>
+                className={props.sortName === 'asc' ? 'material-icons top is-active' : 'material-icons top'}
+              >
                 keyboard_arrow_up
               </i>
               <i
                 aria-label="descending"
-                className={props.sortName === 'desc' ? 'material-icons bottom is-active' : 'material-icons bottom'}>
+                className={props.sortName === 'desc' ? 'material-icons bottom is-active' : 'material-icons bottom'}
+              >
                 keyboard_arrow_down
               </i>
             </button>
@@ -46,12 +48,14 @@ function bankListHeader(props) {
               {strings.published}
               <i
                 aria-label="ascending"
-                className={props.sortPublished === 'asc' ? 'material-icons top is-active' : 'material-icons top'}>
+                className={props.sortPublished === 'asc' ? 'material-icons top is-active' : 'material-icons top'}
+              >
                 keyboard_arrow_up
               </i>
               <i
                 aria-label="descending"
-                className={props.sortPublished === 'desc' ? 'material-icons bottom is-active' : 'material-icons bottom'}>
+                className={props.sortPublished === 'desc' ? 'material-icons bottom is-active' : 'material-icons bottom'}
+              >
                 keyboard_arrow_down
               </i>
             </button>
