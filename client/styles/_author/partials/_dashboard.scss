@@ -20,6 +20,10 @@
     }
   }
 
+  .au-c-table__tr-focused {
+    cursor: pointer;
+  }
+
   .au-deleting-assessment {
     height: 5rem;
     position: relative;
@@ -59,13 +63,15 @@
       background: none;
       border: none;
       padding: 1rem 3rem 1rem 0;
+      @include bold;
       font-size: 1.2rem;
       color: $gray8;
       height: 3.5rem;
+      cursor: pointer;
 
       i{
         font-size: 2rem;
-        color: $gray4;
+        color: $gray8;
         position: absolute;
 
         &.top{
@@ -78,19 +84,144 @@
         }
 
         &.is-active{
-          color: $gray10;
+          color: $purple;
         }
       }
 
       &.is-active{
-        @include bold;
-        color: $gray10;
+        // @include bold;
+        color: $purple;
       }
     }
   }
 
   tr{
-    &:hover, &:focus{
+
+    .au-c-table__btn {
+      background-color: $white;
+      margin-left: 1rem;
+      color: $purple2;
+
+      i{
+        color: $purple2;
+      }
+
+      &:hover, &:focus{
+        background-color: $purple2;
+        color: $white;
+        outline-color: $purple2;
+        outline-width: 0.15em;
+        outline-offset: 0.2em;
+
+        button {
+          background-color: $purple2;
+          color: $white;
+        }
+
+        i{
+          color: $white;
+        }
+      }
+      &.is-inactive{
+        color: rgba(129, 129, 129, 0.5);
+        pointer-events: none;
+        i{
+          color: currentColor;
+        }
+      }
+    }
+
+    .au-c-publish{
+
+      &:hover, &:focus{
+        background-color: $purple2;
+        color: $white;
+        outline-color: $purple2;
+        outline-width: 0.15em;
+        outline-offset: 0.2em;
+
+        i{
+          color: $white;
+        }
+
+        &.is-published{
+          background-color: $green;
+          i{
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .au-c-table__icons{
+      @include display-flex;
+      @include align-items(center);
+      @include justify-content(flex-end);
+    }
+
+    .au-c-publish{
+
+    }
+
+    .au-c-scrollable{
+      min-height: 60rem;
+    }
+
+    .au-c-input--purple{
+      @include flex(1);
+
+      .au-c-text-input{
+        color: $purple2;
+        border: 0.2rem solid $purple2;
+        border-right: none;
+        background: $white;
+        border-radius: $radius 0 0 $radius;
+        width: 100%;
+        padding: 0 1rem;
+
+        &:focus{
+          border-style: dotted;
+        }
+      }
+    }
+
+    .au-c-embed-contain{
+      width: 100%;
+      @include flex(1);
+      @include display-flex;
+      @include align-items(center);
+    }
+
+    .au-c-btn--embed{
+      border-radius: 0 $radius $radius 0;
+      border: 0.2rem solid $purple2;
+      background-color: $white;
+      color: $purple2;
+      @include transition(all 0.1s ease);
+      display: block;
+      position: relative;
+
+      i{
+        position: absolute;
+        @include center(horizontal);
+        top: 0.3rem;
+        width: 3rem;
+        height: 3rem;
+        color: $purple2;
+        @include transition(color 0.1s ease);
+      }
+
+      &:hover, &:focus{
+        background-color: $purple2;
+
+        i{
+          color: $white;
+        }
+      }
+    }
+
+    &:hover {
+
       td{
         background: $purple;
 
@@ -112,6 +243,42 @@
 
         }
       }
+
+      .au-c-table__btn {
+        background-color: $purple2;
+        margin-left: 1rem;
+        color: $white;
+
+        i{
+          color: $white;
+        }
+
+        &:hover, &:focus{
+          background-color: $white;
+          color: $purple2;
+          outline-color: $white;
+          outline-width: 0.15em;
+          outline-offset: 0.2em;
+
+          button {
+            background-color: $purple2;
+            color: $white;
+          }
+
+          i{
+            color: $purple;
+          }
+        }
+        &.is-inactive{
+          color: $purple2;
+          background-color: $purple;
+          pointer-events: none;
+          i{
+            color: $purple2;
+          }
+        }
+      }
+
       .au-c-publish{
         background-color: $purple2;
         color: $white;
@@ -120,15 +287,121 @@
           color: $white;
         }
 
+        &:hover, &:focus{
+          background-color: $white;
+          color: $purple2;
+          outline-color: $white;
+          outline-width: 0.15em;
+          outline-offset: 0.2em;
+
+          i{
+            color: $purple;
+          }
+
+          &.is-published{
+            i{
+              color: $purple2;
+            }
+          }
+        }
+
         &.is-published{
           i{
             color: $white;
           }
         }
+      }
 
-        &:hover{
+      .au-c-btn--embed{
+        border-radius: 0 $radius $radius 0;
+        border: 0.2rem solid $purple2;
+        background-color: $purple2;
+        color: $white;
+        @include transition(all 0.1s ease);
+        display: block;
+        position: relative;
+
+        i{
+          position: absolute;
+          @include center(horizontal);
+          top: 0.3rem;
+          width: 3rem;
+          height: 3rem;
+          color: $white;
+          @include transition(color 0.1s ease);
+        }
+
+        &:hover, &:focus{
           background-color: $white;
-          color: $purple;
+
+          i{
+            color: $purple;
+          }
+        }
+      }
+
+      .au-c-input--purple{
+        @include flex(1);
+
+        .au-c-text-input{
+          color: $white;
+          border: 0.2rem solid $purple2;
+          border-right: none;
+          background: $purple;
+          border-radius: $radius 0 0 $radius;
+          width: 100%;
+          padding: 0 1rem;
+
+          &:focus{
+            border-style: dotted;
+            border-color: $white;
+          }
+        }
+      }
+    }
+
+    &:focus{
+      outline: 2px dotted $purple2;
+
+      .au-c-input--purple{
+        @include flex(1);
+
+        .au-c-text-input{
+          color: $white;
+          border: 0.2rem solid $purple2;
+          border-right: none;
+          background: $purple;
+          border-radius: $radius 0 0 $radius;
+          width: 100%;
+          padding: 0 1rem;
+
+          &:focus{
+            border-style: dotted;
+          }
+        }
+      }
+
+      .au-c-btn--embed{
+        border-radius: 0 $radius $radius 0;
+        border: 0.2rem solid $purple2;
+        background-color: $purple2;
+        color: $white;
+        @include transition(all 0.1s ease);
+        display: block;
+        position: relative;
+
+        i{
+          position: absolute;
+          @include center(horizontal);
+          top: 0.3rem;
+          width: 3rem;
+          height: 3rem;
+          color: $white;
+          @include transition(color 0.1s ease);
+        }
+
+        &:hover, &:focus{
+          background-color: $white;
 
           i{
             color: $purple;
@@ -141,10 +414,6 @@
       height: 5rem;
       border-bottom: $border;
       vertical-align: middle;
-
-      button{
-        display: inline-block;
-      }
 
       i{
         font-size: 2rem;
@@ -166,7 +435,7 @@
       }
       &:nth-of-type(3){
         i{
-          color: $gray9;
+          color: $purple2;
         }
         .is-published{
           i{
@@ -177,76 +446,6 @@
       &:nth-of-type(4){
         padding-right: 2rem;
       }
-    }
-  }
-}
-
-  .au-c-table__icons{
-    @include display-flex;
-    @include align-items(center);
-    float: right;
-  }
-
-    .au-c-publish{
-
-    }
-
-.au-c-scrollable{
-  min-height: 60rem;
-  //max-height: 90rem;
-  //overflow: auto;
-}
-
-.au-c-input--purple{
-  @include flex(1);
-
-  .au-c-text-input{
-    color: $white;
-    border: 0.2rem solid $purple2;
-    border-right: none;
-    background: $purple;
-    // height: 3rem;
-    border-radius: $radius 0 0 $radius;
-    width: 100%;
-    padding: 0 1rem;
-
-    &:focus{
-      border-style: dotted;
-    }
-  }
-}
-
-.au-c-embed-contain{
-  width: 100%;
-  @include flex(1);
-  @include display-flex;
-  @include align-items(center);
-}
-
-.au-c-btn--embed{
-  border-radius: 0 $radius $radius 0;
-  border: 0.2rem solid $purple2;
-  background-color: $purple2;
-  color: $white;
-  @include transition(all 0.1s ease);
-  display: block;
-  position: relative;
-
-  i{
-    position: absolute;
-    @include center(horizontal);
-    top: 0.3rem;
-    width: 3rem;
-    height: 3rem;
-    color: $white;
-    @include transition(color 0.1s ease);
-  }
-
-  &:hover, &:focus{
-    background-color: $white;
-
-    i{
-      color: $purple;
     }
   }
 }

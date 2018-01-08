@@ -101,7 +101,7 @@ export default {
       feedback: 'Feedback',
     },
     navigationBarContent: {
-      new: 'NEW',
+      new: 'New',
       publish: 'Publish',
       unpublish: 'Unpublish',
       preview: 'Preview Assessment',

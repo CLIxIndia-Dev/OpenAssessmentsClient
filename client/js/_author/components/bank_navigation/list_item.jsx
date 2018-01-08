@@ -17,7 +17,7 @@ export default function ListItem(props) {
         onFocus={() => onFocus(true)}
         onMouseEnter={() => onFocus(true)}
         onMouseLeave={() => onFocus(false)}
-        className={props.focused ? 'focused' : ''}
+        className={props.focused ? 'au-c-table__tr-focused' : ''}
       >
         {
          props.children

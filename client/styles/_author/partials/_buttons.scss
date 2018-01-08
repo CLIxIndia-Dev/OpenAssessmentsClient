@@ -22,6 +22,8 @@
 .au-c-btn--sm{
   height: 3rem;
   padding: 0 2rem;
+  line-height: 1;
+  border: 1px solid $purple2; // for the embed code btn
 
   i{
     margin-right: 0.8rem;
@@ -45,6 +47,8 @@
   height: 3rem;
   width: 3rem;
   text-align: center;
+  @include justify-content(center);
+
 
   &:active{
     @include transform(scale(0.96));
@@ -123,6 +127,12 @@
     color: $maroon;
   }
 
+  &:focus{
+    background-color: darken($maroon, 10%);
+    border-color: darken($maroon, 10%);
+    color: $white;
+  }
+
   &.is-inactive{
     background-color: $maroon-disabled;
     border-color: $maroon-disabled;
@@ -162,34 +172,6 @@
     @include semi-bold;
     cursor: auto;
     pointer-events: none;
-  }
-}
-
-.au-c-btn--table{
-  background-color: $purple2;
-  margin-left: 1rem;
-  color: $white;
-  @include transition(all 0.1s ease);
-
-  i{
-    color: $white;
-    @include transition(color 0.1s ease);
-  }
-
-  &:hover, &:focus{
-    background-color: $white;
-    color: $purple;
-
-    i{
-      color: $purple;
-    }
-  }
-  &.is-inactive{
-    color: rgba(255,255,255,0.5);
-    pointer-events: none;
-    i{
-      color: rgba(255,255,255,0.5);
-    }
   }
 }
 
