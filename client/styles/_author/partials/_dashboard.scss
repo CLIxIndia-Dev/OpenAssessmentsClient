@@ -63,9 +63,11 @@
       background: none;
       border: none;
       padding: 1rem 3rem 1rem 0;
+      @include bold;
       font-size: 1.2rem;
       color: $gray8;
       height: 3.5rem;
+      cursor: pointer;
 
       i{
         font-size: 2rem;
@@ -82,13 +84,13 @@
         }
 
         &.is-active{
-          color: $gray10;
+          color: $purple;
         }
       }
 
       &.is-active{
-        @include bold;
-        color: $gray10;
+        // @include bold;
+        color: $purple;
       }
     }
   }

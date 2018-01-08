@@ -126,6 +126,12 @@
     color: $maroon;
   }
 
+  &:focus{
+    background-color: darken($maroon, 10%);
+    border-color: darken($maroon, 10%);
+    color: $white;
+  }
+
   &.is-inactive{
     background-color: $maroon-disabled;
     border-color: $maroon-disabled;
