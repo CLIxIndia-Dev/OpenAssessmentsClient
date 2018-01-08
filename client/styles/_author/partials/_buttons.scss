@@ -133,13 +133,13 @@
     color: $white;
   }
 
-  &.is-inactive{
-    background-color: $maroon-disabled;
-    border-color: $maroon-disabled;
-    color: rgba(255,255,255,0.5);
+  &[disabled]{
+    background-color: $white;
+    border-color: $gray4;
+    color: $gray4;
     pointer-events: none;
     i{
-      color: rgba(255,255,255,0.5);
+      color: $gray4;
     }
   }
 }

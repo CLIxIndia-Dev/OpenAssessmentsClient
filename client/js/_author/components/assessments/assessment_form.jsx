@@ -256,7 +256,7 @@ class AssessmentForm extends React.Component {
       saveButton = (
         <button
           disabled
-          className="is-inactive au-u-right au-c-assessment-next au-c-btn au-c-btn--md au-c-btn--maroon"
+          className="au-u-right au-c-assessment-next au-c-btn au-c-btn--md au-c-btn--maroon"
         >
           {strings.saveAssessmentTitle}
         </button>
