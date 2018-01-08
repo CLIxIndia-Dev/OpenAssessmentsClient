@@ -151,6 +151,73 @@
       }
     }
 
+    .au-c-table__icons{
+      @include display-flex;
+      @include align-items(center);
+      @include justify-content(flex-end);
+    }
+
+    .au-c-publish{
+
+    }
+
+    .au-c-scrollable{
+      min-height: 60rem;
+    }
+
+    .au-c-input--purple{
+      @include flex(1);
+
+      .au-c-text-input{
+        color: $purple2;
+        border: 0.2rem solid $purple2;
+        border-right: none;
+        background: $white;
+        border-radius: $radius 0 0 $radius;
+        width: 100%;
+        padding: 0 1rem;
+
+        &:focus{
+          border-style: dotted;
+        }
+      }
+    }
+
+    .au-c-embed-contain{
+      width: 100%;
+      @include flex(1);
+      @include display-flex;
+      @include align-items(center);
+    }
+
+    .au-c-btn--embed{
+      border-radius: 0 $radius $radius 0;
+      border: 0.2rem solid $purple2;
+      background-color: $white;
+      color: $purple2;
+      @include transition(all 0.1s ease);
+      display: block;
+      position: relative;
+
+      i{
+        position: absolute;
+        @include center(horizontal);
+        top: 0.3rem;
+        width: 3rem;
+        height: 3rem;
+        color: $purple2;
+        @include transition(color 0.1s ease);
+      }
+
+      &:hover, &:focus{
+        background-color: $purple2;
+
+        i{
+          color: $white;
+        }
+      }
+    }
+
     &:hover {
 
       td{
@@ -242,10 +309,103 @@
           }
         }
       }
+
+      .au-c-btn--embed{
+        border-radius: 0 $radius $radius 0;
+        border: 0.2rem solid $purple2;
+        background-color: $purple2;
+        color: $white;
+        @include transition(all 0.1s ease);
+        display: block;
+        position: relative;
+
+        i{
+          position: absolute;
+          @include center(horizontal);
+          top: 0.3rem;
+          width: 3rem;
+          height: 3rem;
+          color: $white;
+          @include transition(color 0.1s ease);
+        }
+
+        &:hover, &:focus{
+          background-color: $white;
+
+          i{
+            color: $purple;
+          }
+        }
+      }
+
+      .au-c-input--purple{
+        @include flex(1);
+
+        .au-c-text-input{
+          color: $white;
+          border: 0.2rem solid $purple2;
+          border-right: none;
+          background: $purple;
+          border-radius: $radius 0 0 $radius;
+          width: 100%;
+          padding: 0 1rem;
+
+          &:focus{
+            border-style: dotted;
+            border-color: $white;
+          }
+        }
+      }
     }
 
     &:focus{
       outline: 2px dotted $purple2;
+
+      .au-c-input--purple{
+        @include flex(1);
+
+        .au-c-text-input{
+          color: $white;
+          border: 0.2rem solid $purple2;
+          border-right: none;
+          background: $purple;
+          border-radius: $radius 0 0 $radius;
+          width: 100%;
+          padding: 0 1rem;
+
+          &:focus{
+            border-style: dotted;
+          }
+        }
+      }
+
+      .au-c-btn--embed{
+        border-radius: 0 $radius $radius 0;
+        border: 0.2rem solid $purple2;
+        background-color: $purple2;
+        color: $white;
+        @include transition(all 0.1s ease);
+        display: block;
+        position: relative;
+
+        i{
+          position: absolute;
+          @include center(horizontal);
+          top: 0.3rem;
+          width: 3rem;
+          height: 3rem;
+          color: $white;
+          @include transition(color 0.1s ease);
+        }
+
+        &:hover, &:focus{
+          background-color: $white;
+
+          i{
+            color: $purple;
+          }
+        }
+      }
     }
 
     td{
@@ -284,73 +444,6 @@
       &:nth-of-type(4){
         padding-right: 2rem;
       }
-    }
-  }
-}
-
-.au-c-table__icons{
-  @include display-flex;
-  @include align-items(center);
-  @include justify-content(flex-end);
-}
-
-.au-c-publish{
-
-}
-
-.au-c-scrollable{
-  min-height: 60rem;
-}
-
-.au-c-input--purple{
-  @include flex(1);
-
-  .au-c-text-input{
-    color: $white;
-    border: 0.2rem solid $purple2;
-    border-right: none;
-    background: $purple;
-    border-radius: $radius 0 0 $radius;
-    width: 100%;
-    padding: 0 1rem;
-
-    &:focus{
-      border-style: dotted;
-    }
-  }
-}
-
-.au-c-embed-contain{
-  width: 100%;
-  @include flex(1);
-  @include display-flex;
-  @include align-items(center);
-}
-
-.au-c-btn--embed{
-  border-radius: 0 $radius $radius 0;
-  border: 0.2rem solid $purple2;
-  background-color: $purple2;
-  color: $white;
-  @include transition(all 0.1s ease);
-  display: block;
-  position: relative;
-
-  i{
-    position: absolute;
-    @include center(horizontal);
-    top: 0.3rem;
-    width: 3rem;
-    height: 3rem;
-    color: $white;
-    @include transition(color 0.1s ease);
-  }
-
-  &:hover, &:focus{
-    background-color: $white;
-
-    i{
-      color: $purple;
     }
   }
 }
