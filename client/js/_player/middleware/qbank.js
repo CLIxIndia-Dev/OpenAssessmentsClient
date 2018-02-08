@@ -332,24 +332,27 @@ export default {
   },
 
   [AssessmentProgressConstants.ASSESSMENT_SUBMITTED]: (store, action) => {
-    Promise.all(checkAnswers(store, action)).then(() => {
-      const state = store.getState();
+    // This is ONLY called on click of the "Finish" button, which
+    //   for CLIx, should **not** re-submit the entire
+    //   assessment. So really, we don't want to call ``checkAnswers()``
+    //   again.
+    // Promise.all(checkAnswers(store, action)).then(() => {
+    const state = store.getState();
 
-      const url = `assessment/banks/${state.settings.bank}/assessmentstaken/${state.assessmentMeta.id}/finish`;
+    const url = `assessment/banks/${state.settings.bank}/assessmentstaken/${state.assessmentMeta.id}/finish`;
 
-      const promise = postQbank(state, url);
+    const promise = postQbank(state, url);
 
-      if (promise) {
-        promise.then((response, error) => {
-          store.dispatch({
-            type     :     action.type + DONE,
-            payload  : response.body,
-            original : action,
-            response,
-            error
-          });
+    if (promise) {
+      promise.then((response, error) => {
+        store.dispatch({
+          type     :     action.type + DONE,
+          payload  : response.body,
+          original : action,
+          response,
+          error
         });
-      }
-    });
+      });
+    }
   }
 };
