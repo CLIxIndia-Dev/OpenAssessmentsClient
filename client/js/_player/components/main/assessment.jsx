@@ -316,6 +316,9 @@ export class Assessment extends React.Component {
   }
 
   submitButtonClicked() {
+    // This is ONLY called on click of the "Finish" button, which
+    //   for CLIx, should **not** re-submit the entire
+    //   assessment.
     this.props.submitAssessment();
   }
 
