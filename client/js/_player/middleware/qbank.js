@@ -157,6 +157,18 @@ function checkAnswers(store, action) {
     //  of the default return value. We need to see if it
     // is actually undefined before calling toJS()
     let userInput = state.assessmentProgress.getIn(['responses', `${questionIndex}`]);
+
+    // Should only continue checking if the answer has been answered correctly
+    //   already. This prevents the "Finish" button from re-submitting
+    //   the last question in a ``unlock_next=ON_CORRECT`` configuration.
+    // ``state.questionResults[questionIndex][0]`` is
+    //   always the most recent response for the given question.
+    if (state.assessmentResults.questionResults[questionIndex] &&
+        state.settings.unlock_next === 'ON_CORRECT' &&
+        state.assessmentResults.questionResults[questionIndex][0].correct) {
+      return null
+    }
+
     userInput = userInput ? userInput.toJS() : [];
 
     const url = `assessment/banks/${state.settings.bank}/assessmentstaken/${state.assessmentMeta.id}/questions/${question.json.id}/submit`;
@@ -327,32 +339,33 @@ export default {
           settings      : action.settings
         }
       };
-
     }
   },
 
   [AssessmentProgressConstants.ASSESSMENT_SUBMITTED]: (store, action) => {
-    // This is ONLY called on click of the "Finish" button, which
-    //   for CLIx, should **not** re-submit the entire
-    //   assessment. So really, we don't want to call ``checkAnswers()``
-    //   again.
-    // Promise.all(checkAnswers(store, action)).then(() => {
-    const state = store.getState();
+    Promise.all(checkAnswers(store, action)).then(() => {
+      const state = store.getState();
 
-    const url = `assessment/banks/${state.settings.bank}/assessmentstaken/${state.assessmentMeta.id}/finish`;
+      const url = `assessment/banks/${state.settings.bank}/assessmentstaken/${state.assessmentMeta.id}/finish`;
 
-    const promise = postQbank(state, url);
-
-    if (promise) {
-      promise.then((response, error) => {
-        store.dispatch({
-          type     :     action.type + DONE,
-          payload  : response.body,
-          original : action,
-          response,
-          error
-        });
+      store.dispatch({
+        type     : action.type,
+        original : action,
       });
-    }
+
+      const promise = postQbank(state, url);
+
+      if (promise) {
+        promise.then((response, error) => {
+          store.dispatch({
+            type     : action.type + DONE,
+            payload  : response.body,
+            original : action,
+            response,
+            error
+          });
+        });
+      }
+    });
   }
 };

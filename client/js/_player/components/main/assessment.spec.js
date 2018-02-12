@@ -3,6 +3,7 @@ import TestUtils               from 'react-dom/test-utils';
 import ReactDOM                from 'react-dom';
 import { Provider }            from 'react-redux';
 import { LiveAnnouncer }       from 'react-aria-live';
+import { mount }             from 'enzyme';
 
 import appHistory              from '../../history';
 import localizeStrings         from '../../selectors/localize';
@@ -162,6 +163,58 @@ describe("assessment", function() {
     subject = ReactDOM.findDOMNode(result);
 
     expect(appHistory.push).toHaveBeenCalledWith("assessment-result");
+  });
+
+  it("redirects to assessment complete when assessment is submitting", () => {
+    spyOn(appHistory, "push");
+    props.assessmentProgress.isSubmitting = false;
+    props.settings.unlock_next = 'ALWAYS';
+    result = mount(<Assessment {...props} />,
+      {
+        context: {
+          store: configureStore({ settings })
+        },
+        childContextTypes:
+        {
+          store: React.PropTypes.object.isRequired
+        }
+      });
+
+    expect(appHistory.push).not.toHaveBeenCalledWith("assessment-complete");
+    result.setProps({
+      assessmentProgress: {
+        isSubmitting: true
+      }
+    });
+
+    expect(appHistory.push).toHaveBeenCalledWith("assessment-complete");
+  });
+
+  it("redirects to assessment complete when assessment has been submitted", () => {
+    spyOn(appHistory, "push");
+    props.assessmentProgress.isSubmitting = true;
+    props.assessmentProgress.isSubmitted = false;
+    props.settings.unlock_next = 'ON_CORRECT';
+    result = mount(<Assessment {...props} />,
+      {
+        context: {
+          store: configureStore({ settings })
+        },
+        childContextTypes:
+        {
+          store: React.PropTypes.object.isRequired
+        }
+      });
+
+    expect(appHistory.push).not.toHaveBeenCalledWith("assessment-complete");
+    result.setProps({
+      assessmentProgress: {
+        isSubmitting: false,
+        isSubmitted: true
+      }
+    });
+
+    expect(appHistory.push).toHaveBeenCalledWith("assessment-complete");
   });
 
   it('adds a tabIndex to the wrapping div, to make it focusable', () => {

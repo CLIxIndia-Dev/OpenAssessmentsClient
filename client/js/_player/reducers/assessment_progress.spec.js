@@ -133,4 +133,25 @@ describe('assessment reducer', () => {
     });
   });
 
+  describe("submit assessment", () => {
+    it('should flag the submission as in progress', () => {
+      const action = {
+        type: AssessmentConstants.ASSESSMENT_SUBMITTED
+      };
+      var initialState = Immutable.fromJS({ foo: 'bar' });
+      const state = assessmentProgress(initialState, action);
+      expect(state.get('isSubmitting')).toEqual(true);
+    });
+
+    it('should flag the submission as complete', () => {
+      const action = {
+        type: AssessmentConstants.ASSESSMENT_SUBMITTED_DONE
+      };
+      var initialState = Immutable.fromJS({ isSubmitting: true });
+      const state = assessmentProgress(initialState, action);
+      expect(state.get('isSubmitting')).toEqual(false);
+      expect(state.get('isSubmitted')).toEqual(true);
+    });
+  });
+
 });
