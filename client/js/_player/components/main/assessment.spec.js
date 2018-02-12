@@ -123,7 +123,7 @@ function reset() {
   subject = ReactDOM.findDOMNode(result);
 }
 
-describe('assessment', function() {
+describe('assessment', () => {
 
 
   // Props are reset to these default values between each test. To use
@@ -165,7 +165,8 @@ describe('assessment', function() {
     spyOn(appHistory, 'push');
     props.assessmentProgress.isSubmitting = false;
     props.settings.unlock_next = 'ALWAYS';
-    result = mount(<Assessment {...props} />,
+    result = mount(
+      <Assessment {...props} />,
       {
         context: {
           store: configureStore({ settings })
@@ -174,7 +175,8 @@ describe('assessment', function() {
         {
           store: React.PropTypes.object.isRequired
         }
-      });
+      }
+    );
 
     expect(appHistory.push).not.toHaveBeenCalledWith('assessment-complete');
     result.setProps({
@@ -191,7 +193,8 @@ describe('assessment', function() {
     props.assessmentProgress.isSubmitting = true;
     props.assessmentProgress.isSubmitted = false;
     props.settings.unlock_next = 'ON_CORRECT';
-    result = mount(<Assessment {...props} />,
+    result = mount(
+      <Assessment {...props} />,
       {
         context: {
           store: configureStore({ settings })
@@ -200,7 +203,8 @@ describe('assessment', function() {
         {
           store: React.PropTypes.object.isRequired
         }
-      });
+      }
+    );
 
     expect(appHistory.push).not.toHaveBeenCalledWith('assessment-complete');
     result.setProps({

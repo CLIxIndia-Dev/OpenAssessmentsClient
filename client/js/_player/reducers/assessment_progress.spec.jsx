@@ -5,10 +5,9 @@ import assessmentProgress                   from './assessment_progress';
 
 describe('assessment reducer', () => {
 
-  let initialState;
-
   describe('initial reducer state', () => {
     it('returns empty state', () => {
+      let initialState;
       const state = assessmentProgress(initialState, {});
       expect(state.toJS()).toEqual({
         isSubmitted: false,
@@ -43,7 +42,7 @@ describe('assessment reducer', () => {
       type: AssessmentConstants.ASSESSMENT_PREVIOUS_QUESTIONS,
       pageSize:2
     };
-    initialState = Immutable.fromJS({ currentItemIndex: 5 });
+    const initialState = Immutable.fromJS({ currentItemIndex: 5 });
 
     it('decrements currentItemIndex', () => {
       const state = assessmentProgress(initialState, action);
@@ -77,7 +76,7 @@ describe('assessment reducer', () => {
     });
 
     it('appends to array if items already exist and exclusive flag is false', () => {
-      initialState = Immutable.fromJS({ responses:[[2]] });
+      const initialState = Immutable.fromJS({ responses:[[2]] });
       const state = assessmentProgress(initialState, action);
       expect(state.getIn(['responses', '0']).toJS()).toEqual([2, 1]);
     });
@@ -89,7 +88,7 @@ describe('assessment reducer', () => {
         answerData:1,
         exclusive:true
       };
-      initialState = Immutable.fromJS({ responses:[[2]] });
+      const initialState = Immutable.fromJS({ responses:[[2]] });
       const state = assessmentProgress(initialState, action);
       expect(state.getIn(['responses', '0']).toJS()).toEqual([1]);
     });
@@ -104,7 +103,7 @@ describe('assessment reducer', () => {
       questionIndex:3
     };
     it('it returns feedback', () => {
-      initialState = Immutable.fromJS({ checkedResponses:[] });
+      const initialState = Immutable.fromJS({ checkedResponses:[] });
       const state = assessmentProgress(initialState, action);
       expect(state.getIn(['checkedResponses', '3']).toJS()).toEqual(
         { a:{ correct:true, feedback: 'You win!' } }
@@ -112,7 +111,7 @@ describe('assessment reducer', () => {
     });
 
     it('decrements numQuestionsChecking', () => {
-      initialState = Immutable.fromJS({ numQuestionsChecking:1 });
+      const initialState = Immutable.fromJS({ numQuestionsChecking:1 });
       const state = assessmentProgress(initialState, action);
       expect(state.get('numQuestionsChecking')).toEqual(0);
     });
@@ -124,7 +123,7 @@ describe('assessment reducer', () => {
         type: AssessmentConstants.CHECK_QUESTIONS,
         numQuestions: 1
       };
-      initialState = Immutable.fromJS({ numQuestionsChecking:0 });
+      const initialState = Immutable.fromJS({ numQuestionsChecking:0 });
       const state = assessmentProgress(initialState, action);
       expect(state.get('numQuestionsChecking')).toEqual(1);
     });
@@ -135,7 +134,7 @@ describe('assessment reducer', () => {
       const action = {
         type: AssessmentConstants.ASSESSMENT_SUBMITTED
       };
-      initialState = Immutable.fromJS({ foo: 'bar' });
+      const initialState = Immutable.fromJS({ foo: 'bar' });
       const state = assessmentProgress(initialState, action);
       expect(state.get('isSubmitting')).toEqual(true);
     });
@@ -144,7 +143,7 @@ describe('assessment reducer', () => {
       const action = {
         type: AssessmentConstants.ASSESSMENT_SUBMITTED_DONE
       };
-      initialState = Immutable.fromJS({ isSubmitting: true });
+      const initialState = Immutable.fromJS({ isSubmitting: true });
       const state = assessmentProgress(initialState, action);
       expect(state.get('isSubmitting')).toEqual(false);
       expect(state.get('isSubmitted')).toEqual(true);
