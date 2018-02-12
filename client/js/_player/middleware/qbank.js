@@ -166,7 +166,7 @@ function checkAnswers(store, action) {
     if (state.assessmentResults.questionResults[questionIndex] &&
         state.settings.unlock_next === 'ON_CORRECT' &&
         state.assessmentResults.questionResults[questionIndex][0].correct) {
-      return null
+      return null;
     }
 
     userInput = userInput ? userInput.toJS() : [];
