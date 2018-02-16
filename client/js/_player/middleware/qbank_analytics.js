@@ -47,17 +47,15 @@ function getAnswerSelectedData(store, action) {
           return {
             action          : 'disconnect word',
             targetWord      : answersById[action.answerData].material,
-            currentSentence : currentAnswers.filterNot(
-              answer => (answer instanceof Blob)).map(
-                answerData => (answersById[answerData].material))
+            currentSentence : currentAnswers.filterNot(answer => (answer instanceof Blob))
+            .map(answerData => (answersById[answerData].material))
           };
         }
         return {
           action          : 'connect word',
           targetWord      : answersById[action.answerData].material,
-          currentSentence : currentAnswers.filterNot(
-            answer => (answer instanceof Blob)).map(
-              answerData => (answersById[answerData].material))
+          currentSentence : currentAnswers.filterNot(answer => (answer instanceof Blob))
+          .map(answerData => (answersById[answerData].material))
         };
       }
       break;
