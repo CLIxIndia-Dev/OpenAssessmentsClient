@@ -16,7 +16,12 @@ import localizeStrings                              from '../selectors/localize'
 /**
  * Determines whether or not a question has been answered or not based on the input
  */
-function isAnswered(userInput) {
+function isAnswered(userInput, questionType) {
+  // For MW Sandbox, need to make sure that there is actually a Blob...not just
+  //   that the words have been moved.
+  if (questionType === 'movable_words_sandbox') {
+    return userInput.some(item => (item instanceof Blob));
+  }
   return userInput.some(item => (!_.isEmpty(item) || item instanceof Blob));
 }
 
@@ -152,6 +157,7 @@ function checkAnswers(store, action) {
 
   return _.map(questionIndexes, (questionIndex) => {
     const question = state.assessment.items[questionIndex];
+    const item = transformItem(question);
     // If an Immutable list index is set to undefined (as opposed to not being
     // assigned anything), then the getIn() will still return undefined instead
     //  of the default return value. We need to see if it
@@ -182,7 +188,7 @@ function checkAnswers(store, action) {
 
     // If the user answered hasn't given an answer yet, we need to display
     // feedback telling the user to do so, and not send any information to qbank.
-    if (!isAnswered(userInput)) {
+    if (!isAnswered(userInput, item.question_type)) {
 
       const payload = {
         feedback : `<p>${getFeedback(question, state)}</p>`,
