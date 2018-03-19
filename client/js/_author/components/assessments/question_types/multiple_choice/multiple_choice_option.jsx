@@ -43,7 +43,6 @@ function multipleChoiceOptions(props) {
           isCorrect={props.isCorrect}
           updateChoice={props.updateChoice}
         />
-        <label htmlFor="option1" />
         <Editor
           editorKey={getLanguage(props.language)}
           textSize="small"

@@ -45,7 +45,7 @@ describe('the option component', () => {
 
   it('called the updateChoice prop', () => {
     expect(calledFunc).toBeFalsy();
-    result.find('#word_drop_down').simulate('change', { target: { value: 'Preposition' } });
+    result.find('#word_drop_down-').simulate('change', { target: { value: 'Preposition' } });
     expect(calledFunc).toBeTruthy();
   });
 

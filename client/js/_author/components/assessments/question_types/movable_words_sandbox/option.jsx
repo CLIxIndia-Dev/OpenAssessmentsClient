@@ -28,6 +28,7 @@ export default function Option(props) {
   );
 
   const choiceText = _.get(props, `choice.texts[${props.language}]`, defaultText);
+  const uniqSelectId = `word_drop_down-${id}`
   return (
     <div
       onFocus={props.selectChoice}
@@ -35,7 +36,7 @@ export default function Option(props) {
       className={`au-c-answer au-o-flex-center ${activeClass}`}
     >
       <div className="au-c-input">
-        <label htmlFor="option1" />
+        <label htmlFor={id} />
         <div className="au-c-input__contain">
           <input
             className="au-c-text-input au-c-text-input--small au-c-wysiwyg"
@@ -52,10 +53,10 @@ export default function Option(props) {
         </div>
       </div>
       <div className="au-c-dropdown au-c-dropdown--smaller au-u-ml-sm is-ordered">
-        <label htmlFor="word_drop_down" />
+        <label htmlFor={uniqSelectId} />
         <select
           name=""
-          id="word_drop_down"
+          id={uniqSelectId}
           value={props.choice.wordType}
           onChange={e => props.updateChoice({
             id: props.choice.id,
