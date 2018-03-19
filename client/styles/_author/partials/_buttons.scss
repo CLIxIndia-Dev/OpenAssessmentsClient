@@ -89,6 +89,10 @@
     background-color: $white;
     color: $green;
   }
+
+  &:focus{
+    outline-color: $black;
+  }
 }
 
 .au-c-btn--gray{
@@ -131,6 +135,7 @@
     background-color: darken($maroon, 10%);
     border-color: darken($maroon, 10%);
     color: $white;
+    outline-color: $black;
   }
 
   &[disabled]{
