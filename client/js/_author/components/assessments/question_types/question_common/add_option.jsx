@@ -3,6 +3,7 @@ import localize from '../../../../locales/localize';
 
 function addOption(props) {
   const strings = props.localizeStrings('commonAddOption');
+  const uniqId = `add-option-${props.itemId}`
   return (
     <div
       className="au-c-answer au-o-flex-center au-c-answer--add"
@@ -11,11 +12,11 @@ function addOption(props) {
       onKeyDown={(e) => { if (e.keyCode === 13) { props.createChoice(e); } }}
     >
       <div className="au-c-input">
-        <label htmlFor="option2" />
+        <label htmlFor={uniqId} />
         <div className="au-c-input__contain">
           <input
             className="au-c-text-input au-c-text-input--small au-c-wysiwyg au-c-option"
-            id="option2"
+            id={uniqId}
             type="text"
             value={strings.addOption}
             disabled

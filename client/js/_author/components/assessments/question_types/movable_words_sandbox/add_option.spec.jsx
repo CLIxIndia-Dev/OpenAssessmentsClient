@@ -33,4 +33,11 @@ describe('add option component', () => {
     result.find('.au-c-answer').simulate('click');
     expect(calledFunc).toBeTruthy();
   });
+
+  it('generates a unique ID for the add-option button', () => {
+    props.itemId = 'foo';
+    const expected = `add-option-${props.itemId}`;
+    result = shallow(<AddOption {...props} />);
+    expect(result.html()).toContain(expected);
+  });
 });

@@ -56,6 +56,7 @@ class MovableFillBlank extends React.Component {
             }
             {
               this.props.isActive ? <Add
+                itemId={id}
                 createChoice={() => this.props.createChoice(id)}
               /> : null
             }
