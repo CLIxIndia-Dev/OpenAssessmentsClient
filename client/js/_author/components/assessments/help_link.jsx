@@ -13,7 +13,7 @@ function helpLink(props) {
         target="_blank"
         className="help-link"
       >
-        <i className="material-icons">help</i>
+        <i className="material-icons" aria-label="Help">help</i>
       </a>
     );
   }
