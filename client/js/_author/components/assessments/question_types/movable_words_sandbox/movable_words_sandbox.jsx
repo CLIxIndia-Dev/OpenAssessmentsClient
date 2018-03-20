@@ -78,10 +78,7 @@ class MWSandbox extends React.Component {
           {
             this.getChoices(_.get(this.props.item, 'question.choices', {}))
           }
-          <AddOption
-            itemId={id}
-            updateChoice={() => this.props.createChoice(id)}
-          />
+          <AddOption updateChoice={() => this.props.createChoice(id)} />
         </div>
         <div className="au-c-question__feedback">
           <Feedback

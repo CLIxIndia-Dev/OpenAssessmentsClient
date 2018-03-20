@@ -126,10 +126,4 @@ describe('movable_fill_blank component', () => {
   it('does render the passed-in instructions', () => {
     expect(result.text()).toContain('do something');
   });
-
-  it('passes along the itemId to AddOption', () => {
-    props.isActive = true;
-    result = shallow(<MovableFillBlank {...props} />);
-    expect(result.find(Add).first().props().itemId).toEqual(props.item.id);
-  });
 });

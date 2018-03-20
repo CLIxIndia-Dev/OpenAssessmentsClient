@@ -59,16 +59,15 @@ class AudioLimit extends React.Component {
   }
 
   render() {
-    const uniqId = `audio-limit-${this.props.item.id}`
     return (
       <div className="au-c-file-upload__audio-settings is-active">
         <span>Audio record limit</span>
         <div className="au-c-input au-c-input--inline">
-          <label htmlFor={uniqId} />
+          <label htmlFor="audio-limit" />
           <div className="au-c-input__contain">
             <input
               className="au-c-text-input au-c-text-input--smaller"
-              id={uniqId}
+              id="audio-limit"
               type="text"
               maxLength="3"
               value={this.state.timeLimit}

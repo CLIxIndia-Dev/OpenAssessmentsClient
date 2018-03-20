@@ -86,8 +86,4 @@ describe('the movable words sandbox component', () => {
   it('does render the passed-in instructions', () => {
     expect(result.text()).toContain('do something');
   });
-
-  it('sends itemId to AddOption', () => {
-    expect(result.find(AddOption).first().props().itemId).toEqual(props.item.id);
-  });
 });
