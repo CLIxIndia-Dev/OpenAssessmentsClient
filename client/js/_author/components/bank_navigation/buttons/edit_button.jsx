@@ -8,6 +8,7 @@ export default function EditButton(props) {
       disabled={isPublished}
       onFocus={props.onFocus}
       onClick={props.selectItem}
+      title="Click to edit the assessment"
     >
       <i
         aria-label="Edit assessment"

@@ -11,6 +11,7 @@ export default function PreviewButton(props) {
         window.open(`${window.location.href}banks/${props.assessment.bankId}/assessments/${props.assessment.id}/preview`);
       }}
       onFocus={props.onFocus}
+      title="Click to preview the assessment"
     >
       <i
         aria-label="Preview assessment"

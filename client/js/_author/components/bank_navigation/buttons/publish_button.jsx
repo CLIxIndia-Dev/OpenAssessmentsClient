@@ -8,6 +8,7 @@ export default function PublishButton(props) {
       <i
         aria-label="Unpublish assessment"
         className="material-icons is-published"
+        title="Click to unpublish assessment"
       >
         cloud_done
       </i>
@@ -16,10 +17,14 @@ export default function PublishButton(props) {
       <i
         aria-label="Publish assessment"
         className="material-icons"
+        title="Click to publish assessment"
       >
         cloud_upload
       </i>
     );
+  const titleText = isPublished ?
+    'Click to unpublish assessment' :
+    'Click to publish assessment';
   if (!assessment.isToggling) {
     return (
       <button
@@ -29,6 +34,7 @@ export default function PublishButton(props) {
           togglePublishAssessment(assessment);
         }}
         onFocus={props.onFocus}
+        title={titleText}
       >
         { icon }
       </button>

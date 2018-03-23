@@ -27,7 +27,7 @@ export default function heading(props) {
     <header className="au-c-header">
       <div className="au-c-header-top">
         <Link to="/" className="home-link" onClick={() => { props.updatePath(null); }}>
-          <img src={logo} alt="Clix Logo" className="au-c-logo" />
+          <img src={logo} alt="Clix assessment authoring home" className="au-c-logo" />
         </Link>
         <HelpLink
           icon

@@ -12,6 +12,7 @@ export default function DeleteButton(props) {
         deleteAssessment(assessment.bankId, assessment.id);
       }}
       onFocus={onFocus}
+      title="Click to delete the assessment"
     >
       <i
         aria-label="Delete assessment"

@@ -47,6 +47,7 @@ export default function EmbedButton(props) {
               className="au-c-btn au-c-btn--square au-c-btn--embed "
               onClick={e => e.stopPropagation()}
               onFocus={props.onFocus}
+              title="Click to copy the embed code"
             >
               <i
                 aria-label="Copy iframe code"
@@ -67,6 +68,7 @@ export default function EmbedButton(props) {
           getEmbedCode(assessment);
         }}
         onFocus={props.onFocus}
+        title="Click to generate an embed code"
       >
         embed code
       </button>
