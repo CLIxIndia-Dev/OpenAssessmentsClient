@@ -24,8 +24,8 @@ function helpLink(props) {
       target="_blank"
       className="help-link"
     >
-      <i className="material-icons open-external" aria-hidden>open_in_new</i>
       What&#39;s this?
+      <i className="material-icons open-external" aria-hidden>open_in_new</i>
     </a>
   );
 }

@@ -14,13 +14,13 @@ ShallowWrapper {
     rel="noreferrer noopener"
     target="_blank"
 >
+    What's this?
     <i
         aria-hidden={true}
         className="material-icons open-external"
     >
         open_in_new
     </i>
-    What's this?
 </a>,
   "nodes": Array [
     <a
@@ -29,13 +29,13 @@ ShallowWrapper {
       rel="noreferrer noopener"
       target="_blank"
 >
+      What's this?
       <i
             aria-hidden={true}
             className="material-icons open-external"
       >
             open_in_new
       </i>
-      What's this?
 </a>,
   ],
   "options": Object {},
@@ -82,13 +82,13 @@ ShallowWrapper {
           rel="noreferrer noopener"
           target="_blank"
 >
+          What's this?
           <i
                     aria-hidden={true}
                     className="material-icons open-external"
           >
                     open_in_new
           </i>
-          What's this?
 </a>,
         "_debugID": 2,
         "_renderedOutput": <a
@@ -97,13 +97,13 @@ ShallowWrapper {
           rel="noreferrer noopener"
           target="_blank"
 >
+          What's this?
           <i
                     aria-hidden={true}
                     className="material-icons open-external"
           >
                     open_in_new
           </i>
-          What's this?
 </a>,
       },
       "_renderedNodeType": 0,
