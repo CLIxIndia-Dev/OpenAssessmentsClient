@@ -35,5 +35,5 @@ EditButton.propTypes = {
   }).isRequired,
   onFocus: React.PropTypes.func.isRequired,
   selectItem: React.PropTypes.func.isRequired,
-  localizedStrings: React.PropTypes.func
+  localizeStrings: React.PropTypes.func
 };

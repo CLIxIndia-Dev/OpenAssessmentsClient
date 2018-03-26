@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function DeleteButton(props) {
-  const { deleteAssessment, assessment, onFocus, localizeStrings } = props;
+  const {
+    deleteAssessment, assessment, onFocus, localizeStrings
+  } = props;
   const isPublished = assessment.isPublished;
   const strings = localizeStrings('bankListButtons');
   const uniqId = `delete-${assessment.id}`;

@@ -37,5 +37,6 @@ PreviewButton.propTypes = {
     bankId: React.PropTypes.string.isRequired,
     id: React.PropTypes.string.isRequired,
   }).isRequired,
-  onFocus: React.PropTypes.func.isRequired
+  onFocus: React.PropTypes.func.isRequired,
+  localizeStrings: React.PropTypes.func
 };

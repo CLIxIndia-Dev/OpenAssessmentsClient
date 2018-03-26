@@ -3,7 +3,9 @@ import _ from 'lodash';
 import CopyToClipboard  from 'react-copy-to-clipboard';
 
 export default function EmbedButton(props) {
-  const { assessment, baseEmbedUrl, getEmbedCode, localizeStrings } = props;
+  const {
+    assessment, baseEmbedUrl, getEmbedCode, localizeStrings
+  } = props;
   const isPublished = assessment.isPublished;
   const assessOffered = _.get(assessment, 'assessmentOffered[0]');
   const strings = localizeStrings('bankListButtons');
@@ -97,4 +99,5 @@ EmbedButton.propTypes = {
   getEmbedCode: React.PropTypes.func.isRequired,
   onFocus: React.PropTypes.func.isRequired,
   baseEmbedUrl: React.PropTypes.string.isRequired,
+  localizeStrings: React.PropTypes.func
 };
