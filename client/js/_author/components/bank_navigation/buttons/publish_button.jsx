@@ -1,30 +1,30 @@
 import React from 'react';
 
 export default function PublishButton(props) {
-  const { togglePublishAssessment, assessment } = props;
+  const { togglePublishAssessment, assessment, localizeStrings } = props;
+  const strings = localizeStrings('bankListButtons');
   const isPublished = assessment.isPublished;
   const icon = isPublished ?
     (
       <i
-        aria-label="Unpublish assessment"
+        aria-label={strings.unpublish}
         className="material-icons is-published"
-        title="Click to unpublish assessment"
       >
         cloud_done
       </i>
     ) :
     (
       <i
-        aria-label="Publish assessment"
+        aria-label={strings.publish}
         className="material-icons"
-        title="Click to publish assessment"
       >
         cloud_upload
       </i>
     );
   const titleText = isPublished ?
-    'Click to unpublish assessment' :
-    'Click to publish assessment';
+    strings.unpublish :
+    strings.publish;
+  const uniqId = `publish-${assessment.id}`;
   if (!assessment.isToggling) {
     return (
       <button
@@ -34,8 +34,14 @@ export default function PublishButton(props) {
           togglePublishAssessment(assessment);
         }}
         onFocus={props.onFocus}
-        title={titleText}
+        aria-describedby={uniqId}
       >
+        <span
+          id={uniqId}
+          role="tooltip"
+        >
+          {titleText}
+        </span>
         { icon }
       </button>
     );
@@ -59,4 +65,5 @@ PublishButton.propTypes = {
   togglePublishAssessment: React.PropTypes.func.isRequired,
   onFocus: React.PropTypes.func.isRequired,
   assessment: React.PropTypes.shape({}).isRequired,
+  localizeStrings: React.PropTypes.func
 };
