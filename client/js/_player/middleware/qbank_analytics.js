@@ -186,6 +186,15 @@ export default {
     postAnalytics(store, data);
   },
 
+  [MediaAnalyticsConstants.AUDIO_RECORD_START]: (store, action) => {
+    const data = {
+      action    : 'record audio start',
+      mediaTime : action.mediaTime
+    };
+
+    postAnalytics(store, data);
+  },
+
   [MediaAnalyticsConstants.VIDEO_PLAY]: (store, action) => {
     const data = {
       action    : 'play video',
