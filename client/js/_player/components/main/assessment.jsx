@@ -157,10 +157,11 @@ export class Assessment extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.currentItem !==
-      nextProps.currentItem ||
-      this.props.assessmentLoaded !==
-      nextProps.assessmentLoaded
-    ) {
+      nextProps.currentItem) {
+      // Only shift focus here when items change, not when
+      //   the assessment loads. If you change focus when
+      //   the assessment loads, you risk skipping content
+      //   on the page.
       this.wrapper.focus();
     }
   }
