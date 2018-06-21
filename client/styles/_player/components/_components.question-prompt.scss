@@ -17,6 +17,25 @@
     width: 100%;
   }
 
+  p{
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+
+  ul{
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 40px;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+  }
+
   .c-playback{
     display: inline-block;
     width: 2.4rem;
