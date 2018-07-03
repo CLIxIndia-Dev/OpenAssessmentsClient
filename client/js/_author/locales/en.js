@@ -151,7 +151,7 @@ export default {
       done: 'Done'
     },
     saveOption: {
-      saveOptions: 'Save Changes'
+      saveOptions: 'Save Option Changes'
     },
     settingsCheckbox: {
       maintainChoiceOrder: 'Maintain choice order',
